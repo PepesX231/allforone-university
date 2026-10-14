@@ -1753,3 +1753,121 @@ img,video,canvas,svg{-webkit-user-drag:none}
 .st.on .hx-credit.w{opacity:.85}
 .st.past .hx-credit.w{opacity:0}
 .st .hx-credit.w{white-space:nowrap;max-width:none}@media (max-width:520px){.st .hx-credit.w{font-size:9.5px;padding:3px 8px}}
+
+/* First screen: clear competition title and factual event summary. */
+.bt-sky .st0{padding:clamp(22px,4svh,48px) var(--gut) 12px!important;gap:clamp(10px,1.6svh,18px)!important;isolation:isolate}
+.bt-sky .st0::before{display:block;content:"";position:absolute;inset:0;left:0;top:0;width:100%;height:100%;transform:none;z-index:-1;pointer-events:none;opacity:1;background:linear-gradient(180deg,rgba(13,40,92,.04) 22%,rgba(11,27,63,.18) 44%,rgba(11,27,63,.65) 72%,#0b1b3f 100%)}
+.st0 .orgs{background:#fff;box-shadow:0 3px 12px rgba(11,27,63,.15);gap:14px;padding:10px 20px}
+.st0 .org-hh{font-size:14px;gap:8px}
+.st0 .org-hh img{width:34px;height:34px}
+.st0 .orgs .lg-edu{height:22px;width:auto}
+.st0 .orgs .lg-iote{height:31px;width:auto}
+.st0 .orgs .sep{height:28px}
+.st0 .hero-logo{width:min(78vw,38svh,510px)!important;margin:0 auto}
+.st0 .st-tag{max-width:1100px;margin:4px 0 0;padding:0;background:none;border:0;box-shadow:none;border-radius:0;font:700 clamp(30px,3.4vw,58px)/1.3 var(--display)!important;letter-spacing:0;color:#fff;-webkit-text-stroke:2px #10275e;paint-order:stroke fill;text-shadow:0 3px 0 #10275e,0 6px 14px rgba(5,18,49,.55);text-wrap:balance}
+.hero-national{color:#ffdf68;margin-left:.15em}
+.st0 .hx-sub2{margin:0;font:600 clamp(17px,1.5vw,23px)/1.5 var(--font);color:#fff;letter-spacing:0;text-shadow:0 2px 2px #10275e,0 3px 12px #10275e}
+.hero-mobile-break{display:none}
+.st0 .hx-cta.w{flex-direction:row!important;gap:24px!important;margin-top:8px}
+.st0 .hx-go{animation:none;min-height:54px;font-size:18px;box-shadow:0 4px 0 #a03d00!important}
+.st0 .hx-more{font-size:16px;color:#fff;text-shadow:0 2px 4px #0b1b3f}
+.st .hero-facts.w{display:grid;width:min(1240px,100%);grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:auto;padding:22px 0 12px;border-top:1px solid rgba(179,204,255,.3);text-align:left}
+.hero-fact{display:flex;align-items:flex-start;gap:14px;min-width:0;color:#fff;text-shadow:none}
+.hero-fact>.ic{width:32px;height:32px;flex:none;margin-top:17px;color:var(--fact-color);stroke-width:1.8}
+.hero-fact .fact-label{font:500 13px/1.4 var(--font);color:#c6d4ed;margin-bottom:5px}
+.hero-fact .fact-value{font:600 clamp(16px,1.35vw,21px)/1.4 var(--display);color:#fff;text-wrap:balance}
+.hero-fact .fact-value small{font:500 13px/1.4 var(--font);color:#d4e1f6}
+.hero-fact p{margin-top:4px;font:400 13px/1.6 var(--font);color:#d4e1f6}
+.st0 .hx-credit.w{margin-top:0!important;padding:0;background:none;font-size:10px;color:#c6d4ed;white-space:normal;max-width:100%;text-align:center}
+.st0.on .hx-credit.w{opacity:1}
+.story .st1 .st-s,.cut-sc .st-s{text-shadow:0 2px 3px #0b1b3f,0 3px 14px rgba(11,27,63,.8)}
+@media (max-width:899px){
+  .st .hero-facts.w{gap:16px 24px;grid-template-columns:repeat(2,minmax(0,1fr));padding:18px 0 6px;max-width:660px}
+  .hero-fact>.ic{width:27px;height:27px;margin-top:15px}
+  .hero-fact .fact-value{font-size:18px}
+  .st0 .hero-logo{width:min(76vw,28svh,460px)!important}
+}
+@media (max-width:520px){
+  .bt-sky .st0{gap:12px!important;padding:20px 18px 12px!important;height:auto;min-height:var(--S)}
+  .st0 .orgs{gap:9px;padding:9px 13px;max-width:100%}
+  .st0 .org-hh span{display:none}
+  .st0 .org-hh img{width:29px;height:29px}
+  .st0 .orgs .lg-edu{height:18px}
+  .st0 .orgs .lg-iote{height:26px}
+  .st0 .orgs .sep{height:23px}
+  .st0 .hero-logo{width:min(80vw,26svh,390px)!important}
+  .st0 .st-tag{font-size:clamp(27px,7.4vw,38px)!important;line-height:1.3;-webkit-text-stroke:1.5px #10275e}
+  .hero-national{display:block;margin-left:0}
+  .st0 .hx-sub2{font-size:15px;line-height:1.6}
+  .hero-mobile-break{display:block}
+  .st0 .hx-cta.w{flex-direction:column!important;gap:12px!important;margin:2px 0 10px}
+  .st0 .hx-go{font-size:16px;min-height:50px}
+  .st0 .hx-more{font-size:14px}
+  .st .hero-facts.w{gap:18px 14px;padding:18px 0 5px}
+  .hero-fact{gap:8px}
+  .hero-fact>.ic{width:23px;height:23px;margin-top:19px}
+  .hero-fact .fact-label{font-size:11px;margin-bottom:4px}
+  .hero-fact .fact-value{font-size:15px}
+  .hero-fact p,.hero-fact .fact-value small{font-size:11px;line-height:1.6}
+  .st0 .hx-credit.w{font-size:9px;margin-top:5px!important}
+}
+@media (min-width:521px) and (max-height:760px){
+  .bt-sky .st0{gap:8px!important;padding-top:18px!important}
+  .st0 .hero-logo{width:min(70vw,28svh,420px)!important}
+  .st0 .st-tag{font-size:clamp(30px,3.4vw,44px)!important}
+  .st .hero-facts.w{padding-top:14px;gap:16px}
+}
+
+.hero-fact .fact-label,.hero-fact .fact-value{display:block}
+@media (max-width:520px) and (max-height:740px){
+  .bt-sky .st0{gap:6px!important;padding-top:12px!important}
+  .st0 .hero-logo{width:min(76vw,16svh,280px)!important}
+  .st0 .hx-cta.w{gap:9px!important;margin-bottom:4px}
+  .st .hero-facts.w{gap:12px 14px;padding-top:14px}
+}
+
+
+/* Translucent shading blends across the two story screens without an opaque center. */
+.bt-sky .st0::before{display:none}
+.bt-sky::before{
+  content:"";position:absolute;inset:0;z-index:4;pointer-events:none;
+  background:linear-gradient(180deg,
+    rgba(11,27,63,.04) 0,
+    rgba(11,27,63,.08) calc(var(--S) * .22),
+    rgba(11,27,63,.24) calc(var(--S) * .44),
+    rgba(11,27,63,.56) calc(var(--S) * .72),
+    rgba(11,27,63,.68) calc(var(--S) * .95),
+    rgba(11,27,63,.66) calc(var(--S) * 1.15),
+    rgba(11,27,63,.48) calc(var(--S) * 1.45),
+    rgba(11,27,63,.24) calc(var(--S) * 1.75),
+    rgba(11,27,63,.06) calc(var(--S) * 2.05),
+    rgba(11,27,63,0) calc(var(--S) * 2.3));
+}
+.bt-sky .sky-cl .cl{opacity:.25}
+.bt-sky .sky-cl .cl1{width:min(24vw,330px);left:7%;top:7%}
+.bt-sky .sky-cl .cl2{width:min(18vw,260px);left:74%;top:4%}
+.st0 .hx-more,.st0 .hx-more:hover,.st0 .hx-more:focus-visible{text-decoration:none}
+@media (max-aspect-ratio:1/1){
+  .bt-sky .sky-cl .cl1{width:38vw;left:-5%;top:20%}
+  .bt-sky .sky-cl .cl2{width:30vw;left:76%;top:5%}
+}
+
+
+/* Three event facts, evenly spaced on desktop and compact rows on phones. */
+.st .hero-facts.w{grid-template-columns:repeat(3,minmax(0,1fr));max-width:1120px;gap:32px;padding:22px 14px 12px}
+.hero-fact{gap:16px;text-shadow:0 1px 2px #10275e,0 2px 8px rgba(11,27,63,.55)}
+.hero-fact .fact-label,.hero-fact p{color:#edf4ff}
+@media (min-width:521px) and (max-width:899px){
+  .st .hero-facts.w{gap:18px;padding-inline:0}
+  .hero-fact{gap:10px}
+  .hero-fact .fact-value{font-size:16px}
+  .hero-fact p{font-size:12px}
+}
+@media (max-width:520px){
+  .st .hero-facts.w{grid-template-columns:1fr;gap:12px;max-width:310px;padding:16px 0 4px}
+  .hero-fact{gap:14px;align-items:center}
+  .hero-fact>.ic{width:25px;height:25px;margin-top:0}
+  .hero-fact .fact-label{display:none}
+  .hero-fact .fact-value{font-size:16px;line-height:1.35}
+  .hero-fact p{margin-top:3px;font-size:12px;line-height:1.4}
+}
