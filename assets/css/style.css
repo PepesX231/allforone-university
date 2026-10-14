@@ -1451,7 +1451,7 @@ html.cut-lock{overscroll-behavior:none;scroll-behavior:auto}
 @keyframes clbob{from{margin-top:0}to{margin-top:1.2vh}}
 .cl1{width:min(28vw,400px)}.cl2{width:min(20vw,300px)}.cl3{width:min(24vw,340px)}.cl4{width:min(17vw,240px)}.cl5{width:min(19vw,270px)}.cl6{width:min(14vw,200px)}
 /* sakura petals drifting down past the foot of the towers */
-.sakura{position:absolute;left:0;right:0;top:calc(var(--S) * .85);height:calc(var(--S) * 1.1);overflow:hidden;pointer-events:none;z-index:4}
+.sakura{opacity:.42;position:absolute;left:0;right:0;top:calc(var(--S) * .85);height:calc(var(--S) * 1.1);overflow:hidden;pointer-events:none;z-index:4}
 .sakura i{position:absolute;top:-4%;left:calc(var(--x) * 1%);width:calc(var(--s) * 1.7px);height:calc(var(--s) * 1.28px);background:url(../img/sky/petal.svg) center/contain no-repeat;opacity:.95;
   animation:sakfall var(--d) linear var(--dl) infinite}
 @keyframes sakfall{0%{transform:translate3d(0,0,0) rotate(0deg)}25%{transform:translate3d(4vw,26vh,0) rotate(140deg)}50%{transform:translate3d(-2vw,52vh,0) rotate(260deg)}75%{transform:translate3d(5vw,78vh,0) rotate(400deg)}100%{transform:translate3d(1vw,108vh,0) rotate(540deg)}}
