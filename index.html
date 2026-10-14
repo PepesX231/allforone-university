@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Kanit:wght@500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=block&text=ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789%26.-" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=bb1451af">
+<link rel="stylesheet" href="assets/css/style.css?v=fa585096">
 <script>
   // progressive enhancement flags (set before first paint to avoid a flash)
   (function (d) {
@@ -256,7 +256,7 @@
   <!-- one continuous camera move DOWN: each beat is a real screen you scroll through; layers drift at their own speed (data-f) -->
   <div class="beat bt-sky" data-k="0">
     <div class="ly sky-grad" data-f=".5"></div>
-    <div class="sky-cl" aria-hidden="true"><img class="cl cl1" src="assets/img/sky/gc-1.webp" alt="" decoding="async" loading="eager"><img class="cl cl2" src="assets/img/sky/gc-2.webp" alt="" decoding="async" loading="eager"><img class="cl cl3" src="assets/img/sky/gc-3.webp" alt="" decoding="async" loading="eager"><img class="cl cl4" src="assets/img/sky/gc-4.webp" alt="" decoding="async" loading="eager"><img class="cl cl5" src="assets/img/sky/gc-5.webp" alt="" decoding="async" loading="eager"><img class="cl cl6" src="assets/img/sky/gc-6.webp" alt="" decoding="async" loading="eager"></div>
+    <div class="sky-cl" aria-hidden="true"><img class="cl cl1" src="assets/img/sky/gc-1.webp" alt="" decoding="async" loading="eager"><img class="cl cl2" src="assets/img/sky/gc-2.webp" alt="" decoding="async" loading="eager"></div>
     <div class="ly ly-tw"><picture><source media="(max-aspect-ratio: 1/1)" srcset="assets/img/scene/towers-p.webp"><img class="tw" src="assets/img/scene/towers-w.webp" alt="" decoding="async" fetchpriority="high"></picture></div>
     <div class="sakura" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div class="dig" aria-hidden="true"></div>
@@ -271,21 +271,26 @@
       </div>
       <h1 class="sr">All for One University</h1>
       <div class="logo hero-logo w" style="--i:1"><img src="assets/img/logo-hero.webp" srcset="assets/img/logo-hero-sm.webp 640w, assets/img/logo-hero.webp 1479w" sizes="(max-width: 700px) 92vw, 560px" alt="All for One University" width="1479" height="667" decoding="async" fetchpriority="high"></div>
-      <p class="st-tag w" style="--i:2" id="heroTitle">การแข่งขันเทคโนโลยีระดับประเทศ</p>
-      <p class="hx-sub2 w" style="--i:3">วันที่ 22 – 25 ตุลาคม 2569</p>
-      <div class="hx-reg w" style="--i:4" data-cd-wrap>
-        <p class="cd-label">ปิดรับสมัครใน</p>
-        <div class="cd" data-cd aria-live="off">
-          <div><b data-u="d">--</b><span>วัน</span></div>
-          <div><b data-u="h">--</b><span>ชั่วโมง</span></div>
-          <div><b data-u="m">--</b><span>นาที</span></div>
-          <div><b data-u="s">--</b><span>วินาที</span></div>
-        </div>
-      </div>
-      <div class="hx-cta w" style="--i:5">
+      <h2 class="st-tag w" style="--i:2" id="heroTitle">การแข่งขันเทคโนโลยี<span class="hero-national">ระดับประเทศ</span></h2>
+      <p class="hx-sub2 w" style="--i:3">สร้างผลงานจริง เติม Portfolio<br class="hero-mobile-break"> พร้อมเรียนรู้กับผู้เชี่ยวชาญ</p>
+      <div class="hx-cta w" style="--i:4">
         <a class="btn btn-orange hx-go" data-reg href="https://www.hamsterhub.co/allforone" target="_blank" rel="noopener">สมัครแข่งเลย · 190 บาท <svg class="ic"><use href="#i-arrow"/></svg></a>
         <a class="hx-more" href="#tracks">ดู 3 สายแข่ง ↓</a>
       </div>
+      <ul class="hero-facts w" style="--i:5" aria-label="ข้อมูลการแข่งขัน">
+        <li class="hero-fact" style="--fact-color:#8fe1ff">
+          <svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg>
+          <div><span class="fact-label">สร้างอะไร</span><strong class="fact-value">3 สาย · ผลงานจริง</strong><p>เกม / แอปและเว็บ / IoT</p></div>
+        </li>
+        <li class="hero-fact" style="--fact-color:#c2b4ff">
+          <svg class="ic" aria-hidden="true"><use href="#i-users"/></svg>
+          <div><span class="fact-label">สำหรับใคร</span><strong class="fact-value">นักเรียนมัธยมทั่วประเทศ</strong><p>ทีม 2–3 คน · สมัครเดี่ยวได้</p></div>
+        </li>
+        <li class="hero-fact" style="--fact-color:#ffd23f">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 2v6M17 2v6M3 11h18"/></svg>
+          <div><span class="fact-label">วันแข่งขัน</span><strong class="fact-value">22–25 ต.ค. 2569</strong><p>4 วัน · มีอบรมระหว่างแข่งขัน</p></div>
+        </li>
+      </ul>
       <a class="hx-credit w" style="--i:6" href="https://github.com/PepesX231" target="_blank" rel="noopener">ออกแบบและพัฒนาเว็บไซต์โดย <b>ชมน์ปภพ ดีจริง · Chompapop Deejing</b></a>
     </div>
     <div class="st st1 night">
