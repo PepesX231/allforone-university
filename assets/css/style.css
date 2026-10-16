@@ -2095,3 +2095,19 @@ img,video,canvas,svg{-webkit-user-drag:none}
 #tracks .peek{height:auto!important;min-height:0;justify-content:center;padding:16px 0 12px}
 #tracks .pk-title{line-height:1.05}
 @media(min-width:720px){#tracks .trio-wrap{max-width:min(1080px,max(420px,calc((100svh - var(--hdr) - 150px - 250px) * 2.6)))!important}}
+
+/* A recognisable wordmark in a compact, stable navigation bar. */
+:root{--hdr:56px}
+.hdr .nav-wordmark{width:108px;min-height:44px;display:flex;align-items:center;flex-shrink:0}
+.hdr .nav-wordmark img{width:100%;height:auto;max-height:50px;object-fit:contain}
+.hdr .main-row,.hdr .snav{transform:none!important;transition:opacity .18s ease}
+/* Give the four outcomes their own balanced viewport, without cards. */
+#perks{min-height:calc(100svh - var(--hdr));padding-block:clamp(56px,7svh,88px);justify-content:center}
+#perks .value-heading{justify-content:center;align-items:center;text-align:center;margin-bottom:clamp(40px,7svh,72px)}
+#perks .takeaway-open{max-width:1120px;margin-inline:auto;text-align:center;gap:28px}
+#perks .takeaway-open article>.ic{margin-inline:auto;margin-bottom:22px}
+#perks .takeaway-open h3{font-size:clamp(23px,2.4vw,34px);line-height:1.45}
+#perks .takeaway-open p{margin-top:14px;line-height:1.85}
+@media(max-width:899px){.hdr .nav-wordmark{width:90px}.hdr .snav{gap:8px}.chips .chip{padding-inline:11px}}
+@media(max-width:600px){#perks{min-height:calc(100svh - var(--hdr));padding-block:56px}#perks .value-heading{margin-bottom:36px}#perks .takeaway-open{gap:36px 16px}#perks .takeaway-open h3{font-size:clamp(20px,5.1vw,25px)}#perks .takeaway-open article>.ic{margin-bottom:16px}#perks .takeaway-open p{margin-top:10px}}
+@media(max-height:550px) and (orientation:landscape){#perks{min-height:0;padding-block:48px}}
