@@ -94,3 +94,6 @@ The existing repository's 190 THB price, team size, school audience, signup wind
 - Restored a transparent dark timetable so the existing background star layer can show through. Reduced stars to at most three desktop elements (one in lite/small mode), muted their palette/opacity, and shortened the visible portion of each longer cycle. Existing reduced-motion and mobile suppression remain.
 - Moved the four-day benefits directly after the timetable.
 - Verified 390/844/1440/1920 px: updated copy/order, dark timetable, aligned desktop supporting lines, no overflow/runtime errors. Confirmed no meteors generated with reduced motion.
+
+## Dark four-day benefits background
+- Changed the benefit canvas and its faint grid to dark. Updated headings, descriptions, dividers and follow-on text for contrast; retained the warm project sheet and existing content/order.
