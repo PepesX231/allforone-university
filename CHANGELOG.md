@@ -97,3 +97,7 @@ The existing repository's 190 THB price, team size, school audience, signup wind
 
 ## Dark four-day benefits background
 - Changed the benefit canvas and its faint grid to dark. Updated headings, descriptions, dividers and follow-on text for contrast; retained the warm project sheet and existing content/order.
+
+## Center desktop hero facts
+- Centered the three desktop fact columns and their contents. Used equal-width outer columns around the wider audience column so its center matches the viewport center. Mobile/tablet layouts remain responsive.
+- Changed the hero support line to พร้อมลุ้นชิงสิทธิ์ไปแข่งรอบชิงที่ สจล. and removed the benefits heading description.

@@ -1976,3 +1976,13 @@ img,video,canvas,svg{-webkit-user-drag:none}
 .value-heading h2>span{color:#ffac69}.value-heading>p,.takeaway-rows p,.beyond-strip p{color:#b9c1cf}
 .takeaway-rows article>div,.beyond-strip{background:transparent}.takeaway-rows article,.beyond-strip{border-color:#ffffff18}.beyond-strip b{color:#f0f1f6}.beyond-strip small{color:#9ca7b9}.beyond-strip>.ic{color:#ffac69}.beyond-strip a{color:#e9c993}
 .project-paper{color:var(--navy);box-shadow:8px 8px 0 #ffffff0a}
+
+/* Center the desktop fact group and give the audience equal side columns. */
+@media(min-width:1100px){
+  .st .hero-facts.w{width:min(1280px,100%);max-width:1280px;margin-inline:auto;align-self:center;grid-template-columns:minmax(0,1fr) minmax(0,2fr) minmax(0,1fr);gap:24px;text-align:center}
+  .hero-fact{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding-inline:8px}
+  .hero-fact>div{width:100%;grid-template-rows:22px minmax(54px,auto) auto;text-align:center;justify-items:center}
+  .hero-fact>.ic{margin:0;width:26px;height:26px}
+  .hero-fact .fact-value,.hero-fact .audience-line{text-align:center;text-wrap:balance}
+  .hero-fact p{max-width:100%;text-align:center}
+}
