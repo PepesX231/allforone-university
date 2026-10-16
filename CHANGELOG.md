@@ -107,3 +107,11 @@ The existing repository's 190 THB price, team size, school audience, signup wind
 
 ## Clarify online qualifying round
 - Retained 22–25 October 2026. Explicitly identified the Discord online qualifying round in hero facts, timeline, timetable heading, track route and FAQ. Kept the onsite final date unchanged.
+
+## Hero clarity, registration cleanup, and 3D spacing
+- Added a static hero title glow, stronger text shadows and a soft scene wash behind text, without a caption frame.
+- Strengthened fact-label/icon colors and main values to improve scan order.
+- Removed the registration handoff paragraph and phone line only from the final registration section; contact information elsewhere remains.
+- Increased 3D model spacing, slightly reduced model scale, and adjusted the ring/camera bounds and projected labels together. Expanded the desktop canvas slightly; mobile remains width-limited.
+- Verified live WebGL at 390 and 1440 px with software rendering: model canvas ready, projected labels in bounds, selecting Software opens its detail dialog, no horizontal overflow or page errors. Verified the removed registration note/phone line and transparent unframed hero subtitle.
+- Rechecked normal-motion mobile height changes and portrait/landscape transitions; hero fits and scrolling produces no page errors. This is browser/device simulation, not physical-device or native Safari testing.

@@ -1996,3 +1996,14 @@ img,video,canvas,svg{-webkit-user-drag:none}
   .hero-fact .fact-value,.hero-fact .audience-line{font-size:17px;line-height:1.45}
   .hero-fact p{font-size:12px;line-height:1.6}
 }
+
+/* Static glow and a soft scene wash keep hero text readable without a box. */
+.bt-sky .st0::before{display:block;background:radial-gradient(ellipse 78% 43% at 50% 48%,#061b444f,transparent 85%);opacity:1}
+.st0 .st-tag{text-shadow:0 3px 0 #10275e,0 0 12px #d6efff8c,0 0 32px #8fcfff52,0 6px 16px #07172a99}
+.st0 .hero-national{color:#ffe477;text-shadow:0 3px 0 #775015,0 0 14px #ffe078a6,0 0 34px #ffd85566}
+.st0 .hx-sub2{font-weight:750;color:#fff;-webkit-text-stroke:.6px #0a1b38;paint-order:stroke fill;text-shadow:0 2px 3px #07162b,0 0 8px #07162be6,0 0 18px #07162bc2;line-height:1.6;background:none;border:0;border-radius:0;padding:0}
+.hero-fact .fact-label{color:var(--fact-color);font-weight:750}.hero-fact .fact-value{color:#fff;text-shadow:0 2px 3px #07162b,0 0 12px #07162b99}
+.hero-fact:nth-child(3) .fact-value{color:#ffe6a1}.hero-fact p{color:#edf4ff;text-shadow:0 1px 3px #07162b,0 0 8px #07162b80}.hero-fact>.ic{filter:drop-shadow(0 0 5px color-mix(in srgb,var(--fact-color) 35%,transparent))}
+@media(min-width:1100px){.hero-fact .fact-value{font-size:19px}.hero-fact .audience-line{font-size:18px}.hero-fact .fact-label{font-size:13px}.hero-fact>.ic{width:30px;height:30px}}
+@media(min-width:720px){.trio-wrap{max-width:min(1080px,calc((100svh - 300px) * 2.6))}}
+@media(max-width:600px){.st0 .st-tag{text-shadow:0 2px 0 #10275e,0 0 10px #d6efff66,0 0 22px #8fcfff38}.st0 .hx-sub2{font-size:15px;line-height:1.6}.hero-fact .fact-label{font-size:12px}.hero-fact>.ic{filter:none}}

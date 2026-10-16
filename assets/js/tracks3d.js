@@ -266,18 +266,18 @@
         this.lights(sc, 0x7fb4ff);
         var parts = [], G = new THREE.Group();
         [0, 1, 2].forEach(function (k) {
-          var m = BUILD[k](), wrap = new THREE.Group(), R = fitGroup(m.g), s = (k === 1 ? 1.75 : 1.5) / R;
+          var m = BUILD[k](), wrap = new THREE.Group(), R = fitGroup(m.g), s = (k === 1 ? 1.65 : 1.45) / R;
           wrap.add(m.g); wrap.scale.setScalar(s);
-          wrap.position.set((k - 1) * 3.15, k === 1 ? .3 : 0, k === 1 ? -.5 : 0);
+          wrap.position.set((k - 1) * 3.55, k === 1 ? .3 : 0, k === 1 ? -.5 : 0);
           G.add(wrap); m.wrap = wrap; m.s = s; m.k = s; m.base = [.35, -.1, -.45][k]; parts.push(m);
         });
-        var ring = new THREE.Mesh(tor(3.45, .035), new THREE.MeshBasicMaterial({ color: 0x8fc7ff, transparent: true, opacity: .85, toneMapped: false }));
+        var ring = new THREE.Mesh(tor(3.85, .035), new THREE.MeshBasicMaterial({ color: 0x8fc7ff, transparent: true, opacity: .85, toneMapped: false }));
         ring.rotation.x = Math.PI / 2; ring.position.y = -1.1; G.add(ring);
-        var ring2 = new THREE.Mesh(tor(3.45, .16), new THREE.MeshBasicMaterial({ color: 0x3d8bff, transparent: true, opacity: .14, toneMapped: false, depthWrite: false }));
+        var ring2 = new THREE.Mesh(tor(3.85, .16), new THREE.MeshBasicMaterial({ color: 0x3d8bff, transparent: true, opacity: .14, toneMapped: false, depthWrite: false }));
         ring2.rotation.x = Math.PI / 2; ring2.position.y = -1.1; G.add(ring2);
-        var bl = blob(9, 3.2, -1.12); G.add(bl);
+        var bl = blob(10, 3.4, -1.12); G.add(bl);
         sc.add(G);
-        this.mdl = { g: G, parts: parts, deco: [ring, ring2, bl] }; this.fitR = 3.9;
+        this.mdl = { g: G, parts: parts, deco: [ring, ring2, bl] }; this.fitR = 4.3;
       } else {
         this.lights(sc, TINT[i]);
         var mdl = BUILD[i](); this.fitR = fitGroup(mdl.g); sc.add(mdl.g); this.mdl = mdl;
@@ -293,14 +293,14 @@
       var tall = false;                                               // 3 models always side by side
       if (this.kind === 'hero' && this.mdl && this.mdl.parts) {
         this.mdl.parts.forEach(function (p, k) {
-          p.bx = tall ? -1.45 : (k - 1) * 3.15; p.by = tall ? (1 - k) * 3.05 : (k === 1 ? .3 : 0); p.bz = tall ? 0 : (k === 1 ? -.5 : 0);
+          p.bx = tall ? -1.45 : (k - 1) * 3.55; p.by = tall ? (1 - k) * 3.05 : (k === 1 ? .3 : 0); p.bz = tall ? 0 : (k === 1 ? -.5 : 0);
           p.wrap.position.set(p.bx, p.by, p.bz);
         });
         this.mdl.deco.forEach(function (o) { o.visible = !tall; });
       }
       var d = this.kind === 'hero'
         ? (tall ? Math.max(4.7 / Math.tan(vfov / 2), 3.2 / Math.tan(hfov / 2))
-                : Math.max(5.1 / Math.tan(hfov / 2), 2.5 / Math.tan(vfov / 2)))    // the row is ~10 wide x 5 tall
+                : Math.max(5.5 / Math.tan(hfov / 2), 2.5 / Math.tan(vfov / 2)))    // the row is ~10 wide x 5 tall
         : this.fitR / Math.sin(Math.min(vfov, hfov) / 2) * .92;
       if (this.kind === 'hero') { cam.position.set(0, d * (tall ? .1 : .2), d); cam.lookAt(0, tall ? 0 : -.05, 0); }
       else { cam.position.set(0, d * .26, d); cam.lookAt(0, -this.fitR * .04, 0); }
@@ -315,7 +315,7 @@
           btns[k].style.setProperty('--y', ((1 - v.y) * 50).toFixed(2) + '%');
         });
         // names sit just under the front edge of the ring (no big empty gap)
-        var rf = new THREE.Vector3(0, -1.1, 3.45).project(cam);
+        var rf = new THREE.Vector3(0, -1.1, 3.85).project(cam);
         this.host.parentNode.style.setProperty('--ry', (((1 - rf.y) * 50) / 100 * h).toFixed(1) + 'px');
         this.host.parentNode.style.setProperty('--pb', Math.max(0, (1 - rf.y) * 50 / 100 * h + 8 + (innerWidth < 720 ? 64 : 76) - h).toFixed(0) + 'px');
       }
