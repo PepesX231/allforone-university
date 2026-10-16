@@ -121,3 +121,10 @@ The existing repository's 190 THB price, team size, school audience, signup wind
 - Summarized all ten draft topics, including track deliverables, IoT online PoC, resource/AI attribution, integrity, presentation time, pending scoring weights, Top 5 progression, follow-on guidance and organizer notices. Kept the existing schedule rather than duplicating it.
 - Did not equate the presentation time to a submission deadline or invent scoring/eligibility details. Added navigation and a pre-registration rules link.
 - Verified iPhone SE / Pixel 7 profiles and desktop in Chromium: all seven disclosures, three-track deliverables, section order, navigation, registration link, local anchors, no overflow or page errors. Rules remain accessible with JavaScript disabled.
+
+## Glass facts panel and dedicated competition rules page
+- Styled hero facts as one translucent blue panel with a fine light border and inset highlight; used gradients instead of backdrop blur for mobile performance.
+- Removed only the arrow icon from the hero registration CTA.
+- Added rules.html with an accessible table of contents, seven readable draft chapters, track-specific deliverables, pending-information note, back links, and registration actions. Home now has a concise rules preview and a link to the full page.
+- Kept all content grounded in the supplied draft; no score weights or submission deadlines were invented. Build now produces both home and rules previews.
+- Verified iPhone SE, Pixel 7 and desktop profiles: panel layout, arrow removal, seven rules chapters, deliverables, table-of-contents anchors, home/back links, no overflow or page errors. Bundled rules work without JavaScript. Rechecked mobile orientation/height transitions and fixed logo sizing at 320 px.

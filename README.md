@@ -45,3 +45,6 @@ When `CFG.regEndpoint` is empty (the current configuration), all registration CT
 
 ## Content and validation
 See [CHANGELOG.md](CHANGELOG.md) for the implemented changes, source boundaries, and validation results.
+
+## Competition rules page
+`rules.html` is the standalone, draft-labelled rules reading page. The home page links to it from its rules preview and registration section. `python build.py` now produces both `dist/index.html` and `dist/rules.html`, with styles, fonts and images inlined.

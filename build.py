@@ -7,7 +7,8 @@ import base64, mimetypes, os, re, sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'dist', 'index.html')
 read = lambda p: open(os.path.join(ROOT, p), encoding='utf-8').read()
-html = read('index.html')
+source = sys.argv[2] if len(sys.argv) > 2 else 'index.html'
+html = read(source)
 # Font is embedded in CSS below; omit the source-only preload in the bundle.
 html = re.sub(r'<link rel="preload" href="assets/fonts/[^"]+"[^>]*>\s*', '', html)
 cache = {}
@@ -22,10 +23,15 @@ def css_inline(path):
     return re.sub(r'url\(\.\./img/([^)]+)\)', lambda m: 'url(' + data_uri('assets/img/' + m.group(1)) + ')', css)
 html = re.sub(r'<link rel="stylesheet" href="(assets/[^"?]+\.css)(?:\?v=\w+)?">', lambda m: '<style>\n' + css_inline(m.group(1)) + '\n</style>', html)
 html = re.sub(r'<script src="(assets/[^"?]+\.js)(?:\?v=\w+)?" defer></script>', '', html)          # moved to end of body
-scripts = re.findall(r'assets/js/[\w.-]+\.js', read('index.html'))
+scripts = re.findall(r'assets/js/[\w.-]+\.js', read(source))
 body_js = ''.join('<script>\n' + read(s) + '\n</script>\n' for s in scripts)
 html = html.replace('</body>', body_js + '</body>')
 html = re.sub(r'(src|href)="(assets/img/[^"'"'"'+]+)"', lambda m: '%s="%s"' % (m.group(1), data_uri(m.group(2))) if os.path.exists(os.path.join(ROOT, m.group(2))) else m.group(0), html)
 os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
 open(out, 'w', encoding='utf-8').write(html)
 print('built', out, round(len(html.encode()) / 1024), 'KB')
+
+# Build the standalone rules alongside the home preview.
+if source == 'index.html' and os.path.exists(os.path.join(ROOT, 'rules.html')):
+    import subprocess
+    subprocess.run([sys.executable, os.path.abspath(__file__), os.path.join(os.path.dirname(os.path.abspath(out)), 'rules.html'), 'rules.html'], check=True)
