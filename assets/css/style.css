@@ -1954,3 +1954,19 @@ img,video,canvas,svg{-webkit-user-drag:none}
 .schedule-section{min-height:calc(100vh + 180px);min-height:calc(100svh + 180px);padding-top:clamp(88px,9vw,136px);padding-bottom:clamp(120px,12vw,180px);display:flex;flex-direction:column;justify-content:center}
 .schedule-section>.wrap{width:100%}
 @media(max-width:600px){.schedule-section{min-height:calc(100vh + 100px);min-height:calc(100svh + 100px);padding-top:64px;padding-bottom:120px}}
+
+/* Restore a calm dark timetable and align hero facts by text rows. */
+.schedule-section{background:transparent;color:var(--text)}
+.schedule-section .sched-h{color:var(--text)}.schedule-section .sched-h span{color:#ebba65}
+.schedule-section .sched-list{border-color:#ffffff18}.schedule-section .sched-list li{background:#ffffff04;border-color:#ffffff14}
+.schedule-section .sched-list li:nth-child(even){background:#ffffff08}.schedule-section .sched-list time{color:#adbed8}.schedule-section .sched-list b{color:#d4dbea}.schedule-section .sched-list span{color:#f0f1f6}
+.schedule-section .sched-list li.fin{background:#f0b84c0c;border-left-color:#b88b44}.schedule-section .sched-list li.fin span{color:#edc879}
+@keyframes fall{0%{opacity:0;transform:rotate(var(--a)) translate3d(0,0,0)}6%,30%{opacity:var(--o)}42%,100%{opacity:0;transform:rotate(var(--a)) translate3d(var(--dist),0,0)}}
+.st .hero-facts.w{max-width:1280px;grid-template-columns:.9fr 1.9fr 1.2fr;gap:40px;padding-inline:0}
+.hero-fact{display:grid;grid-template-columns:30px minmax(0,1fr);gap:16px;align-items:start}
+.hero-fact>div{display:grid;grid-template-rows:22px minmax(54px,auto) auto;row-gap:4px}
+.hero-fact .fact-label{margin:0;align-self:start}.hero-fact .fact-value{margin:0;font-size:19px;line-height:1.45;align-self:start}.hero-fact .audience-line{font-size:18px;line-height:1.5}
+.hero-fact p{margin:0;line-height:1.7;font-size:13px}.hero-fact>.ic{margin-top:28px}
+@media(min-width:1600px){.hero-fact>div{grid-template-rows:22px minmax(36px,auto) auto}}
+@media(min-width:601px) and (max-width:1099px){.st .hero-facts.w{grid-template-columns:1fr 1fr;gap:24px;max-width:760px}.hero-fact:nth-child(2)>div{grid-template-rows:22px auto auto}.hero-fact>div{grid-template-rows:22px minmax(30px,auto) auto}}
+@media(max-width:600px){.st .hero-facts.w{grid-template-columns:1fr;gap:18px;padding-inline:4px;max-width:360px}.hero-fact{grid-template-columns:24px minmax(0,1fr);gap:14px}.hero-fact>div{grid-template-rows:auto auto auto;row-gap:3px}.hero-fact .fact-value,.hero-fact:nth-child(2) .audience-line{font-size:16px;line-height:1.5}.hero-fact p{font-size:12px}.hero-fact>.ic,.hero-fact:nth-child(2)>.ic{margin-top:23px}}

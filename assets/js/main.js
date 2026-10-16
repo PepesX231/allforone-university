@@ -40,7 +40,7 @@
   (function () {
     var sky = document.getElementById('sky'); if (!sky || reduced || root.classList.contains('safe')) return;
     var ns = 'http://www.w3.org/2000/svg';
-    var C = ['#ffd23f', '#ff8a3d', '#6fb2ff', '#ff6b8a', '#9b7bff', '#2fd08b', '#8ff0ff'];
+    var C = ['#b6af88', '#7d8ba9', '#8f83a7'];
     var SHAPES = [
       '<use href="#starface" width="48" height="48"/>',
       '<use href="#star4" x="4" y="4" width="40" height="40"/>',
@@ -48,10 +48,10 @@
       '<circle cx="24" cy="24" r="12" fill="currentColor" stroke="#1b1540" stroke-width="3"/><circle cx="20" cy="20" r="3.6" fill="#fff" opacity=".85"/>',
       '<path d="M24 6c2 10 8 16 18 18-10 2-16 8-18 18-2-10-8-16-18-18 10-2 16-8 18-18z" fill="currentColor" stroke="#1b1540" stroke-width="3" stroke-linejoin="round"/>'
     ];
-    var small = innerWidth < 720, n = lite ? (small ? 4 : 6) : (small ? 6 : 12);
+    var small = innerWidth < 720, n = lite ? 1 : (small ? 1 : 3);
     var r = function (a, b) { return a + Math.random() * (b - a); };
     function place(el, first) {
-      var a = r(22, 40), s = r(small ? 20 : 26, small ? 36 : 50);
+      var a = r(22, 40), s = r(small ? 12 : 16, small ? 20 : 28);
       el.style.setProperty('--x', r(-25, 85) + 'vw');
       el.style.setProperty('--y', r(-15, 55) + 'vh');
       el.style.setProperty('--a', a + 'deg');
@@ -59,9 +59,9 @@
       el.style.setProperty('--s', s + 'px');
       el.style.setProperty('--len', (s * r(3, 6)) + 'px');
       el.style.setProperty('--c', C[(Math.random() * C.length) | 0]);
-      el.style.setProperty('--o', r(.45, .8).toFixed(2));
+      el.style.setProperty('--o', r(.10, .18).toFixed(2));
       el.style.setProperty('--sp', r(1.6, 4).toFixed(1) + 's');
-      if (first) { el.style.setProperty('--d', r(5.5, 10).toFixed(1) + 's'); el.style.setProperty('--dl', (-r(0, 10)).toFixed(1) + 's'); }
+      if (first) { el.style.setProperty('--d', r(18, 28).toFixed(1) + 's'); el.style.setProperty('--dl', (-r(0, 28)).toFixed(1) + 's'); }
       el.className = 'mt' + (Math.random() < .3 ? ' dots' : '');
       var svg = el.querySelector('svg');
       svg.innerHTML = SHAPES[(Math.random() * SHAPES.length) | 0];

@@ -87,3 +87,10 @@ The existing repository's 190 THB price, team size, school audience, signup wind
 ## Extend light timetable background
 - Matched the timetable minimum height to the dark timeline: viewport plus 180 px on wider screens, plus 100 px on phones. Increased space above/below the table without stretching rows or text.
 - Refreshed stylesheet cache key and rebuilt the bundle.
+
+## Hero alignment, quieter dark schedule, and section order
+- Changed the hero CTA support line to the opportunity to compete in the final at KMITL.
+- Aligned hero fact labels, main values, and supporting lines with consistent grid rows; retained adaptive tablet/phone layouts.
+- Restored a transparent dark timetable so the existing background star layer can show through. Reduced stars to at most three desktop elements (one in lite/small mode), muted their palette/opacity, and shortened the visible portion of each longer cycle. Existing reduced-motion and mobile suppression remain.
+- Moved the four-day benefits directly after the timetable.
+- Verified 390/844/1440/1920 px: updated copy/order, dark timetable, aligned desktop supporting lines, no overflow/runtime errors. Confirmed no meteors generated with reduced motion.
