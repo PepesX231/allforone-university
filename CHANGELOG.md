@@ -83,3 +83,7 @@ The existing repository's 190 THB price, team size, school audience, signup wind
 - Removed the entire “เรียนรู้ไปด้วย ลงมือทำไปด้วย” section and its six expandable cards.
 - Repointed desktop/mobile navigation to the existing timetable and changed its label to ตาราง. Updated scroll-spy and removed unused workshop styling.
 - Kept the event timetable and existing FAQ/content about workshops. Rebuilt the bundle.
+
+## Extend light timetable background
+- Matched the timetable minimum height to the dark timeline: viewport plus 180 px on wider screens, plus 100 px on phones. Increased space above/below the table without stretching rows or text.
+- Refreshed stylesheet cache key and rebuilt the bundle.

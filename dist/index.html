@@ -1975,6 +1975,11 @@ img,video,canvas,svg{-webkit-user-drag:none}
 /* Keep the shorter project description readable across Thai line breaks. */
 .project-paper>p{line-height:1.85;text-wrap:pretty;overflow-wrap:break-word}
 
+/* Balance the light schedule with the full-height dark timeline. */
+.schedule-section{min-height:calc(100vh + 180px);min-height:calc(100svh + 180px);padding-top:clamp(88px,9vw,136px);padding-bottom:clamp(120px,12vw,180px);display:flex;flex-direction:column;justify-content:center}
+.schedule-section>.wrap{width:100%}
+@media(max-width:600px){.schedule-section{min-height:calc(100vh + 100px);min-height:calc(100svh + 100px);padding-top:64px;padding-bottom:120px}}
+
 </style>
 <script>
   // progressive enhancement flags (set before first paint to avoid a flash)
