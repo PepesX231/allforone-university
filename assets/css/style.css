@@ -2030,3 +2030,8 @@ img,video,canvas,svg{-webkit-user-drag:none}
 @media(max-width:440px){.rules-home{gap:8px;font-size:12px}.rules-home img{width:38px}.rules-page-header .btn{font-size:13px;padding-inline:16px}.rules-toc ol{grid-template-columns:1fr}.rules-chapter .rule-body{font-size:15px}}
 @media print{.rules-page{background:#fff;color:#111}.rules-page-header,.rules-toc,.rules-end,.rules-page-footer{display:none}.rules-reading-layout{display:block;padding:16px 0}.rules-chapter .rule-body,.rules-page-intro>p,.rule-deliverables h3{color:#222}.rules-chapter{break-inside:avoid}.rules-page-intro{padding-top:0}.rules-draft{color:#444;border-color:#bbb}}
 .st0 .org-hh,.st0 .org-hh img{flex-shrink:0}@media(max-width:360px){.st0 .orgs{gap:7px;padding:8px 10px}.st0 .org-hh img{width:26px;height:26px}.st0 .orgs .lg-edu{height:15px}.st0 .orgs .lg-iote{height:21px}}
+
+/* Original rules document download, shared by the home and rules pages. */
+.rules-download{margin-top:24px}
+.rules-download .btn,.rules-preview-actions .btn{white-space:normal;text-align:center;min-height:48px}
+@media(max-width:600px){.rules-preview-actions{align-items:stretch}.rules-preview-actions .btn{width:100%}.rules-download .btn{width:100%}}

@@ -35,3 +35,9 @@ print('built', out, round(len(html.encode()) / 1024), 'KB')
 if source == 'index.html' and os.path.exists(os.path.join(ROOT, 'rules.html')):
     import subprocess
     subprocess.run([sys.executable, os.path.abspath(__file__), os.path.join(os.path.dirname(os.path.abspath(out)), 'rules.html'), 'rules.html'], check=True)
+
+# Keep the original downloadable document beside bundled previews.
+import shutil
+docs_out = os.path.join(os.path.dirname(os.path.abspath(out)), "assets", "docs")
+os.makedirs(docs_out, exist_ok=True)
+shutil.copyfile(os.path.join(ROOT, "assets", "docs", "competition-rules.docx"), os.path.join(docs_out, "competition-rules.docx"))
