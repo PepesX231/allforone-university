@@ -78,3 +78,8 @@ The existing repository's 190 THB price, team size, school audience, signup wind
 - Coalesced hero parallax resize recalculation to once per animation frame. This avoids redundant scene measurements during bursts of mobile viewport resize events while using the latest dimensions. No fixed frame-rate improvement is claimed.
 - JavaScript syntax and diff whitespace checks passed. Rebuilt dist/index.html.
 - Touch checks passed for iPhone SE, iPhone 13, Pixel 7, and iPhone landscape profiles in Chromium. Normal-motion checks also passed through height changes and portrait/landscape transitions: no horizontal overflow or page errors, hero content fits, and new copy remains visible. Physical devices and native Safari were not tested.
+
+## Remove standalone workshop section
+- Removed the entire “เรียนรู้ไปด้วย ลงมือทำไปด้วย” section and its six expandable cards.
+- Repointed desktop/mobile navigation to the existing timetable and changed its label to ตาราง. Updated scroll-spy and removed unused workshop styling.
+- Kept the event timetable and existing FAQ/content about workshops. Rebuilt the bundle.

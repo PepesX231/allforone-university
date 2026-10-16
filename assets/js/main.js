@@ -539,7 +539,7 @@
       }
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  ['tracks', 'perks', 'journey', 'workshops', 'faq'].forEach(function (id) { var s = document.getElementById(id); if (s) spy.observe(s); });
+  ['tracks', 'perks', 'journey', 'schedule', 'faq'].forEach(function (id) { var s = document.getElementById(id); if (s) spy.observe(s); });
 
   /* ---------- 4b. reveal fallback + pause loops off-screen ---------- */
   if (!sda) {
