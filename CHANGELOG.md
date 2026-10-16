@@ -115,3 +115,9 @@ The existing repository's 190 THB price, team size, school audience, signup wind
 - Increased 3D model spacing, slightly reduced model scale, and adjusted the ring/camera bounds and projected labels together. Expanded the desktop canvas slightly; mobile remains width-limited.
 - Verified live WebGL at 390 and 1440 px with software rendering: model canvas ready, projected labels in bounds, selecting Software opens its detail dialog, no horizontal overflow or page errors. Verified the removed registration note/phone line and transparent unframed hero subtitle.
 - Rechecked normal-motion mobile height changes and portrait/landscape transitions; hero fits and scrolling produces no page errors. This is browser/device simulation, not physical-device or native Safari testing.
+
+## Preliminary rules from the supplied draft images
+- Added a draft-labelled rules section after the schedule, before benefits, with team/Discord/resource-credit highlights and seven native disclosures.
+- Summarized all ten draft topics, including track deliverables, IoT online PoC, resource/AI attribution, integrity, presentation time, pending scoring weights, Top 5 progression, follow-on guidance and organizer notices. Kept the existing schedule rather than duplicating it.
+- Did not equate the presentation time to a submission deadline or invent scoring/eligibility details. Added navigation and a pre-registration rules link.
+- Verified iPhone SE / Pixel 7 profiles and desktop in Chromium: all seven disclosures, three-track deliverables, section order, navigation, registration link, local anchors, no overflow or page errors. Rules remain accessible with JavaScript disabled.
