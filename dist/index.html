@@ -2012,6 +2012,16 @@ img,video,canvas,svg{-webkit-user-drag:none}
   .hero-fact p{max-width:100%;text-align:center}
 }
 
+/* Compact desktop event facts without changing the mobile layout. */
+@media(min-width:1100px){
+  .st .hero-facts.w{width:min(1060px,100%);max-width:1060px;grid-template-columns:minmax(0,1fr) minmax(0,1.8fr) minmax(0,1fr);gap:16px;padding-top:18px;padding-bottom:10px}
+  .hero-fact{gap:6px;padding-inline:0}
+  .hero-fact>div{grid-template-rows:18px auto auto;row-gap:6px}
+  .hero-fact .fact-label{font-size:12px;line-height:18px}
+  .hero-fact .fact-value,.hero-fact .audience-line{font-size:17px;line-height:1.45}
+  .hero-fact p{font-size:12px;line-height:1.6}
+}
+
 </style>
 <script>
   // progressive enhancement flags (set before first paint to avoid a flash)

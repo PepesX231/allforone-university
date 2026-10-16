@@ -101,3 +101,6 @@ The existing repository's 190 THB price, team size, school audience, signup wind
 ## Center desktop hero facts
 - Centered the three desktop fact columns and their contents. Used equal-width outer columns around the wider audience column so its center matches the viewport center. Mobile/tablet layouts remain responsive.
 - Changed the hero support line to พร้อมลุ้นชิงสิทธิ์ไปแข่งรอบชิงที่ สจล. and removed the benefits heading description.
+
+## Compact desktop facts
+- Reduced the desktop facts group from 1280 to 1060 px, column gaps from 24 to 16 px, and removed reserved blank value-row height. Reduced internal gaps while preserving centered columns and the mobile layout.
