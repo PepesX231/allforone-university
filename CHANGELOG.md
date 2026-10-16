@@ -104,3 +104,6 @@ The existing repository's 190 THB price, team size, school audience, signup wind
 
 ## Compact desktop facts
 - Reduced the desktop facts group from 1280 to 1060 px, column gaps from 24 to 16 px, and removed reserved blank value-row height. Reduced internal gaps while preserving centered columns and the mobile layout.
+
+## Clarify online qualifying round
+- Retained 22–25 October 2026. Explicitly identified the Discord online qualifying round in hero facts, timeline, timetable heading, track route and FAQ. Kept the onsite final date unchanged.
