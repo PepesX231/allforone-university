@@ -1,3 +1,4 @@
+@font-face{font-family:"AFO Thai";src:url('../fonts/NotoSansThai-variable.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap}
 /* ==========================================================
    All for One University — Hamster Hub
    Design follows hamsterhub.co: Noto Sans Thai, dark #0a0a0f
@@ -1871,3 +1872,80 @@ img,video,canvas,svg{-webkit-user-drag:none}
   .hero-fact .fact-value{font-size:16px;line-height:1.35}
   .hero-fact p{margin-top:3px;font-size:12px;line-height:1.4}
 }
+
+/* Participant takeaways: project sheet and outcomes on a white canvas. */
+.build-value{background:#fff;color:var(--navy);overflow:hidden}
+.value-heading{display:flex;align-items:center;justify-content:space-between;gap:40px;margin-bottom:48px}
+.value-heading h2{font-size:clamp(34px,4.4vw,60px);line-height:1.25;margin-top:12px;letter-spacing:-.03em}
+.value-heading h2>span{color:#d84c00;margin-right:16px}.value-heading>p{max-width:410px;color:#535e70;line-height:1.9}
+.takeaway-layout{display:grid;grid-template-columns:.95fr 1.15fr;gap:64px;align-items:center}
+.project-paper{position:relative;background:#fff8ed;border:1px solid #e8dcc7;border-radius:8px 32px 8px 8px;padding:32px;box-shadow:8px 8px 0 #f5eddf;transform:rotate(-1deg)}
+.project-paper:before{content:'';position:absolute;width:90px;height:24px;left:40%;top:-13px;background:#ffc94ab0;transform:rotate(-5deg)}
+.paper-label{font-size:11px;letter-spacing:.09em;font-weight:700;color:#6a6255;display:block}
+.paper-title{display:flex;gap:20px;align-items:center;margin:24px 0 20px}.paper-title>.ic{width:42px;height:42px;color:#d84c00;flex:none}
+.paper-title h3{font-size:clamp(26px,2.8vw,36px);line-height:1.35}.project-paper>p{line-height:1.85;color:#535e70}
+.output-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.output-tags span{padding:4px 10px;border:1px solid #d5c6ad;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:.04em}
+.project-bottom{display:flex;align-items:center;gap:16px}.project-bottom img{width:135px;height:135px;object-fit:contain;flex:none}.project-bottom a{display:flex;gap:12px;align-items:center;font-size:14px;font-weight:700}.project-bottom .ic{width:18px;height:18px}.project-paper>small{display:block;border-top:1px dashed #cfbea0;padding-top:14px;font-size:12px;line-height:1.7;color:#6a6255}
+.takeaway-rows article{display:grid;grid-template-columns:54px 1fr;gap:20px;padding:26px 0;border-bottom:1px solid #dfe4eb}.takeaway-rows article:first-child{padding-top:0}.takeaway-rows article:last-child{border-bottom:0;padding-bottom:0}
+.takeaway-icon{display:grid;place-items:center;width:54px;height:54px;border-radius:17px;background:var(--wash);color:var(--accent)}.takeaway-icon>.ic{width:27px;height:27px}
+.takeaway-rows .paper-label{color:#737c8c;margin:0 0 7px}.takeaway-rows h3{font-size:23px;line-height:1.5;margin-bottom:10px}.takeaway-rows p{color:#535e70;line-height:1.85}
+.beyond-strip{display:flex;align-items:center;gap:20px;border-top:1px solid #dfe4eb;margin-top:44px;padding-top:26px}.beyond-strip>.ic{color:#d84c00;width:30px;height:30px;flex:none}.beyond-strip p{font-size:14px;line-height:1.8;color:#535e70}.beyond-strip b{color:var(--navy)}.beyond-strip small{display:block;color:#737c8c}.beyond-strip a{white-space:nowrap;font-weight:700;font-size:14px;margin-left:auto}
+/* Workshops: a numbered lesson grid, distinct from the project sheet above. */
+.workshop-section{background-color:#fff;background-image:radial-gradient(#0b1b3f12 .8px,transparent .8px);background-size:18px 18px;color:var(--navy);border-top:1px solid #e4e8ef}
+.workshop-intro{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:70px;margin-bottom:40px}.workshop-intro h2{font-size:clamp(34px,4.2vw,56px);line-height:1.3;letter-spacing:-.025em;margin-top:14px}.workshop-intro h2 span{color:#d84c00}.workshop-intro>p{max-width:450px;line-height:1.9;color:#535e70;background:#fff}
+.workshop-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.workshop-list details{border:1px solid #dfe4eb;border-radius:16px;background:#fff;transition:border-color .2s,box-shadow .2s}
+.workshop-list details[open]{border-color:#f08a4c;box-shadow:0 8px 22px #0b1b3f08}
+.workshop-list summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:18px;padding:24px}.workshop-list summary::-webkit-details-marker{display:none}
+.lesson-icon{display:grid;place-items:center;width:46px;height:46px;border-radius:13px;background:#fff0e1;color:#bf4800;flex:none}.lesson-icon>.ic{width:24px;height:24px}
+.workshop-name{font-size:20px;line-height:1.5;font-weight:700}.workshop-name small{display:block;font-size:11px;letter-spacing:.06em;font-weight:700;color:#6c7482;margin-bottom:6px}.workshop-name em{display:block;font-size:12px;font-weight:400;font-style:normal;color:#606a7a;margin-top:3px}
+.workshop-plus{margin-left:auto;font-size:26px;font-weight:400;transition:transform .2s}.workshop-list details[open] .workshop-plus{transform:rotate(45deg)}.workshop-list details>p{padding:0 24px 24px 88px;color:#535e70;line-height:1.85;font-size:15px}
+.workshop-footer{display:flex;gap:24px;justify-content:space-between;align-items:center;margin-top:24px}.workshop-footer p{font-size:13px;color:#606a7a;line-height:1.8}.workshop-footer a{font-weight:700;white-space:nowrap}
+.reg-explain{font-size:.85rem!important;max-width:650px;margin:20px auto!important;line-height:1.8!important}.sched>p{margin:12px 0 20px;line-height:1.8}.hx-sub2{max-width:900px;margin-inline:auto;text-wrap:balance}.hero-fact .fact-value{line-height:1.45}
+@media(min-width:1100px){.st .hero-facts.w{grid-template-columns:.8fr 2fr 1fr;max-width:1240px;gap:24px}.hero-fact .audience-line{font-size:clamp(14px,1.13vw,18px);white-space:nowrap;text-wrap:nowrap}}
+@media(max-width:900px){.takeaway-layout{grid-template-columns:1fr;gap:40px}.value-heading{align-items:flex-start;flex-direction:column;gap:20px}.value-heading>p{max-width:600px}.project-paper{transform:none}.workshop-intro{gap:24px;grid-template-columns:1fr}.workshop-intro>p{max-width:600px}.workshop-list summary{padding:20px;gap:12px}.workshop-name{font-size:18px}.workshop-list details>p{padding-left:20px}.beyond-strip{flex-wrap:wrap}.beyond-strip p{flex:1;min-width:200px}}
+@media(max-width:600px){.workshop-list{grid-template-columns:1fr}.workshop-footer{align-items:flex-start;flex-direction:column;gap:12px}.project-paper{padding:24px}.takeaway-rows article{grid-template-columns:42px 1fr;gap:14px}.takeaway-icon{width:42px;height:42px;border-radius:12px}.takeaway-icon>.ic{width:22px;height:22px}.takeaway-rows h3{font-size:20px}.takeaway-rows p{font-size:15px}.project-bottom img{width:104px;height:120px}.value-heading h2>span{margin-right:10px}.value-heading>p br{display:none}.hx-sub2 br{display:none}}
+
+/* Final typography and viewport refinement. */
+:root{--font:"AFO Thai","Noto Sans Thai",system-ui,sans-serif;--display:var(--font);--font-h:var(--font)}
+.build-value{background-color:#fff;background-image:linear-gradient(#0b1b3f07 1px,transparent 1px),linear-gradient(90deg,#0b1b3f07 1px,transparent 1px);background-size:32px 32px}
+.takeaway-rows article>div{background:#ffffffc9}.takeaway-rows h3{line-height:1.5}.takeaway-rows p{font-size:15px}.paper-title{margin-top:8px}.paper-title h3{font-size:clamp(26px,2.4vw,34px)}
+.pk-final .pk-final-k{font:700 clamp(15px,1.4vw,19px)/1.6 var(--font);letter-spacing:.025em;margin-bottom:8px}
+.st .hero-facts.w{max-width:1400px;width:100%;gap:32px;padding:24px 0 16px;grid-template-columns:.9fr 1.65fr 1.1fr;align-items:start}
+.hero-fact{gap:16px;min-width:0}.hero-fact>div{min-width:0}.hero-fact>.ic{margin-top:26px;width:30px;height:30px}
+.hero-fact .fact-label{font-size:13px;margin-bottom:8px}.hero-fact .fact-value{font:700 clamp(17px,1.3vw,22px)/1.5 var(--font);text-wrap:pretty}
+.hero-fact .audience-line{font-size:clamp(16px,1.12vw,19px);white-space:normal;text-wrap:pretty}.hero-fact p{font-size:13px;line-height:1.8;margin-top:8px;max-width:450px}
+.hx-credit{margin-top:14px!important}.project-paper{align-self:start}.beyond-strip{background:#ffffffc9}
+@media(max-width:1099px){.st .hero-facts.w{grid-template-columns:1fr 1fr;gap:20px 32px;max-width:760px}.hero-fact:nth-child(2){grid-column:1/-1;grid-row:1}.hero-fact:nth-child(2) .audience-line{font-size:18px}.hero-fact:nth-child(2)>.ic{margin-top:22px}.hero-fact .fact-label{display:block}.hero-fact>.ic{margin-top:26px}}
+@media(max-width:600px){.st .hero-facts.w{grid-template-columns:1fr;max-width:360px;gap:20px;padding:20px 4px 14px}.hero-fact:nth-child(2){grid-column:auto;grid-row:auto}.hero-fact .fact-label{font-size:11px;margin-bottom:4px}.hero-fact .fact-value,.hero-fact:nth-child(2) .audience-line{font-size:16px;line-height:1.6}.hero-fact p{font-size:12px;margin-top:4px}.hero-fact>.ic,.hero-fact:nth-child(2)>.ic{width:24px;height:24px;margin-top:24px}.pk-final .pk-final-k{font-size:14px}.takeaway-rows h3 br{display:none}}
+@media(max-height:550px){.bt-sky{--S:600px}}
+
+/* White timetable bridges the dark timeline and white lesson section. */
+.schedule-section{background:#fff;color:var(--navy);padding-block:clamp(48px,7vw,88px);position:relative;isolation:isolate}
+.schedule-section .sched{max-width:100%;margin:0;padding:0;border-radius:0;background:none;box-shadow:none}
+.schedule-section .sched-h{color:var(--navy);font-size:clamp(26px,3vw,38px);line-height:1.4;margin-bottom:12px}
+.schedule-section .sched-h span{color:#b84900;font-size:14px;margin-top:10px}.schedule-section .sched>p{color:#5d6879;font-size:13px;margin:0 0 28px}
+.schedule-section .sched-list{gap:0;border-top:1px solid #dce2e9}
+.schedule-section .sched-list li{grid-template-columns:100px 150px minmax(0,1fr);padding:18px 20px;gap:8px 20px;border-bottom:1px solid #dce2e9;border-radius:0;background:#fff}
+.schedule-section .sched-list li:nth-child(even){background:#f7f9fc}
+.schedule-section .sched-list time{color:#a94300;font-size:14px}.schedule-section .sched-list b{color:#344156;font-size:14px;white-space:nowrap}.schedule-section .sched-list span{color:var(--navy);font-size:16px;overflow-wrap:anywhere}
+.schedule-section .sched-list li.fin{background:#fff3df;box-shadow:none;border-left:3px solid #e66a00}.schedule-section .sched-list li.fin span{color:#8e3b00}
+.workshop-section{background-color:#fafbfc}.takeaway-rows p{max-width:44ch}.project-paper>p{max-width:34ch}
+/* Touch targets, safe areas, and scrollable dialogs on narrow mobile viewports. */
+.workshop-list summary{min-height:72px}.faq summary{min-height:56px}.x-btn,.cs-arrow,.rnd{min-width:44px;min-height:44px}
+.sheet-scroll{-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}.sheet-panel{max-height:calc(100dvh - env(safe-area-inset-top) - 8px)}
+@media(max-width:600px){.schedule-section .sched-list li{grid-template-columns:70px minmax(0,1fr);gap:5px 14px;padding:16px 12px}.schedule-section .sched-list b{grid-column:2}.schedule-section .sched-list span{grid-column:2;font-size:15px}.schedule-section .sched-list time{font-size:13px}.schedule-section .sched-h span{font-size:13px}.project-bottom a{min-height:44px}.sheet-foot{gap:8px;padding-inline:max(12px,env(safe-area-inset-left)) max(12px,env(safe-area-inset-right))}.sheet-foot .btn{font-size:13px;padding-inline:10px}.chips .chip{min-height:44px;display:inline-flex;align-items:center}.workshop-footer a{min-height:44px;display:inline-flex;align-items:center}}
+
+/* Give the dark route room before the continuous light timetable/lessons. */
+#journey{min-height:calc(100svh + 180px);padding-top:clamp(72px,8vw,120px);padding-bottom:clamp(120px,12vw,200px)}
+#journey .road{margin-top:clamp(24px,4vw,48px);margin-bottom:40px}
+.schedule-section,.workshop-section{background-color:#fafbfc;background-image:radial-gradient(#0b1b3f12 .8px,transparent .8px);background-size:18px 18px}
+.schedule-section{padding-top:clamp(56px,7vw,96px);padding-bottom:clamp(40px,5vw,64px)}
+.schedule-section .sched-h{margin-bottom:32px}.schedule-section .sched-list li{background:#fffffff2}.schedule-section .sched-list li:nth-child(even){background:#f2f5f9f2}
+.workshop-section{border-top:0;padding-top:clamp(36px,5vw,64px)}
+.workshop-intro{display:block;margin-bottom:36px}.workshop-intro h2{max-width:760px}
+@media(max-width:600px){#journey{min-height:calc(100svh + 100px);padding-top:64px;padding-bottom:120px}#journey .road{margin-top:28px;margin-bottom:32px}.schedule-section .sched-h{margin-bottom:24px}.workshop-intro{margin-bottom:28px}}
+#journey{justify-content:flex-start;padding-top:clamp(48px,5vw,80px)}
+
+/* Keep the shorter project description readable across Thai line breaks. */
+.project-paper>p{line-height:1.85;text-wrap:pretty;overflow-wrap:break-word}

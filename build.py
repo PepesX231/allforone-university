@@ -8,6 +8,8 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'dist', 'index.html')
 read = lambda p: open(os.path.join(ROOT, p), encoding='utf-8').read()
 html = read('index.html')
+# Font is embedded in CSS below; omit the source-only preload in the bundle.
+html = re.sub(r'<link rel="preload" href="assets/fonts/[^"]+"[^>]*>\s*', '', html)
 cache = {}
 def data_uri(path):
     if path not in cache:
@@ -16,6 +18,7 @@ def data_uri(path):
     return cache[path]
 def css_inline(path):
     css = read(path)
+    css = re.sub(r"url\(['\"]?\.\./fonts/([^)'\"]+)['\"]?\)", lambda m: 'url(' + data_uri('assets/fonts/' + m.group(1)) + ')', css)
     return re.sub(r'url\(\.\./img/([^)]+)\)', lambda m: 'url(' + data_uri('assets/img/' + m.group(1)) + ')', css)
 html = re.sub(r'<link rel="stylesheet" href="(assets/[^"?]+\.css)(?:\?v=\w+)?">', lambda m: '<style>\n' + css_inline(m.group(1)) + '\n</style>', html)
 html = re.sub(r'<script src="(assets/[^"?]+\.js)(?:\?v=\w+)?" defer></script>', '', html)          # moved to end of body

@@ -142,7 +142,19 @@
     measure();
     addEventListener('load', function () { measure(); upd(); });
     addEventListener('scroll', function () { if (!ticking) { ticking = true; raf(upd); } }, { passive: true });
-    addEventListener('resize', function () { vh = innerHeight; measure(); beats.forEach(function (b) { b._ly.forEach(function (L) { L.last = 1e9; }); }); upd(); }, { passive: true });
+    // Mobile browser chrome can emit several resize events before a paint.
+    // Recalculate the scene once per frame, using the latest viewport size.
+    var resizePending = false;
+    addEventListener('resize', function () {
+      if (resizePending) return;
+      resizePending = true;
+      raf(function () {
+        resizePending = false;
+        vh = innerHeight; measure();
+        beats.forEach(function (b) { b._ly.forEach(function (L) { L.last = 1e9; }); });
+        upd();
+      });
+    }, { passive: true });
     ['touchend', 'pointerup', 'keydown'].forEach(function (ev) {
       addEventListener(ev, function () { vids.forEach(function (v) { var b = v.closest('.beat'); if (b && b._on && v.paused && !v.ended && !still) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); } }); }, { passive: true });
     });
@@ -527,7 +539,7 @@
       }
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  ['tracks', 'perks', 'journey', 'faq'].forEach(function (id) { var s = document.getElementById(id); if (s) spy.observe(s); });
+  ['tracks', 'perks', 'journey', 'workshops', 'faq'].forEach(function (id) { var s = document.getElementById(id); if (s) spy.observe(s); });
 
   /* ---------- 4b. reveal fallback + pause loops off-screen ---------- */
   if (!sda) {
@@ -683,7 +695,7 @@
       return '<i style="--x:' + x + ';--y:' + y + ';--s:' + s + 'px;--dl:' + dl + 's;color:' + c + '"><svg viewBox="0 0 ' + (face ? 48 : 40) + ' ' + (face ? 48 : 40) + '"><use href="#' + (face ? 'starface' : 'star4') + '"/></svg></i>';
     };
     var gets = [
-      ['folder', 'ผลงานจริง 1 ชิ้น', t.output.replace(' 1 ชิ้น', '').replace(' 1 เกม', '')],
+      ['folder', 'ผลงานตามสายที่เลือก', t.output.replace(' 1 ชิ้น', '').replace(' 1 เกม', '')],
       ['pin', 'แข่งจริง 22–25 ต.ค.', 'สร้างผลงานในวันแข่ง'],
       ['present', 'นำเสนอต่อกรรมการ', 'Final Presentation 25 ต.ค.'],
       ['users', 'ทีม 2–3 คน', 'ฝึกทำงานเป็นทีม']
@@ -707,7 +719,7 @@
         '</div>' +
       '</div>' +
       '<div class="dl-rows">' +
-        row('01', 'เหมาะกับใคร', '<ul class="fitbox"><li data-b>' + icon('check') + '<span>' + t.fit + '</span></li><li data-b>' + icon('check') + '<span>ยังไม่มีผลงานก็สมัครได้ เริ่มจากศูนย์พร้อมเมนเทอร์</span></li></ul>') +
+        row('01', 'เหมาะกับใคร', '<ul class="fitbox"><li data-b>' + icon('check') + '<span>' + t.fit + '</span></li><li data-b>' + icon('check') + '<span>พร้อมลงมือสร้าง ทดสอบ และนำเสนอภายในเวลาที่กำหนด</span></li></ul>') +
         row('02', 'ไอเดียตัวอย่าง', '<div class="ideas">' + t.ideas.map(function (x) { return '<div class="idea" data-b>' + orb(x[0]) + '<b>' + x[1] + '</b></div>'; }).join('') + '</div>', 'โจทย์จริงประกาศ 22 ต.ค.') +
         row('03', 'ได้อะไรกลับไป', '<div class="gets">' + gets.map(function (g) { return '<div class="get" data-b>' + orb(g[0]) + '<div><b>' + g[1] + '</b><span>' + g[2] + '</span></div></div>'; }).join('') + '</div>' +
           '<div class="prize" data-b data-prize>' + orb('trophy', '#ffe9a3', '#e39a20') + '<div><b>' + AFO.PRIZE.title + '</b><span>' + AFO.PRIZE.text + '</span><small>' + AFO.PRIZE.note + '</small></div></div>') +
@@ -1039,7 +1051,12 @@
 /* ---------- registration dialog: solo / group (3+), summary, then payment page ---------- */
 (function () {
   var AFO = window.AFO, CFG = AFO.CFG, dlg = document.getElementById('regDlg');
+  // Without a connected receiver, keep the official registration links native.
   if (!dlg) return;
+  if (!CFG.regEndpoint) {
+    if (location.hash === '#apply') document.getElementById('register').scrollIntoView();
+    return;
+  }
   var q = function (s, r) { return (r || dlg).querySelector(s); }, qa = function (s, r) { return [].slice.call((r || dlg).querySelectorAll(s)); };
   var PRICE = CFG.price || 190, mode = 'solo', members = [{}], cur = 0;
   var FIELDS = ['name', 'nick', 'phone', 'code'];
@@ -1051,8 +1068,8 @@
     q('#rgMemTitle').textContent = 'สมาชิก คนที่ ' + (cur + 1); }
   function avatars() {
     var h = members.map(function (m, i) {
-      return '<button type="button" class="rg-av' + (i === cur ? ' on' : '') + (m.name ? ' ok' : '') + '" data-i="' + i + '"><i>' + (i + 1) + '</i>' + (m.name ? '<b>' + m.name.split(' ')[0].slice(0, 6) + '</b>' : '<svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="4" fill="currentColor"/><path d="M4 21c1-4.5 4.4-6.5 8-6.5s7 2 8 6.5" fill="currentColor"/></svg>') + '</button>';
-    }).join('') + (members.length < 6 ? '<button type="button" class="rg-av add" data-add aria-label="เพิ่มสมาชิก">+</button>' : '');
+      return '<button type="button" class="rg-av' + (i === cur ? ' on' : '') + (m.name ? ' ok' : '') + '" data-i="' + i + '"><i>' + (i + 1) + '</i>' + (m.name ? '<b>' + esc(m.name.split(' ')[0].slice(0, 6)) + '</b>' : '<svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="4" fill="currentColor"/><path d="M4 21c1-4.5 4.4-6.5 8-6.5s7 2 8 6.5" fill="currentColor"/></svg>') + '</button>';
+    }).join('') + (members.length < 3 ? '<button type="button" class="rg-av add" data-add aria-label="เพิ่มสมาชิก">+</button>' : '');
     q('#rgAvs').innerHTML = h;
   }
   function setMode(m) {
@@ -1060,11 +1077,11 @@
     q('.rg-seg').classList.toggle('g', m === 'group');
     q('.rg-group').hidden = m !== 'group'; q('.rg-mh').hidden = m !== 'group'; q('.rg-code').hidden = m === 'group';
     save();
-    if (m === 'group') { while (members.length < 3) members.push({}); } else { members = [members[0]]; cur = 0; }
+    if (m === 'group') { while (members.length < 2) members.push({}); } else { members = [members[0]]; cur = 0; }
     load(); avatars(); q('#rgNext').firstChild.nodeValue = m === 'group' ? 'สรุปรายชื่อ ' : 'สมัครเข้าร่วม ';
     q('#rgErr').textContent = '';
   }
-  function valid(m) { return m.name && m.name.length > 1 && /^0\d{8,9}$/.test((m.phone || '').replace(/\D/g, '')); }
+  function valid(m) { return m.name && m.name.length > 1 && /^0\d{9}$/.test((m.phone || '').replace(/\D/g, '')); }
   function problem() {
     for (var i = 0; i < members.length; i++) if (!valid(members[i])) return i;
     return -1;
@@ -1076,7 +1093,7 @@
     load(); avatars(); q('[name=name]').focus();
   });
   q('#rgClear').addEventListener('click', function () {
-    if (members.length > 3) { members.splice(cur, 1); cur = Math.min(cur, members.length - 1); } else members[cur] = {};
+    if (members.length > 2) { members.splice(cur, 1); cur = Math.min(cur, members.length - 1); } else members[cur] = {};
     load(); avatars();
   });
   q('[name=phone]').addEventListener('input', function (e) {
@@ -1091,7 +1108,7 @@
       return '<li><i>' + (i + 1) + '</i><div><b>' + esc(m.name) + (m.nick ? ' <small>(' + esc(m.nick) + ')</small>' : '') + '</b><span>' + esc(m.phone) + '</span></div></li>';
     }).join('');
     q('#rgTotal').textContent = (PRICE * members.length).toLocaleString('th-TH') + ' บาท';
-    q('#rgNote').textContent = mode === 'solo' ? 'สมัครคนเดียวได้ ทีมงานจะช่วยจับคู่ทีม 2–3 คนให้' : 'ทุกคนในกลุ่มจะอยู่ทีมเดียวกัน (ทีมละ 2–3 คน ถ้าเกินจะแบ่งให้)';
+    q('#rgNote').textContent = mode === 'solo' ? 'สมัครคนเดียวได้ โปรดตรวจขั้นตอนรวมทีมกับผู้จัดก่อนชำระเงิน' : 'สมาชิกทีม 2–3 คน โปรดตรวจเงื่อนไขทีมที่หน้าสมัครทางการ';
   }
   function esc(s) { return String(s || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   q('#rgForm').addEventListener('submit', function (e) {

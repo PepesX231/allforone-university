@@ -36,5 +36,12 @@ build.py              รวมทุกไฟล์เป็น HTML ไฟล�
 
 ## ควรทำก่อนใช้จริง
 - ดาวน์โหลดโปสเตอร์มาไว้ `assets/img/posters/` แล้วแก้ลิงก์ในส่วน POSTERS (ตอนนี้ดึงจาก media.mediaquest.uk ถ้าโหลดไม่ได้ ส่วนนี้จะซ่อนตัวเอง)
-- ข้อความ "เหมาะกับ", คำขวัญของสาย Software และคำอธิบายบทบาท EDUverse ("พาร์ทเนอร์ร่วมจัดโครงการ") ผู้พัฒนาเขียนเพิ่มเอง ควรให้ทีมตรวจก่อน
+- ตรวจยืนยันราคา 190 บาท ขนาดทีม คุณสมบัติ วันปิดรับ เงื่อนไขชำระ/คืนเงิน และลิงก์สมัครกับผู้จัดก่อนเผยแพร่ ข้อมูลส่วนนี้คงจาก repository เดิม
+- ตารางอบรมเป็นกำหนดการเบื้องต้น ไม่แสดงชื่อวิทยากรจนกว่าจะยืนยัน ห้ามเพิ่มรางวัลหรือผลการรับเข้ามหาวิทยาลัยเป็นคำรับประกัน
 - ดีไซน์อิงเว็บหลัก hamsterhub.co: ฟอนต์ Noto Sans Thai, สลับ section มืด #0a0a0f / สว่าง #f6f6f4, ปุ่ม navy + ส้ม #ff6000
+
+## Registration behavior
+When `CFG.regEndpoint` is empty (the current configuration), all registration CTAs remain native links to the official Hamster Hub registration page. The site does not collect applicant data or claim that an application/payment has succeeded. `#apply` scrolls to the registration explanation. Configure and validate the backend separately before enabling the optional local form.
+
+## Content and validation
+See [CHANGELOG.md](CHANGELOG.md) for the implemented changes, source boundaries, and validation results.
