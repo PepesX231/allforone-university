@@ -2090,3 +2090,8 @@ img,video,canvas,svg{-webkit-user-drag:none}
 .rules-page :focus-visible,.rules-section :focus-visible{outline:3px solid #215dab;outline-offset:4px}
 @media(max-width:800px){.rules-toc{border-bottom-color:#111b3526}}
 @media print{.rules-page{background:#fff}.rules-download{display:none}.rules-page-intro h1{color:#111}}
+
+/* Compact track heading after removing the three decorative mascots. */
+#tracks .peek{height:auto!important;min-height:0;justify-content:center;padding:16px 0 12px}
+#tracks .pk-title{line-height:1.05}
+@media(min-width:720px){#tracks .trio-wrap{max-width:min(1080px,max(420px,calc((100svh - var(--hdr) - 150px - 250px) * 2.6)))!important}}
