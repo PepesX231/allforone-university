@@ -266,7 +266,7 @@
         this.lights(sc, 0x7fb4ff);
         var parts = [], G = new THREE.Group();
         [0, 1, 2].forEach(function (k) {
-          var m = BUILD[k](), wrap = new THREE.Group(), R = fitGroup(m.g), s = (k === 1 ? 1.65 : 1.45) / R;
+          var m = BUILD[k](), wrap = new THREE.Group(), R = fitGroup(m.g), s = (k === 1 ? 1.85 : 1.62) / R;
           wrap.add(m.g); wrap.scale.setScalar(s);
           wrap.position.set((k - 1) * 3.55, k === 1 ? .3 : 0, k === 1 ? -.5 : 0);
           G.add(wrap); m.wrap = wrap; m.s = s; m.k = s; m.base = [.35, -.1, -.45][k]; parts.push(m);

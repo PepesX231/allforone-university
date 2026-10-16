@@ -2578,10 +2578,10 @@ img,video,canvas,svg{-webkit-user-drag:none}
   <div class="wrap">
     <div class="value-heading"><div><h2 id="valueTitle"><span>4 วัน</span>ได้อะไรบ้าง?</h2></div></div>
     <div class="takeaway-open">
-      <article style="--outcome:#ffb56e"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><h3>ผลงานจาก<br>ฝีมือคุณ</h3><p>สร้าง ทดสอบจริง<br>แล้วแสดงฝีมือต่ออาจารย์</p></article>
-      <article style="--outcome:#a8c8ff"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg><h3>ทำงานเป็นทีม<br>ได้มากขึ้น</h3><p>แบ่งงาน วางแผน<br>และแก้ปัญหาไปด้วยกัน</p></article>
-      <article style="--outcome:#8ce3c0"><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg><h3>เรียนรู้แล้ว<br>ได้ลองใช้</h3><p>อบรมเสริม 6 หัวข้อ<br>นำมาใช้กับงานระหว่างแข่ง</p></article>
-      <article style="--outcome:#dac0ff"><svg class="ic" aria-hidden="true"><use href="#i-present"/></svg><h3>มั่นใจขึ้น<br>เมื่อนำเสนอ</h3><p>ฝึกเล่าแนวคิดและวิธีทำ<br>ให้กรรมการเข้าใจ</p></article>
+      <article style="--outcome:#ffb56e"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><h3>ผลงานจริง</h3><p>สร้าง ทดสอบจริง<br>แล้วแสดงฝีมือต่ออาจารย์</p></article>
+      <article style="--outcome:#a8c8ff"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg><h3>ทำงานเป็นทีม</h3><p>แบ่งงาน วางแผน<br>และแก้ปัญหาไปด้วยกัน</p></article>
+      <article style="--outcome:#8ce3c0"><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg><h3>เสริมทักษะ</h3><p>อบรมเสริม 6 หัวข้อ<br>นำมาใช้กับงานระหว่างแข่ง</p></article>
+      <article style="--outcome:#dac0ff"><svg class="ic" aria-hidden="true"><use href="#i-present"/></svg><h3>กล้านำเสนอ</h3><p>ฝึกเล่าแนวคิดและวิธีทำ<br>ให้กรรมการเข้าใจ</p></article>
     </div>
   </div>
 </section>
@@ -4266,7 +4266,7 @@ window.AFO = {
         this.lights(sc, 0x7fb4ff);
         var parts = [], G = new THREE.Group();
         [0, 1, 2].forEach(function (k) {
-          var m = BUILD[k](), wrap = new THREE.Group(), R = fitGroup(m.g), s = (k === 1 ? 1.65 : 1.45) / R;
+          var m = BUILD[k](), wrap = new THREE.Group(), R = fitGroup(m.g), s = (k === 1 ? 1.85 : 1.62) / R;
           wrap.add(m.g); wrap.scale.setScalar(s);
           wrap.position.set((k - 1) * 3.55, k === 1 ? .3 : 0, k === 1 ? -.5 : 0);
           G.add(wrap); m.wrap = wrap; m.s = s; m.k = s; m.base = [.35, -.1, -.45][k]; parts.push(m);
