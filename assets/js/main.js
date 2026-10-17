@@ -362,6 +362,12 @@
       if (a.getAttribute('href') !== '#top') { done = true; if (!cut.hidden) { cut.hidden = true; lock(false); vids.forEach(function (v) { v.pause(); }); } }
     }, true);
     addEventListener('load', function () { setTimeout(function () { warm(1); }, 1200); });
+    // Rotate a phone without retaining the wrong portrait/landscape clip.
+    addEventListener('resize', function () {
+      if (!cut.hidden && o !== orient()) {
+        o = orient(); warm(N); show(idx, true);
+      }
+    }, { passive: true });
     addEventListener('pageshow', function () { if (!cut.hidden || root.classList.contains('cut-lock')) { cut.hidden = true; lock(false); busy = false; leaving = false; } var f = document.getElementById('iris'); if (f) f.classList.remove('in', 'out'); });
     document.addEventListener('visibilitychange', function () { if (!document.hidden && !cut.hidden && busy) { var v = vids[idx]; var pr = v.play(); if (pr && pr.catch) pr.catch(function () { reveal(idx, true); ready(); }); } });
   })();
@@ -1186,4 +1192,15 @@
   }, { rootMargin: '15% 0px' });
   els.forEach(function (el) { io.observe(el); });
   document.addEventListener('visibilitychange', function () { document.documentElement.classList.toggle('paused', document.hidden); });
+})();
+
+/* Native mobile menu: all destinations remain available without clipped chips. */
+(function () {
+  var menu = document.getElementById('mobileMenu'); if (!menu) return;
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) menu.open = false; });
+  document.addEventListener('click', function (e) { if (!menu.contains(e.target)) menu.open = false; });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); }
+  });
+  addEventListener('resize', function () { if (innerWidth >= 900) menu.open = false; }, { passive: true });
 })();

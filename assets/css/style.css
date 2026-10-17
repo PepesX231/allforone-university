@@ -2138,3 +2138,89 @@ img,video,canvas,svg{-webkit-user-drag:none}
 .bt-sky>.poster-bg{position:absolute;inset:0 0 auto;height:var(--S);z-index:1;pointer-events:none;background:#205de6 url(../img/scene/poster-wide.svg) center/cover no-repeat}
 .bt-sky>.sakura{display:none}
 @media(max-aspect-ratio:1/1){.bt-sky>.poster-bg{background-image:url(../img/scene/poster-portrait.svg)}}
+
+/* Mobile layout repair: content determines height instead of overlapping beats. */
+.mobile-menu{display:none}
+@media(max-width:899px){
+  .hdr .main-row,.hdr.scrolled .main-row{opacity:1;pointer-events:auto}
+  .hdr .snav{display:none}
+  .hdr .hdr-row{gap:10px}
+  .hdr .hdr-cta .btn{min-height:44px;padding-inline:16px}
+  .mobile-menu{display:block;flex:none}
+  .mobile-menu summary{display:flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:8px 10px;font-size:14px;font-weight:650;border:1px solid #ffffff30;border-radius:24px;cursor:pointer;list-style:none}
+  .mobile-menu summary::-webkit-details-marker{display:none}
+  .mobile-menu summary>.ic{width:18px;height:18px}
+  .mobile-menu nav{position:absolute;top:calc(100% + 8px);right:0;width:min(320px,calc(100vw - 32px));padding:8px;background:#11131d;border:1px solid #ffffff26;border-radius:16px;box-shadow:0 12px 30px #0008;max-height:calc(100dvh - 80px);overflow-y:auto}
+  .mobile-menu nav a{display:block;min-height:46px;padding:11px 14px;line-height:1.6;border-radius:8px;font-size:15px}
+  .mobile-menu nav a[aria-current="true"]{background:#ffffff12;color:#ffcb88}
+  .bt-sky{height:auto!important}
+  .bt-sky .st0,.bt-sky .st1{position:relative;inset:auto;top:auto!important;width:100%;height:auto;min-height:0}
+  .bt-sky .st0{min-height:var(--S);padding:20px 16px 24px!important;gap:14px!important}
+  .bt-sky .st1{min-height:var(--intro-tail);padding:48px 16px 60px}
+  .bt-sky>.poster-bg{height:calc(100% - var(--intro-tail))}
+  .st0 .hero-logo{width:min(62vw,240px)!important}
+  .st0 .hx-credit.w{white-space:normal;max-width:100%;font-size:10px;line-height:1.7;margin-top:10px!important}
+  .st0 .hero-facts.w{margin-top:12px;max-width:480px}
+  .st0 .hx-cta.w{margin-block:4px 8px}
+  .st0 .hx-more{display:inline-flex;min-height:44px;align-items:center}
+  .bt-sky .st1 .st-big{max-width:100%;font-size:clamp(36px,7.5vw,66px)!important;line-height:1.3}
+  .bt-sky .st1 .st-s{max-width:100%;line-height:1.7}
+  #tracks{min-height:0!important;padding-top:64px!important;padding-bottom:56px!important}
+  #tracks .tr-final{margin-top:32px!important}
+  .bbar .logo{width:70px!important}.bbar{gap:10px}.bbar .btn{min-height:44px;padding-inline:20px}
+  .sheet-panel{max-height:calc(100dvh - env(safe-area-inset-top) - 8px)}
+  .sheet-top .tab,.sheet-top .x-btn{min-height:44px}
+  .sheet-foot{flex-wrap:wrap}.sheet-foot .btn{min-height:46px;white-space:normal;line-height:1.5}
+  .cut-sc .st{padding:68px 16px 104px;gap:12px;justify-content:flex-start}
+  .cut-sc .st-big{font-size:clamp(30px,8.5vw,54px)!important;line-height:1.25!important}
+  .cut-sc .st-s{max-width:100%;font-size:14px!important;line-height:1.65;white-space:normal}
+  .cut-skip{min-height:44px;top:10px;right:12px}
+  .cut-next{max-width:calc(100% - 32px);min-height:44px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.5;white-space:nowrap}
+}
+@media(max-width:719px){
+  #tracks .trio-wrap{--ry:calc(100vw / 1.9 - 20px);--pb:84px}
+  .trio-hit button{min-width:0}.trio-hit b{font-size:clamp(15px,4.4vw,23px)!important}.trio-hit small{font-size:11px!important}
+  #journey{min-height:0;padding-block:64px}
+  #journey .road{height:auto;max-width:480px;margin:32px auto 0}
+  #journey .rp,#journey .tl-walker{display:none}
+  #journey .stops{display:grid;gap:30px}
+  #journey .stop{position:relative;left:auto;top:auto;width:auto;height:auto;display:grid;grid-template-columns:76px minmax(0,1fr);gap:20px;align-items:center;--w:76px}
+  #journey .isle{position:relative;left:auto;top:auto;width:76px;height:100px}
+  #journey .lab{position:static;left:auto;right:auto;top:auto;width:auto;text-align:left;min-width:0}
+  #journey .lab b{font-size:18px;line-height:1.5}.lab span.t{line-height:1.7}
+  #perks{min-height:0;padding-block:64px}
+  #perks .takeaway-open{grid-template-columns:1fr;max-width:480px;gap:28px;text-align:left}
+  #perks .takeaway-open article{display:grid;grid-template-columns:36px minmax(0,1fr);column-gap:18px;align-items:start}
+  #perks .takeaway-open article>.ic{grid-column:1;grid-row:1 / span 2;margin:3px 0 0}
+  #perks .takeaway-open h3{grid-column:2;font-size:22px;line-height:1.5}
+  #perks .takeaway-open p{grid-column:2;margin-top:6px;font-size:15px;line-height:1.8}
+  #perks .takeaway-open br{display:none}
+  #register{min-height:0;padding-block:64px}
+  #register .cd{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;width:100%;max-width:360px;margin:12px auto 0}
+  #register .cd>div{min-width:0;max-width:none;padding:12px 3px}
+  #register .cd b{font-size:clamp(28px,8vw,38px)}#register .cd span{font-size:12px}
+  #register .register>p{line-height:1.85}
+  .faq summary{min-height:56px;font-size:16px;line-height:1.7;gap:16px}
+  .schedule-section{min-height:0;padding-block:64px}
+  .schedule-section .sched-list li{grid-template-columns:64px minmax(0,1fr);gap:6px 12px;padding:16px 10px}
+  .ftr{padding-bottom:calc(32px + env(safe-area-inset-bottom))}
+}
+@media(max-height:550px) and (max-width:899px){
+  .st0 .hero-logo{width:160px!important}
+  .cut-sc .st{padding:58px 24px 84px;gap:8px}
+  .cut-sc .st-big{font-size:clamp(26px,8svh,38px)!important}
+  .cut-sc .st-s{font-size:12px!important}
+}
+
+/* Keep the skip link completely offscreen until keyboard focus. */
+.skip{top:0;transform:translateY(-150%)}
+.skip:focus{top:12px;transform:none}
+
+@media(max-width:600px){
+  .st0 .hero-fact .fact-value,.st0 .hero-fact .audience-line{font-size:17px;line-height:1.55}
+  .st0 .hero-fact p{font-size:13px;line-height:1.8}
+  .st0 .hero-fact .fact-label{font-size:12px}
+  .st0 .hero-facts.w{gap:18px;padding:18px 16px}
+  .contacts a{min-height:44px;display:inline-flex;align-items:center}
+  .rules-toc a{font-size:14px;line-height:1.8}
+}
