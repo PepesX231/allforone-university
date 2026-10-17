@@ -443,6 +443,9 @@
   function tick() {
     var now = new Date(), p = now < OPEN ? 'pre' : (now <= CLOSE ? 'open' : 'closed');
     if (p !== lastPhase) { applyPhase(p); lastPhase = p; }
+    var mobileLeft = p === 'closed' ? 'ปิดรับสมัครแล้ว' : (p === 'pre' ? 'เปิดรับสมัครใน ' : 'เหลือ ') + Math.max(0, Math.floor(((p === 'pre' ? OPEN : CLOSE) - now) / 86400000)) + ' วัน';
+    if (p === 'open' && CLOSE - now < 86400000) mobileLeft = 'เหลือไม่ถึง 1 วัน';
+    $$('[data-mobile-remaining]').forEach(function (el) { if (el.textContent !== mobileLeft) el.textContent = mobileLeft; });
     if (p === 'closed') return;
     var s = Math.max(0, Math.floor(((p === 'pre' ? OPEN : CLOSE) - now) / 1000));
     var v = [Math.floor(s / 86400), pad(Math.floor(s % 86400 / 3600)), pad(Math.floor(s % 3600 / 60)), pad(s % 60)];
@@ -482,6 +485,7 @@
     io.observe(road);
     var path, prog, L = 0, SL = 0, W = 0, H = 0, pts = [], active = false, ticking = false, last = -1, idle, hdrH = 60;
     function measure() {
+      if (innerWidth <= 760) { pts = []; prog = null; last = -1; return; }
       var vis = $$('.rp', road).filter(function (sv) { return sv.getBoundingClientRect().width > 0; })[0]; if (!vis) return;
       path = $('.base', vis); prog = $('.prog', vis);
       W = road.offsetWidth; H = road.offsetHeight; L = path.getTotalLength();
@@ -506,15 +510,16 @@
       var p = reduced ? .84 : clamp((vh - r.top) / Math.max(1, vh - hdrH), 0, 1) * .84;
       p = Math.round(p * 400) / 400; if (p === last) return;
       var moved = last >= 0; last = p;
-      prog.style.strokeDashoffset = ((1 - p) * (SL + 2)).toFixed(1);
+      if (prog) prog.style.strokeDashoffset = ((1 - p) * (SL + 2)).toFixed(1);
       var xy = at(p), ww = walker.offsetWidth, wh = walker.offsetHeight;
       walker.style.transform = 'translate3d(' + (xy[0] - ww / 2).toFixed(1) + 'px,' + (xy[1] - wh * .92).toFixed(1) + 'px,0)';
       if (moved) { walker.classList.add('go'); clearTimeout(idle); idle = setTimeout(function () { walker.classList.remove('go'); }, 160); }
     }
-    new IntersectionObserver(function (es) { active = es[0].isIntersecting; if (active) { if (!pts.length) measure(); upd(); } }).observe(sec);
+    new IntersectionObserver(function (es) { active = es[0].isIntersecting; if (active) { measure(); upd(); } }).observe(sec);
     addEventListener('scroll', function () { if (active && !ticking) { ticking = true; raf(upd); } }, { passive: true });
     addEventListener('resize', function () { measure(); upd(); }, { passive: true });
     walker.addEventListener('load', function () { last = -1; upd(); });
+    if (window.ResizeObserver) new ResizeObserver(function () { measure(); upd(); }).observe(road);
     measure();
   })();
 
