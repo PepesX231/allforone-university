@@ -2122,3 +2122,8 @@ img,video,canvas,svg{-webkit-user-drag:none}
 
 /* A little breathing room between the opening and the tracks heading. */
 #tracks{padding-top:clamp(88px,12svh,136px)!important}
+
+/* Crop only the transparent top/bottom padding of the supplied IT mark. */
+.st0 .orgs .lg-it{width:40px;height:32px;object-fit:cover;object-position:center;transform:translateY(-1px)}
+.ftr .orgs .lg-it{width:34px;height:27px;object-fit:cover;object-position:center;flex-shrink:0;transform:translateY(-1px)}
+@media(max-width:600px){.st0 .orgs .lg-it,.ftr .orgs .lg-it{width:28px;height:22px}.ftr .orgs{gap:8px}.ftr .orgs .lg-edu{height:14px}.ftr .orgs .lg-iote{height:20px}.ftr .org-hh img{width:26px;height:26px}}
