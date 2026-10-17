@@ -2359,3 +2359,20 @@ img,video,canvas,svg{-webkit-user-drag:none}
 @media(min-width:900px){.invite-card{gap:16px 32px;padding:18px 28px 24px;background:linear-gradient(125deg,#12459c,#132f66 40%,#101e3d)}.invite-header{padding-bottom:8px}.invite-mascots{height:76px;width:100px}.invite-card textarea{min-height:232px}}
 @media(max-width:700px){#perks .takeaway-open h3{font-size:20px;line-height:1.65}#perks .takeaway-open p{font-size:14px;line-height:1.9;margin-top:12px}#perks .reward-art{width:36px;height:36px;margin-bottom:18px}.invite-card .invite-header h3{font-size:25px}.invite-mascots{width:86px;height:76px}.invite-header{padding-bottom:10px}}
 @media(max-width:360px){.invite-card .invite-header h3{font-size:23px}.invite-mascots{width:68px;height:66px}}
+/* One locally bundled typeface and consistent heading treatment. */
+#tracks .pk-title,#perks #valueTitle,.invite-card .invite-header h3{font-family:"AFO Thai",sans-serif!important;font-weight:900!important;font-style:normal;letter-spacing:-.025em;-webkit-text-stroke:0;paint-order:normal;text-shadow:0 3px 0 #050d24!important}
+#tracks .pk-title{font-size:clamp(44px,5.5vw,76px)!important;line-height:1.3}
+#tracks .pk-title span{font-family:inherit;font-weight:inherit}
+#perks #valueTitle{font-size:clamp(32px,4vw,52px);line-height:1.5}
+.invite-card .invite-header h3{font-size:30px;line-height:1.5}
+#tracks .pk-sub,#perks .value-heading p{font-family:"AFO Thai",sans-serif;font-weight:500;font-size:18px;line-height:1.85;color:#c1cee3}
+#perks .takeaway-open h3{font-family:"AFO Thai",sans-serif;font-weight:800;text-shadow:none;letter-spacing:-.015em}
+.reward-emoji{display:block;width:156px;height:156px;margin:0 auto 22px;background-image:url(../img/cast/benefit-emoji55.webp);background-repeat:no-repeat;background-size:200% 200%;background-position:0 0}
+.takeaway-open article:nth-child(2) .reward-emoji{background-position:100% 0}
+.takeaway-open article:nth-child(3) .reward-emoji{background-position:0 100%}
+.takeaway-open article:nth-child(4) .reward-emoji{background-position:100% 100%}
+#perks .takeaway-open{gap:32px 24px}
+@media(max-width:700px){#tracks .pk-title{font-size:clamp(40px,10.7vw,64px)!important}#perks #valueTitle{font-size:30px}.invite-card .invite-header h3{font-size:25px}#tracks .pk-sub,#perks .value-heading p{font-size:15px;line-height:1.85}.reward-emoji{width:120px;height:120px;margin-bottom:16px}#perks .takeaway-open{gap:36px 18px}}
+@media(max-width:360px){.reward-emoji{width:104px;height:104px}.invite-card .invite-header h3{font-size:23px}}
+/* Keep neighbouring stickers outside each sprite's visible area. */
+.takeaway-open article:nth-child(1) .reward-emoji,.takeaway-open article:nth-child(3) .reward-emoji{clip-path:inset(0 7% 0 0)}
