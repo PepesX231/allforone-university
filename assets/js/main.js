@@ -696,7 +696,7 @@
     var t = TRACKS[i], el = document.createElement('template');
     var esc = function (s) { return s.replace(/&/g, '&amp;'); };
     var orbs = [['#8ff0c2', '#12a36b'], ['#ffb27a', '#e2601a'], ['#9fc8ff', '#2d6ce0']][i];
-    var orb = function (ic, a, b) { return '<span class="orb" style="--a:' + (a || orbs[0]) + ';--b:' + (b || orbs[1]) + '">' + icon(ic) + '</span>'; };
+    var orb = function (ic, a, b, ideaIndex) { var sticker = {folder:0,pin:1,present:2,users:3,trophy:4}[ic]; if (sticker === undefined) sticker = 5; return '<span class="orb" style="--a:' + (a || orbs[0]) + ';--b:' + (b || orbs[1]) + '">' + icon(ic) + '<span class="detail-sticker sticker-' + sticker + (ideaIndex !== undefined ? ' idea-sticker idea-sticker-' + ideaIndex : '') + '" aria-hidden="true"></span></span>'; };
     var star = function (x, y, s, c, face, dl) {
       return '<i style="--x:' + x + ';--y:' + y + ';--s:' + s + 'px;--dl:' + dl + 's;color:' + c + '"><svg viewBox="0 0 ' + (face ? 48 : 40) + ' ' + (face ? 48 : 40) + '"><use href="#' + (face ? 'starface' : 'star4') + '"/></svg></i>';
     };
@@ -716,7 +716,7 @@
         '<div class="dl-top" data-pop><span>' + t.th + '</span></div>' +
         '<div class="dl-grid">' +
           '<div class="dl-copy">' +
-            '<h2 id="shTitle" class="dl-title" data-pop>' + SHORT[i] + '<i>.</i></h2>' +
+            '<h2 id="shTitle" class="dl-title" data-pop><span class="desktop-copy">' + SHORT[i] + '<i>.</i></span><span class="mobile-copy">' + ['Game', 'Software (Web/App)', 'IoT &amp; Innovation'][i] + '</span></h2>' +
             '<p class="dl-name" data-pop>' + esc(t.name) + '</p>' +
             '<p class="sh-desc" data-pop>' + t.desc + '</p>' +
             '<span class="dl-out" data-pop>' + icon('folder') + 'ผลลัพธ์: ' + t.output + '</span>' +
@@ -726,7 +726,7 @@
       '</div>' +
       '<div class="dl-rows">' +
         row('01', 'เหมาะกับใคร', '<ul class="fitbox"><li data-b>' + icon('check') + '<span>' + t.fit + '</span></li><li data-b>' + icon('check') + '<span>พร้อมลงมือสร้าง ทดสอบ และนำเสนอภายในเวลาที่กำหนด</span></li></ul>') +
-        row('02', 'ไอเดียตัวอย่าง', '<div class="ideas">' + t.ideas.map(function (x) { return '<div class="idea" data-b>' + orb(x[0]) + '<b>' + x[1] + '</b></div>'; }).join('') + '</div>', 'โจทย์จริงประกาศ 22 ต.ค.') +
+        row('02', 'ไอเดียตัวอย่าง', '<div class="ideas">' + t.ideas.map(function (x, k) { return '<div class="idea" data-b>' + orb(x[0], null, null, i * 3 + k) + '<b>' + x[1] + '</b></div>'; }).join('') + '</div>', 'โจทย์จริงประกาศ 22 ต.ค.') +
         row('03', 'ได้อะไรกลับไป', '<div class="gets">' + gets.map(function (g) { return '<div class="get" data-b>' + orb(g[0]) + '<div><b>' + g[1] + '</b><span>' + g[2] + '</span></div></div>'; }).join('') + '</div>' +
           '<div class="prize" data-b data-prize>' + orb('trophy', '#ffe9a3', '#e39a20') + '<div><b>' + AFO.PRIZE.title + '</b><span>' + AFO.PRIZE.text + '</span><small>' + AFO.PRIZE.note + '</small></div></div>') +
         row('04', 'เส้นทางของสายนี้', '<ol class="steps">' + AFO.ROUTE.map(function (r, k) { return '<li class="step" data-b><i>' + (k + 1) + '</i><b>' + r.d + '</b><span>' + r.t + '</span></li>'; }).join('') + '</ol>') +
