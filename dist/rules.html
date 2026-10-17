@@ -3102,6 +3102,8 @@ img,video,canvas,svg{-webkit-user-drag:none}
 /* A quieter paper edge: shallow angle, narrow shadow and a single color inlay. */
 @media(max-width:760px){.mobile-section-seam{height:68px;margin-block:-2px;background:var(--seam-from)}.mobile-section-seam .seam-graphic{top:0;height:calc(100% + 2px);overflow:hidden}}
 @media(max-width:360px){.mobile-section-seam{height:60px}}
+/* Keep the short idea outcome caption on one line inside the two-column mobile grid. */
+@media(max-width:760px){#perks .takeaway-open>article:nth-child(3)>p{max-width:none;white-space:nowrap;font-size:clamp(10px,3.05vw,16px);letter-spacing:-.02em}#perks .takeaway-open>article:nth-child(3)>p .mobile-copy{white-space:nowrap}}
 
 </style></head>
 <body class="rules-page"><a class="skip" href="#rules-main">ข้ามไปเนื้อหา</a>
