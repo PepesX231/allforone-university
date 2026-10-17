@@ -27,6 +27,20 @@ scripts = re.findall(r'assets/js/[\w.-]+\.js', read(source))
 body_js = ''.join('<script>\n' + read(s) + '\n</script>\n' for s in scripts)
 html = html.replace('</body>', body_js + '</body>')
 html = re.sub(r'(src|href)="(assets/img/[^"'"'"'+]+)"', lambda m: '%s="%s"' % (m.group(1), data_uri(m.group(2))) if os.path.exists(os.path.join(ROOT, m.group(2))) else m.group(0), html)
+# Responsive source candidates must be embedded too; otherwise picture/source
+# and img/srcset choose missing dist/assets paths on phones and larger screens.
+def embed_srcset(match):
+    candidates = []
+    for candidate in match.group(1).split(','):
+        parts = candidate.strip().split(None, 1)
+        if not parts:
+            continue
+        path = parts[0]
+        if path.startswith('assets/img/') and os.path.isfile(os.path.join(ROOT, path)):
+            path = data_uri(path)
+        candidates.append(path + (' ' + parts[1] if len(parts) > 1 else ''))
+    return 'srcset="' + ', '.join(candidates) + '"'
+html = re.sub(r'srcset="([^"]+)"', embed_srcset, html)
 os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
 open(out, 'w', encoding='utf-8').write(html)
 print('built', out, round(len(html.encode()) / 1024), 'KB')
