@@ -293,14 +293,14 @@
         if (!toTracks) scrollTo({ top: lockY, behavior: 'instant' });
       };
       if (!toTracks || reduced) { if (toTracks) { done = true; jump(); } finish(); return; }
-      // leaving for 3 TRACKS: the film slowly fades to black, the page lands on 3 TRACKS, then it fades in
+      // leaving for TIMELINE: the film slowly fades to black, the page lands on TIMELINE, then it fades in
       leaving = true; done = true;
       var fade = document.getElementById('iris');
       fade.classList.add('in');
       setTimeout(function () { jump(); finish(); requestAnimationFrame(function () { fade.classList.add('out'); }); }, 700);
       setTimeout(function () { fade.classList.remove('in', 'out'); leaving = false; }, 1700);
     }
-    function jump() { var t = document.getElementById('tracks'); if (t) scrollTo({ top: t.getBoundingClientRect().top + scrollY - (($('.hdr') || {}).offsetHeight || 60), behavior: 'instant' }); }
+    function jump() { var t = document.getElementById('journey'); if (t) scrollTo({ top: t.getBoundingClientRect().top + scrollY - (($('.hdr') || {}).offsetHeight || 60), behavior: 'instant' }); }
     function next() {
       var now = Date.now(); if (now - lastNav < 450) return; lastNav = now;
       if (busy) { var v = vids[idx]; try { v.currentTime = Math.max(0, (v.duration || 5) - .05); } catch (e) {} setTimeout(function () { if (busy) { reveal(idx, true); ready(); } }, 250); return; }
@@ -568,7 +568,7 @@
     var host = $('#csHost'), model = $('#csModel'), info = $('#cfInfo'), go = $('#cfGo'), big = $('#csBig');
     var thumbs = $$('.cs-thumb', cs), cur = 0, busy = false, swapT;
     var TAB = ['เกม', 'แอป / เว็บ', 'IoT & นวัตกรรม'], BIG = ['GAME DEV', 'SOFTWARE', 'IOT'], IC = ['game', 'app', 'bulb'];
-    var snaps = null;
+    var snaps = [0, 1, 2].map(function (i) { return 'assets/img/tracks/track-' + i + '.webp'; });
 
     function fill(i) {
       var t = TRACKS[i];
@@ -590,6 +590,7 @@
 
     /* step 1: all 3 models together (.trio) — tap one to open its big showcase */
     var trioWrap = $('#trioWrap'), back = $('#csBack'), picks = $$('.trio-hit button');
+    host.classList.add('snap');
     function openCase(i) {
       cur = i; paint(i); fill(i);
       trioWrap.hidden = true; cs.hidden = false;

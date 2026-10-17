@@ -70,7 +70,7 @@
 }
 </script>
 <script src="assets/js/data.js?v=content27" defer></script>
-<script src="assets/js/main.js?v=readable51" defer></script>
+<script src="assets/js/main.js?v=timeline53" defer></script>
 <script src="assets/js/tracks3d.js?v=models25" defer></script>
 </head>
 <body>
@@ -349,7 +349,7 @@
     <div class="st st5 night">
       <span class="w st-s" style="--i:0">ต่อยอดทักษะเป็นผลงานที่อธิบายกระบวนการได้</span>
       <p class="st-big"><span class="w" style="--i:1">นายน่ะ</span><br><span class="w hl" style="--i:2">ก็เป็นได้นะ!</span></p>
-      <a class="w st-go" style="--i:3" href="#tracks">เลือกเส้นทางของนายใน 3 TRACKS <svg class="ic"><use href="#i-arrow"/></svg></a>
+      <a class="w st-go" style="--i:3" href="#journey">ดูไทม์ไลน์การแข่งขัน <svg class="ic"><use href="#i-arrow"/></svg></a>
     </div>
     </div>
     <div class="cut-ui">
@@ -441,9 +441,9 @@
   <div class="trio-wrap" id="trioWrap">
     <div class="trio" aria-hidden="true"></div>
     <div class="trio-hit" role="group" aria-label="เลือกสายการแข่งขัน">
-      <button type="button" data-i="0" style="--c:#2fd08b;--c2:#0e8f5c" aria-label="ดูสาย Game Development"><img alt="" hidden><span class="ph" aria-hidden="true"><svg class="ic"><use href="#i-game"/></svg></span><b>GAME DEV</b><small>เกม</small></button>
-      <button type="button" data-i="1" style="--c:#ff8a3d;--c2:#d9480f" aria-label="ดูสาย Software (Web / App)"><img alt="" hidden><span class="ph" aria-hidden="true"><svg class="ic"><use href="#i-app"/></svg></span><b>SOFTWARE</b><small>แอป / เว็บ</small></button>
-      <button type="button" data-i="2" style="--c:#4d9fff;--c2:#2350c9" aria-label="ดูสาย IoT &amp; Innovation"><img alt="" hidden><span class="ph" aria-hidden="true"><svg class="ic"><use href="#i-bulb"/></svg></span><b>IOT</b><small>IoT &amp; นวัตกรรม</small></button>
+      <button type="button" data-i="0" style="--c:#2fd08b;--c2:#0e8f5c" aria-label="ดูสาย Game Development"><img src="assets/img/tracks/track-0.webp" alt="" width="520" height="520" decoding="async"><span class="ph" aria-hidden="true"><svg class="ic"><use href="#i-game"/></svg></span><b>GAME DEV</b><small>เกม</small></button>
+      <button type="button" data-i="1" style="--c:#ff8a3d;--c2:#d9480f" aria-label="ดูสาย Software (Web / App)"><img src="assets/img/tracks/track-1.webp" alt="" width="520" height="520" decoding="async"><span class="ph" aria-hidden="true"><svg class="ic"><use href="#i-app"/></svg></span><b>SOFTWARE</b><small>แอป / เว็บ</small></button>
+      <button type="button" data-i="2" style="--c:#4d9fff;--c2:#2350c9" aria-label="ดูสาย IoT &amp; Innovation"><img src="assets/img/tracks/track-2.webp" alt="" width="520" height="520" decoding="async"><span class="ph" aria-hidden="true"><svg class="ic"><use href="#i-bulb"/></svg></span><b>IOT</b><small>IoT &amp; นวัตกรรม</small></button>
     </div>
   </div>
   <div class="cs" id="cs" hidden style="--c:#2fd08b;--c2:#0e8f5c">
@@ -457,12 +457,12 @@
       <button class="btn" type="button" data-track="0" id="cfGo" aria-haspopup="dialog">ดูรายละเอียดสายนี้ <svg class="ic"><use href="#i-arrow"/></svg></button>
     </div>
     <button class="cs-model" id="csModel" type="button" aria-label="ดูรายละเอียดสาย Game Development" aria-haspopup="dialog">
-      <span class="cs-host" id="csHost"><img class="cs-snap" alt="" hidden><span class="ph" aria-hidden="true"><svg class="ic"><use href="#i-game"/></svg></span></span>
+      <span class="cs-host" id="csHost"><img class="cs-snap" src="assets/img/tracks/track-0.webp" alt="" width="520" height="520" decoding="async"><span class="ph" aria-hidden="true"><svg class="ic"><use href="#i-game"/></svg></span></span>
       <span class="cs-floor" aria-hidden="true"></span>
     </button>
     <button class="cs-arrow prev" type="button" data-dir="-1" aria-label="สายก่อนหน้า"><svg class="ic"><use href="#i-arrow"/></svg></button>
     <button class="cs-arrow next" type="button" data-dir="1" aria-label="สายถัดไป"><svg class="ic"><use href="#i-arrow"/></svg></button>
-    <div class="cs-thumbs" role="group" aria-label="เลือกสาย"><button class="cs-thumb on" type="button" data-i="0" aria-label="สาย GAME DEV" aria-pressed="true" style="--c:#2fd08b"><img alt="" hidden><span class="ph" style="--c:#2fd08b;--c2:#0e8f5c"><svg class="ic"><use href="#i-game"/></svg></span><b>GAME DEV</b></button><button class="cs-thumb" type="button" data-i="1" aria-label="สาย SOFTWARE" aria-pressed="false" style="--c:#ff8a3d"><img alt="" hidden><span class="ph" style="--c:#ff8a3d;--c2:#d9480f"><svg class="ic"><use href="#i-app"/></svg></span><b>SOFTWARE</b></button><button class="cs-thumb" type="button" data-i="2" aria-label="สาย IOT" aria-pressed="false" style="--c:#4d9fff"><img alt="" hidden><span class="ph" style="--c:#4d9fff;--c2:#2350c9"><svg class="ic"><use href="#i-bulb"/></svg></span><b>IOT</b></button></div>
+    <div class="cs-thumbs" role="group" aria-label="เลือกสาย"><button class="cs-thumb on" type="button" data-i="0" aria-label="สาย GAME DEV" aria-pressed="true" style="--c:#2fd08b"><img src="assets/img/tracks/track-0.webp" alt="" width="520" height="520" decoding="async"><span class="ph" style="--c:#2fd08b;--c2:#0e8f5c"><svg class="ic"><use href="#i-game"/></svg></span><b>GAME DEV</b></button><button class="cs-thumb" type="button" data-i="1" aria-label="สาย SOFTWARE" aria-pressed="false" style="--c:#ff8a3d"><img src="assets/img/tracks/track-1.webp" alt="" width="520" height="520" decoding="async"><span class="ph" style="--c:#ff8a3d;--c2:#d9480f"><svg class="ic"><use href="#i-app"/></svg></span><b>SOFTWARE</b></button><button class="cs-thumb" type="button" data-i="2" aria-label="สาย IOT" aria-pressed="false" style="--c:#4d9fff"><img src="assets/img/tracks/track-2.webp" alt="" width="520" height="520" decoding="async"><span class="ph" style="--c:#4d9fff;--c2:#2350c9"><svg class="ic"><use href="#i-bulb"/></svg></span><b>IOT</b></button></div>
   </div>
 <div class="mobile-tracks"><article class="mobile-track" style="--track-color:#3ddc97" aria-labelledby="mobileTrack0"><div class="mobile-track-art"><img src="assets/img/tracks/track-0.webp" alt="" width="520" height="520" loading="lazy" decoding="async"></div><div class="mobile-track-copy"><span class="mobile-track-number">01 / 03</span><h3 id="mobileTrack0">GAME DEV</h3><p class="mobile-track-name">Game Development</p><p>สร้างเกมและประสบการณ์ที่สนุกสำหรับผู้เล่น</p><p class="mobile-track-output"><b>ผลงานที่ส่ง</b>เกมที่เล่นได้จริง 1 เกม</p><button class="btn" type="button" data-track="0" aria-haspopup="dialog">ดูรายละเอียดสายนี้ <svg class="ic"><use href="#i-arrow"/></svg></button></div></article><article class="mobile-track" style="--track-color:#ff9a4d" aria-labelledby="mobileTrack1"><div class="mobile-track-art"><img src="assets/img/tracks/track-1.webp" alt="" width="520" height="520" loading="lazy" decoding="async"></div><div class="mobile-track-copy"><span class="mobile-track-number">02 / 03</span><h3 id="mobileTrack1">SOFTWARE</h3><p class="mobile-track-name">Software (Web / App)</p><p>พัฒนาแอปหรือเว็บไซต์เพื่อแก้ปัญหาตามโจทย์การแข่งขัน</p><p class="mobile-track-output"><b>ผลงานที่ส่ง</b>แอปหรือเว็บไซต์ที่ใช้งานได้จริง 1 ชิ้น</p><button class="btn" type="button" data-track="1" aria-haspopup="dialog">ดูรายละเอียดสายนี้ <svg class="ic"><use href="#i-arrow"/></svg></button></div></article><article class="mobile-track" style="--track-color:#5fb6ff" aria-labelledby="mobileTrack2"><div class="mobile-track-art"><img src="assets/img/tracks/track-2.webp" alt="" width="520" height="520" loading="lazy" decoding="async"></div><div class="mobile-track-copy"><span class="mobile-track-number">03 / 03</span><h3 id="mobileTrack2">IOT</h3><p class="mobile-track-name">IoT & Innovation</p><p>ออกแบบนวัตกรรมที่เชื่อมต่อไอเดียกับโลกจริง</p><p class="mobile-track-output"><b>ผลงานที่ส่ง</b>แนวคิดและ Proof of Concept ของ IoT หรือนวัตกรรม</p><button class="btn" type="button" data-track="2" aria-haspopup="dialog">ดูรายละเอียดสายนี้ <svg class="ic"><use href="#i-arrow"/></svg></button></div></article></div>
 </section>
