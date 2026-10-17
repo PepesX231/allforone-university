@@ -340,7 +340,7 @@
       var flight = image.animate([
         { transform: transform(box.left, box.top, 1), offset: 0 },
         { transform: transform(W / 2 - box.width * mid * .51, H * .68 - box.height * mid * .78, mid), offset: .48 },
-        { transform: transform(W / 2 - box.width * close * .51, H / 2 - box.height * close * .44, close), offset: 1 }
+        { transform: transform(W / 2 - box.width * close * .51, H / 2 - box.height * close * .60, close), offset: 1 }
       ], { duration: 1300, easing: 'cubic-bezier(.45,0,.2,1)', fill: 'forwards' });
       var shade = veil.animate([{ opacity: 0, offset: 0 }, { opacity: 0, offset: .72 }, { opacity: 1, offset: 1 }], { duration: 1300, fill: 'forwards' });
       function clean() { removeEventListener('keydown', key); removeEventListener('resize', cancel); }
