@@ -2341,6 +2341,26 @@ img,video,canvas,svg{-webkit-user-drag:none}
  #journey .lab .bd{font-size:11px;padding:3px 9px;margin-left:6px}
 }
 @media(max-width:360px){#journey .stop{grid-template-columns:68px minmax(0,1fr);gap:14px;--w:66px}#journey .road::before{left:32px}#journey .lab b{font-size:18px}#journey .lab span.t{font-size:14px}}
+/* Four concrete outcomes, and an invitation in the event's blue/yellow palette. */
+#perks .takeaway-open{align-items:start}
+#perks .reward-art{background:none;padding:0;width:44px;height:44px;margin:0 auto 26px;filter:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+#perks .reward-art use{fill:none;stroke:currentColor;stroke-width:1.7}
+#perks article:nth-child(1) .reward-art{color:#ffb56e}#perks article:nth-child(2) .reward-art{color:#a8c8ff}#perks article:nth-child(3) .reward-art{color:#8ce3c0}#perks article:nth-child(4) .reward-art{color:#dac0ff}
+#perks .takeaway-open h3{font-size:clamp(22px,2.2vw,32px);line-height:1.6}
+#perks .takeaway-open p{font-size:16px;line-height:1.9;margin-top:20px}
+.invite-section::before{background:radial-gradient(ellipse at 50% 45%,#164ecb4a,transparent 75%),radial-gradient(circle,#89bfff20 .8px,transparent 1.2px);background-size:auto,24px 24px}
+.invite-card{isolation:isolate;overflow:hidden;background:linear-gradient(125deg,#12459c 0%,#132f66 40%,#101e3d 100%);border:1px solid #83b8ff7a;border-top:3px solid #ffd23f;box-shadow:0 24px 70px #0007,inset 0 1px 0 #d6edff20}
+.invite-card::before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(125deg,transparent 30%,#83bbff09 30% 44%,transparent 44%),radial-gradient(circle,#c0dbff18 .8px,transparent 1px);background-size:auto,18px 18px;mask-image:linear-gradient(#000,transparent 60%);pointer-events:none}
+.invite-header{display:flex;align-items:center;justify-content:space-between;gap:12px;grid-column:1/-1;border-bottom:1px solid #a9d0ff40;padding-bottom:12px;min-height:64px}
+.invite-card .invite-header h3{padding:0;border:0;margin:0;color:#ffe16b;text-shadow:0 2px 0 #092658;font-size:30px}
+.invite-mascots{width:104px;height:88px;object-fit:contain;flex:none;transform:rotate(4deg);filter:drop-shadow(0 5px 4px #04133166)}
+.invite-card .invite-details>input,.invite-card textarea{background:#071730c9;border-color:#83b7f16b}
+.invite-card .invite-options span{background:#184580;border-color:#8abfff50;color:#deeeff}
+.invite-card .invite-options input:checked+span{background:#ffda43;color:#12294d;border-color:#ffda43;box-shadow:0 3px 0 #c79517}
+.invite-slots>.invite-slot{background:#0b265680;border-color:#96c8ff8c}
+@media(min-width:900px){.invite-card{gap:16px 32px;padding:18px 28px 24px;background:linear-gradient(125deg,#12459c,#132f66 40%,#101e3d)}.invite-header{padding-bottom:8px}.invite-mascots{height:76px;width:100px}.invite-card textarea{min-height:232px}}
+@media(max-width:700px){#perks .takeaway-open h3{font-size:20px;line-height:1.65}#perks .takeaway-open p{font-size:14px;line-height:1.9;margin-top:12px}#perks .reward-art{width:36px;height:36px;margin-bottom:18px}.invite-card .invite-header h3{font-size:25px}.invite-mascots{width:86px;height:76px}.invite-header{padding-bottom:10px}}
+@media(max-width:360px){.invite-card .invite-header h3{font-size:23px}.invite-mascots{width:68px;height:66px}}
 
 </style></head>
 <body class="rules-page"><a class="skip" href="#rules-main">ข้ามไปเนื้อหา</a>
