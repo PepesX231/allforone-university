@@ -10,7 +10,7 @@ window.AFO = {
     price:       190,
     lineUrl:     'https://page.line.me/jkm4247u?openQrModal=true',
     regOpen:     '2026-09-28T00:00:00+07:00',
-    regClose:    '2026-10-20T23:59:59+07:00',
+    regClose:    '2026-10-21T23:59:59+07:00',
     threeUrl:    'https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js'   // 3D models on the track cards
   },
 

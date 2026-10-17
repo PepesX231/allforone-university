@@ -2111,3 +2111,11 @@ img,video,canvas,svg{-webkit-user-drag:none}
 @media(max-width:899px){.hdr .nav-wordmark{width:90px}.hdr .snav{gap:8px}.chips .chip{padding-inline:11px}}
 @media(max-width:600px){#perks{min-height:calc(100svh - var(--hdr));padding-block:56px}#perks .value-heading{margin-bottom:36px}#perks .takeaway-open{gap:36px 16px}#perks .takeaway-open h3{font-size:clamp(20px,5.1vw,25px)}#perks .takeaway-open article>.ic{margin-bottom:16px}#perks .takeaway-open p{margin-top:10px}}
 @media(max-height:550px) and (orientation:landscape){#perks{min-height:0;padding-block:48px}}
+
+/* End the two-screen opening with its content, removing the empty tail. */
+.bt-sky{--intro-tail:max(520px,calc(var(--S) * .75));height:calc(var(--S) + var(--intro-tail))!important;min-height:0}
+.bt-sky .st1{height:var(--intro-tail);min-height:0;justify-content:center;padding-block:28px}
+.st0 .orgs .lg-it{width:34px;height:34px;object-fit:contain;flex-shrink:0}
+.tr-final .pk-final h3{max-width:680px;text-wrap:balance}
+.tr-final .pk-spirit blockquote{max-width:340px}
+@media(max-width:600px){.st0 .orgs{gap:6px;padding:8px;max-width:100%}.st0 .orgs .lg-edu{height:14px}.st0 .orgs .lg-iote{height:20px}.st0 .orgs .lg-it{width:24px;height:24px}.st0 .orgs .sep{height:22px}.tr-final .pk-final h3{line-height:1.45}}
