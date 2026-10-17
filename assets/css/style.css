@@ -2132,3 +2132,9 @@ img,video,canvas,svg{-webkit-user-drag:none}
 .bt-sky>.sky-grad{filter:saturate(1.16) brightness(1.04)}
 .bt-sky>.ly-tw{filter:saturate(1.18) brightness(1.07)}
 .bt-sky .sky-cl .cl{opacity:.30}
+
+/* Poster experiment: only the opening background layers are replaced. */
+.bt-sky{background:#112959}
+.bt-sky>.poster-bg{position:absolute;inset:0 0 auto;height:var(--S);z-index:1;pointer-events:none;background:#205de6 url(../img/scene/poster-wide.svg) center/cover no-repeat}
+.bt-sky>.sakura{display:none}
+@media(max-aspect-ratio:1/1){.bt-sky>.poster-bg{background-image:url(../img/scene/poster-portrait.svg)}}
