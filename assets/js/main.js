@@ -325,7 +325,15 @@
     function skyEnd() { var r = sky.getBoundingClientRect(); return r.bottom + scrollY; }
     function atSkyEnd() { return !done && cut.hidden && scrollY + innerHeight >= skyEnd() - 6; }
     // entering: scroll / swipe / key past the last sky screen, or tap the button
-    $$('.cut-go').forEach(function (b) { b.addEventListener('click', function () { done = false; start(0); }); });
+    var entering = false;
+    $$('.cut-go').forEach(function (b) { b.addEventListener('click', function () {
+      if (entering || leaving || !cut.hidden) return;
+      done = false;
+      if (b.classList.contains('campus-entry') && !reduced) {
+        entering = true; b.classList.add('is-entering');
+        setTimeout(function () { start(0); b.classList.remove('is-entering'); entering = false; }, 320);
+      } else start(0);
+    }); });
     var wio = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { wio.disconnect(); o = orient(); warm(N); } }, { rootMargin: '60% 0px' });
     $$('.cut-go').forEach(function (b) { wio.observe(b); });
     var wLast = 0;                                   // one wheel/trackpad gesture (incl. its inertia) = one step

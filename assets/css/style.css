@@ -2224,3 +2224,22 @@ img,video,canvas,svg{-webkit-user-drag:none}
   .contacts a{min-height:44px;display:inline-flex;align-items:center}
   .rules-toc a{font-size:14px;line-height:1.8}
 }
+
+/* Replace the separate intro screen with a campus entrance on the hero. */
+.bt-sky{height:auto!important}
+.bt-sky .st0{position:relative;inset:auto;width:100%;height:auto;min-height:var(--S)}
+.bt-sky>.poster-bg{height:100%}
+.campus-entry{display:block;flex:none;position:relative;width:240px;margin:0 auto 16px;color:#fff;isolation:isolate;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.campus-art{display:block;width:100%;height:auto;transform-origin:50% 72%;transition:transform .32s ease,opacity .32s ease;filter:drop-shadow(0 10px 15px #071b4433)}
+.campus-entry>span{display:flex;align-items:center;justify-content:center;gap:4px;font-size:13px;line-height:1.6;font-weight:750;min-height:44px;text-shadow:0 2px 5px #071b44}
+.campus-entry>span>.ic{width:18px;height:18px}
+.campus-entry:hover .campus-art{transform:translateY(-4px)}
+.campus-entry.is-entering .campus-art{transform:scale(1.9);opacity:.12}
+.campus-entry.is-entering>span{opacity:0}
+@media(min-width:1200px){.campus-entry{position:absolute;right:clamp(20px,3vw,72px);top:44%;width:clamp(190px,17vw,280px);margin:0;z-index:7}}
+@media(max-width:1199px){.campus-entry{width:220px;margin:0 auto 18px}.st0 .hero-facts.w{margin-top:12px}}
+@media(max-width:600px){.campus-entry{width:210px;margin:0 auto 4px}.campus-entry>span{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.campus-art{transition:none}.campus-entry:hover .campus-art{transform:none}}
+
+.campus-entry.cut-go{display:flex!important;flex-direction:column;white-space:normal;gap:0}
+.bt-sky>.dig{height:calc(var(--S) * .4)!important}
