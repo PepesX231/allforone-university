@@ -721,7 +721,7 @@
             '<p class="sh-desc" data-pop>' + t.desc + '</p>' +
             '<span class="dl-out" data-pop>' + icon('folder') + 'ผลลัพธ์: ' + t.output + '</span>' +
           '</div>' +
-          '<div class="sh-img"><span class="ph" aria-hidden="true">' + icon(t.icon) + '</span><img class="sh-peek" src="assets/img/cast/st-' + [6, 2, 3][i] + '.webp" alt="" loading="lazy" decoding="async"></div>' +
+          '<div class="sh-img"><img class="sh-poster" src="assets/img/tracks/track-' + i + '.webp" alt="" width="520" height="520" decoding="async"><span class="ph" aria-hidden="true">' + icon(t.icon) + '</span><img class="sh-peek" src="assets/img/cast/st-' + [6, 2, 3][i] + '.webp" alt="" loading="lazy" decoding="async"></div>' +
         '</div>' +
       '</div>' +
       '<div class="dl-rows">' +
