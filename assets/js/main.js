@@ -246,7 +246,7 @@
     function orient() { return innerWidth <= innerHeight ? 'p' : 'w'; }
     function prep(v) {
       if (v.dataset.o === o) return; v.dataset.o = o;
-      v.poster = 'assets/cut/' + v.dataset.c + '-' + o + (v.dataset.c === 'c1' ? '-end.jpg' : '-start.jpg'); v.src = 'assets/cut/' + v.dataset.c + '-' + o + (v.canPlayType('video/mp4; codecs="avc1.640028"') ? '.mp4' : '.webm'); v.preload = 'auto'; v.load();
+      v.poster = 'assets/cut/' + v.dataset.c + '-' + o + '-start.jpg'; v.src = 'assets/cut/' + v.dataset.c + '-' + o + (v.canPlayType('video/mp4; codecs="avc1.640028"') ? '.mp4' : '.webm'); v.preload = 'auto'; v.load();
     }
     function warm(k) { o = o || orient(); for (var i = 0; i < k && i < N; i++) prep(vids[i]); }
     function reveal(i, on) {
@@ -267,18 +267,6 @@
       function pop() { if (!shown) { shown = true; reveal(i, true); } }
       v.ontimeupdate = function () { if (SHOW[i] && v.currentTime >= SHOW[i]) pop(); };
       v.onended = function () { pop(); ready(); };
-      // Open directly on the completed desk scene; never replay the tower zoom.
-      if (i === 0) {
-        v.pause(); pop(); ready();
-        var holdDesk = function () {
-          if (Number.isFinite(v.duration)) {
-            try { v.currentTime = Math.max(0, v.duration - .05); } catch (e) {}
-          }
-        };
-        if (v.readyState >= 1) holdDesk();
-        else v.addEventListener('loadedmetadata', holdDesk, { once: true });
-        return;
-      }
       if (atEnd || reduced) {
         var go = function () { try { v.currentTime = Math.max(0, (v.duration || 5) - .05); } catch (e) {} pop(); ready(); };
         if (v.readyState >= 1) go(); else v.addEventListener('loadedmetadata', go, { once: true });
@@ -293,7 +281,7 @@
     var lockY = 0;
     function lock(on) { lockY = scrollY; root.classList.toggle('cut-lock', on); }
     function start(i) {
-      if (!cut.hidden || leaving) return; o = orient(); warm(2);
+      if (!cut.hidden) return; o = orient(); warm(2);
       cut.hidden = false; lock(true); show(i || 0);
     }
     var leaving = false;
@@ -325,43 +313,7 @@
     function skyEnd() { var r = sky.getBoundingClientRect(); return r.bottom + scrollY; }
     function atSkyEnd() { return !done && cut.hidden && scrollY + innerHeight >= skyEnd() - 6; }
     // entering: scroll / swipe / key past the last sky screen, or tap the button
-    var entering = false;
-    function flyIntoCampus(button) {
-      var art = button.querySelector('.campus-art'), box = art.getBoundingClientRect();
-      var layer = document.createElement('div'), image = document.createElement('img'), veil = document.createElement('div');
-      layer.className = 'campus-flight'; layer.setAttribute('aria-hidden', 'true');
-      image.src = art.currentSrc || art.src; image.alt = ''; image.style.width = box.width + 'px'; image.style.height = box.height + 'px';
-      veil.className = 'campus-flight-veil'; layer.appendChild(image); layer.appendChild(veil); document.body.appendChild(layer);
-      entering = true; button.setAttribute('aria-busy', 'true');
-      o = orient(); warm(2);
-      var W = innerWidth, H = innerHeight, fit = Math.max(W / box.width, H / box.height);
-      var mid = fit * .95, close = fit * 3.6, cancelled = false;
-      function transform(x, y, s) { return 'translate3d(' + x + 'px,' + y + 'px,0) scale(' + s + ')'; }
-      var flight = image.animate([
-        { transform: transform(box.left, box.top, 1), offset: 0 },
-        { transform: transform(W / 2 - box.width * mid * .51, H * .68 - box.height * mid * .78, mid), offset: .48 },
-        { transform: transform(W / 2 - box.width * close * .51, H / 2 - box.height * close * .60, close), offset: 1 }
-      ], { duration: 1300, easing: 'cubic-bezier(.45,0,.2,1)', fill: 'forwards' });
-      var shade = veil.animate([{ opacity: 0, offset: 0 }, { opacity: 0, offset: .72 }, { opacity: 1, offset: 1 }], { duration: 1300, fill: 'forwards' });
-      function clean() { removeEventListener('keydown', key); removeEventListener('resize', cancel); }
-      function cancel() {
-        if (cancelled) return; cancelled = true; clean(); flight.cancel(); shade.cancel(); layer.remove();
-        entering = false; button.removeAttribute('aria-busy'); button.focus({ preventScroll: true });
-      }
-      function key(e) { if (e.key === 'Escape') { e.preventDefault(); cancel(); } else if (e.key === 'Tab') e.preventDefault(); }
-      addEventListener('keydown', key); addEventListener('resize', cancel, { once: true });
-      flight.finished.then(function () {
-        if (cancelled) return; clean(); start(0);
-        var fade = layer.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 220, fill: 'forwards' });
-        fade.finished.then(function () { layer.remove(); entering = false; button.removeAttribute('aria-busy'); });
-      }).catch(function () {});
-    }
-    $$('.cut-go').forEach(function (b) { b.addEventListener('click', function () {
-      if (entering || leaving || !cut.hidden) return;
-      done = false;
-      if (b.classList.contains('campus-entry') && !reduced && b.animate) flyIntoCampus(b);
-      else start(0);
-    }); });
+    $$('.cut-go').forEach(function (b) { b.addEventListener('click', function () { done = false; start(0); }); });
     var wio = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { wio.disconnect(); o = orient(); warm(N); } }, { rootMargin: '60% 0px' });
     $$('.cut-go').forEach(function (b) { wio.observe(b); });
     var wLast = 0;                                   // one wheel/trackpad gesture (incl. its inertia) = one step
@@ -398,12 +350,6 @@
       if (a.getAttribute('href') !== '#top') { done = true; if (!cut.hidden) { cut.hidden = true; lock(false); vids.forEach(function (v) { v.pause(); }); } }
     }, true);
     addEventListener('load', function () { setTimeout(function () { warm(1); }, 1200); });
-    // Rotate a phone without retaining the wrong portrait/landscape clip.
-    addEventListener('resize', function () {
-      if (!cut.hidden && o !== orient()) {
-        o = orient(); warm(N); show(idx, true);
-      }
-    }, { passive: true });
     addEventListener('pageshow', function () { if (!cut.hidden || root.classList.contains('cut-lock')) { cut.hidden = true; lock(false); busy = false; leaving = false; } var f = document.getElementById('iris'); if (f) f.classList.remove('in', 'out'); });
     document.addEventListener('visibilitychange', function () { if (!document.hidden && !cut.hidden && busy) { var v = vids[idx]; var pr = v.play(); if (pr && pr.catch) pr.catch(function () { reveal(idx, true); ready(); }); } });
   })();
@@ -1102,6 +1048,67 @@
   }, { passive: true });
 })();
 
+/* Invitation text stays in the browser; registration uses the official link. */
+(function () {
+  var form = document.getElementById('inviteForm'); if (!form) return;
+  var preview = document.getElementById('invitePreview'), status = document.getElementById('inviteStatus');
+  var friends = ['', ''], editingFriend = 0;
+  var friendDlg = document.getElementById('inviteFriendDlg'), friendForm = document.getElementById('inviteFriendForm'), friendName = document.getElementById('friendName');
+  form.querySelectorAll('[data-friend]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      editingFriend = Number(button.dataset.friend);
+      friendName.setCustomValidity('');
+      friendName.value = friends[editingFriend];
+      friendDlg.showModal(); friendName.focus();
+    });
+  });
+  friendForm.addEventListener('submit', function (e) {
+    var action = e.submitter ? e.submitter.value : 'save';
+    if (action === 'cancel') return;
+    e.preventDefault();
+    var name = friendName.value.trim();
+    if (action === 'save' && !name) { friendName.setCustomValidity('ใส่ชื่อหรือชื่อเล่นของเพื่อน'); friendName.reportValidity(); return; }
+    friends[editingFriend] = action === 'clear' ? '' : name;
+    friendDlg.close(); update();
+  });
+  friendName.addEventListener('input', function () { friendName.setCustomValidity(''); });
+  friendName.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { e.preventDefault(); friendForm.requestSubmit(friendForm.querySelector('.friend-save')); }
+  });
+  function update() {
+    var data = new FormData(form), size = data.get('size'), track = data.get('track');
+    form.querySelector('[data-third]').hidden = size === '2';
+    var activeFriends = friends.slice(0, Number(size) - 1).filter(Boolean);
+    form.querySelectorAll('[data-friend]').forEach(function (button, i) {
+      button.classList.toggle('has-friend', !!friends[i]);
+      button.querySelector('span').textContent = friends[i] ? '✓' : '＋';
+      button.querySelector('b').textContent = friends[i] || 'ว่าง';
+      button.setAttribute('aria-label', friends[i] ? 'แก้ไขชื่อ ' + friends[i] : 'เพิ่มชื่อเพื่อนคนที่ ' + (i + 1));
+    });
+    var who = (data.get('nick') || data.get('name') || '').trim();
+    var team = (data.get('team') || '').trim();
+    preview.value = (who ? who + ' ชวนมา' : 'มา') + 'แข่ง All for One University ด้วยกัน!\n' +
+      (team ? 'ทีม ' + team + ' · ' : '') + 'ทีม ' + size + ' คน' + (activeFriends.length === Number(size) - 1 ? ' ครบทีมแล้ว' : ' ยังว่าง ' + (Number(size) - 1 - activeFriends.length) + ' ที่') +
+      (activeFriends.length ? '\nเพื่อนร่วมทีม: ' + activeFriends.join(', ') : '') +
+      (track !== 'ยังไม่เลือก' ? '\nสาย ' + track : '') +
+      '\n22–25 ต.ค. 2569 · ออนไลน์ผ่าน Discord\nค่าสมัคร 190 บาท/คน\nhttps://pepesx231.github.io/allforone-university/';
+    status.textContent = '';
+  }
+  form.addEventListener('input', update);
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    try {
+      if (!navigator.clipboard || !window.isSecureContext) throw new Error('clipboard unavailable');
+      await navigator.clipboard.writeText(preview.value);
+      status.textContent = 'คัดลอกแล้ว ส่งให้เพื่อนได้เลย';
+    } catch (err) {
+      preview.focus(); preview.select();
+      status.textContent = 'เลือกข้อความไว้แล้ว แตะค้างหรือกด Ctrl+C เพื่อคัดลอก';
+    }
+  });
+  update();
+})();
+
 /* ---------- registration dialog: solo / group (3+), summary, then payment page ---------- */
 (function () {
   var AFO = window.AFO, CFG = AFO.CFG, dlg = document.getElementById('regDlg');
@@ -1228,15 +1235,4 @@
   }, { rootMargin: '15% 0px' });
   els.forEach(function (el) { io.observe(el); });
   document.addEventListener('visibilitychange', function () { document.documentElement.classList.toggle('paused', document.hidden); });
-})();
-
-/* Native mobile menu: all destinations remain available without clipped chips. */
-(function () {
-  var menu = document.getElementById('mobileMenu'); if (!menu) return;
-  menu.addEventListener('click', function (e) { if (e.target.closest('a')) menu.open = false; });
-  document.addEventListener('click', function (e) { if (!menu.contains(e.target)) menu.open = false; });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); }
-  });
-  addEventListener('resize', function () { if (innerWidth >= 900) menu.open = false; }, { passive: true });
 })();

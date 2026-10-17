@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=block&text=ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789%26.-" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=campus41">
+<link rel="stylesheet" href="assets/css/style.css?v=readable51">
 <script>
   // progressive enhancement flags (set before first paint to avoid a flash)
   (function (d) {
@@ -70,7 +70,7 @@
 }
 </script>
 <script src="assets/js/data.js?v=content27" defer></script>
-<script src="assets/js/main.js?v=campus41" defer></script>
+<script src="assets/js/main.js?v=readable51" defer></script>
 <script src="assets/js/tracks3d.js?v=models25" defer></script>
 </head>
 <body>
@@ -78,6 +78,7 @@
 <a class="skip" href="#main">ข้ามไปที่เนื้อหา</a>
 <!-- icons -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-ticket" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M16 5v14M7 10h4M7 14h4"/></symbol>
   <symbol id="i-game" viewBox="0 0 24 24"><path d="M7 6h10a4 4 0 0 1 3.95 3.37l.95 6.1a2.6 2.6 0 0 1-4.53 2.11L15.5 15.5h-7l-1.87 2.08A2.6 2.6 0 0 1 2.1 15.47l.95-6.1A4 4 0 0 1 7 6z"/><path d="M8 9.5v4M6 11.5h4"/><circle cx="15.5" cy="10.5" r=".6" fill="currentColor"/><circle cx="17.5" cy="12.5" r=".6" fill="currentColor"/></symbol>
   <symbol id="i-app" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M8 21h8M7 14v-2M11 14V9M15 14v-4"/></symbol>
   <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21.5h4"/><path d="M12 2.5a6.8 6.8 0 0 0-4 12.3c.6.5 1 1.2 1 2V18h6v-1.2c0-.8.4-1.5 1-2A6.8 6.8 0 0 0 12 2.5z"/></symbol>
@@ -238,10 +239,6 @@
         <a href="#schedule" data-spy="schedule">ตาราง</a><a href="#rules" data-spy="rules">กติกา</a><a href="#faq" data-spy="faq">FAQ</a>
       </nav>
       <div class="hdr-cta"><a class="btn btn-orange btn-sm" data-reg href="https://www.hamsterhub.co/allforone" target="_blank" rel="noopener">สมัคร</a></div>
-      <details class="mobile-menu" id="mobileMenu">
-        <summary>เมนู <svg class="ic" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></summary>
-        <nav aria-label="เมนูสำหรับมือถือ"><a href="#tracks" data-spy="tracks">สายการแข่งขัน</a><a href="#journey" data-spy="journey">เส้นทางกิจกรรม</a><a href="#schedule" data-spy="schedule">ตารางกิจกรรม</a><a href="#rules" data-spy="rules">กติกาการแข่งขัน</a><a href="#perks" data-spy="perks">4 วันได้อะไรบ้าง?</a><a href="#faq" data-spy="faq">คำถามที่พบบ่อย</a></nav>
-      </details>
     </div>
     <nav class="hdr-row snav" aria-label="ไปยังส่วนต่างๆ">
       <a class="logo nav-wordmark" href="#top" aria-label="All for One University — กลับขึ้นด้านบน"><img src="assets/img/logo-hero-sm.webp" alt="" width="640" height="289" decoding="async"></a>
@@ -259,7 +256,9 @@
 <section class="story" id="top" aria-labelledby="heroTitle">
   <!-- one continuous camera move DOWN: each beat is a real screen you scroll through; layers drift at their own speed (data-f) -->
   <div class="beat bt-sky" data-k="0">
-    <div class="poster-bg" aria-hidden="true"></div>
+    <div class="ly sky-grad" data-f=".5"></div>
+    <div class="sky-cl" aria-hidden="true"><img class="cl cl1" src="assets/img/sky/gc-1.webp" alt="" decoding="async" loading="eager"><img class="cl cl2" src="assets/img/sky/gc-2.webp" alt="" decoding="async" loading="eager"></div>
+    <div class="ly ly-tw"><picture><source media="(max-aspect-ratio: 1/1)" srcset="assets/img/scene/towers-p.webp"><img class="tw" src="assets/img/scene/towers-w.webp" alt="" decoding="async" fetchpriority="high"></picture></div>
     <div class="sakura" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div class="dig" aria-hidden="true"></div>
     <div class="st st0 on">
@@ -277,13 +276,9 @@
       <h2 class="st-tag w" style="--i:2" id="heroTitle">การแข่งขันเทคโนโลยี<span class="hero-national">ระดับประเทศ</span></h2>
       <p class="hx-sub2 w" style="--i:3">รวมทีมสร้างผลงาน ท้าทายฝีมือใน 72 ชั่วโมง<br>พร้อมลุ้นชิงสิทธิ์ไปแข่งรอบชิงที่ สจล.</p>
       <div class="hx-cta w" style="--i:4">
-        <a class="btn btn-orange hx-go" data-reg href="https://www.hamsterhub.co/allforone" target="_blank" rel="noopener">สมัครแข่งเลย · 190 บาท</a>
-        <a class="hx-more" href="#tracks">ดู 3 สายแข่ง ↓</a>
+        <a class="btn btn-orange hx-go" href="#register">สมัครแข่งเลย</a>
+        <button class="hx-more cut-go" type="button"><span aria-hidden="true">▶</span> กดเพื่อดูเส้นทางการแข่งขัน</button>
       </div>
-      <button class="campus-entry cut-go" type="button" aria-label="กดเพื่อดูเส้นทางการแข่งขัน เข้าสู่ห้องทำงาน">
-        <img class="campus-art" src="assets/img/scene/campus-path.webp" alt="" width="1280" height="1280" decoding="async">
-        <span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></svg>กดเพื่อดูเส้นทางการแข่งขัน</span>
-      </button>
       <ul class="hero-facts w" style="--i:5" aria-label="ข้อมูลการแข่งขัน">
         <li class="hero-fact" style="--fact-color:#8fe1ff">
           <svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg>
@@ -296,6 +291,10 @@
         <li class="hero-fact" style="--fact-color:#ffd23f">
           <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 2v6M17 2v6M3 11h18"/></svg>
           <div><span class="fact-label">วันแข่งขัน</span><strong class="fact-value">22–25 ต.ค. 2569</strong><p>ออนไลน์ผ่าน Discord</p></div>
+        </li>
+        <li class="hero-fact" style="--fact-color:#ffd23f">
+          <svg class="ic" aria-hidden="true"><use href="#i-ticket"/></svg>
+          <div><span class="fact-label">ค่าสมัคร</span><strong class="fact-value">190 บาท / คน</strong><p>ทีมละ 2–3 คน</p></div>
         </li>
       </ul>
       <a class="hx-credit w" style="--i:6" href="https://github.com/PepesX231" target="_blank" rel="noopener">ออกแบบและพัฒนาเว็บไซต์โดย <b>ชมน์ปภพ ดีจริง · Chompapop Deejing</b></a>
@@ -361,7 +360,75 @@
   </div>
 </section>
 
-<!-- ============ TRACKS: product-style showcase — one big floating 3D model per track ============ -->
+<section id="journey" aria-labelledby="jTitle">
+  <div class="wrap">
+    <div class="tl-head">
+      <h2 class="tl-title" id="jTitle">TIMELINE</h2>
+      <p class="tl-sub">4 ก้าว จากไอเดียสู่เวทีจริง</p>
+    </div>
+    <div class="road" id="road">
+      <svg class="rp rp-m" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="glow" d="M26 14C26 26 74 26 74 38S26 50 26 62 72 75 72 88"/><path class="base" d="M26 14C26 26 74 26 74 38S26 50 26 62 72 75 72 88"/><path class="prog" d="M26 14C26 26 74 26 74 38S26 50 26 62 72 75 72 88"/></svg>
+      <svg class="rp rp-d" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="glow" d="M11 44C24 44 24 76 37 76S50 40 63 40 74 72 88 72"/><path class="base" d="M11 44C24 44 24 76 37 76S50 40 63 40 74 72 88 72"/><path class="prog" d="M11 44C24 44 24 76 37 76S50 40 63 40 74 72 88 72"/></svg>
+      <img class="tl-walker" src="assets/img/cast/p-grad.webp" alt="" width="456" height="669" loading="lazy" decoding="async" aria-hidden="true">
+      <ol class="stops">
+      <li class="stop s1" data-start="2026-09-28" data-end="2026-10-21">
+        <span class="isle" aria-hidden="true"><span class="ped"></span><img class="tl-ham" src="assets/img/cast/t-sign.webp" alt="" width="654" height="675" loading="lazy" decoding="async"></span>
+        <span class="lab"><span class="n"><span class="bd"></span></span><span class="d">28 ก.ย. – 21 ต.ค.</span><b>สมัคร &amp; รวมทีม</b><span class="t">ทีม 2–3 คน หรือสมัครคนเดียว</span></span>
+      </li>
+      <li class="stop s2" data-start="2026-10-22" data-end="2026-10-25">
+        <span class="isle" aria-hidden="true"><span class="ped"></span><img class="tl-ham" src="assets/img/cast/t-pitch.webp" alt="" width="470" height="605" loading="lazy" decoding="async"></span>
+        <span class="lab"><span class="n"><span class="bd"></span></span><span class="d">22 – 25 ต.ค.</span><b>รอบคัดเลือกออนไลน์</b><span class="t">บน Discord Hamster Hub · สร้าง ทดสอบ และนำเสนอ</span></span>
+      </li>
+      <li class="stop s3" data-start="2026-10-26" data-end="2026-11-12">
+        <span class="isle" aria-hidden="true"><span class="ped"></span><img class="tl-ham" src="assets/img/cast/p-cheer.webp" alt="" width="456" height="669" loading="lazy" decoding="async"></span>
+        <span class="lab"><span class="n"><span class="bd"></span></span><span class="d">หลังรอบออนไลน์</span><b>พัฒนาผลงาน</b><span class="t">รายละเอียดการติดตามผลงานรอยืนยัน</span></span>
+      </li>
+      <li class="stop s4" data-start="2026-11-14" data-end="2026-11-14">
+        <span class="isle" aria-hidden="true"><span class="ped"></span><img class="tl-ham" src="assets/img/cast/p-jump.webp" alt="" width="471" height="674" loading="lazy" decoding="async"></span>
+        <span class="lab"><span class="n">FINAL<span class="bd"></span></span><span class="d">14 พ.ย.</span><b>รอบชิงชนะเลิศ</b><span class="t">นำเสนอต่อกรรมการ ณ IoTE สจล.</span></span>
+      </li>
+      </ol>
+    </div>
+
+  </div>
+<details class="schedule-section timeline-details" id="schedule"><summary>ตารางกิจกรรมรอบออนไลน์ <span aria-hidden="true">＋</span></summary>
+  <div class="wrap">
+    <div class="sched">
+      <h2 class="sched-h" id="scheduleTitle">ตารางกิจกรรมการแข่งขันรอบคัดเลือก <span>บน Discord Hamster Hub</span></h2>
+      <ol class="sched-list"><li><time>22 ต.ค.</time><b>18:30–19:00</b><span>Check-in / เตรียมตัว</span></li><li><time>22 ต.ค.</time><b>19:00–19:30</b><span>เปิดกิจกรรมและรับโจทย์</span></li><li><time>22 ต.ค.</time><b>20:00–20:30</b><span>Research for 3 Branches</span></li><li><time>23 ต.ค.</time><b>14:00–15:00</b><span>Conceptual Design</span></li><li><time>23 ต.ค.</time><b>20:00–20:30</b><span>Detail Design</span></li><li><time>24 ต.ค.</time><b>10:00–12:00</b><span>Development</span></li><li><time>25 ต.ค.</time><b>10:00–10:30</b><span>User Testing</span></li><li><time>25 ต.ค.</time><b>17:00–18:00</b><span>Presentation Skill</span></li><li class="fin"><time>25 ต.ค.</time><b>19:00</b><span>Final Presentation</span></li></ol>
+    </div>
+  </div>
+</details>
+</section>
+
+<section class="sec rules-section" id="rules" aria-labelledby="rulesTitle">
+  <div class="wrap rules-spotlight">
+    <div class="rules-heading"><div><h2 class="h2" id="rulesTitle">กติกาการแข่งขัน</h2></div></div>
+    <ul class="rules-highlights"><li><b>ทีมละ 2–3 คน</b><span>สมาชิกหนึ่งคนสมัครได้เพียงหนึ่งทีม</span></li><li><b>ออนไลน์ผ่าน Discord</b><span>รับโจทย์วันแรก · นำเสนอวันสุดท้าย</span></li><li><b>เปิดเผยที่มาให้ครบ</b><span>ระบุการใช้ AI โค้ด และทรัพยากรภายนอก</span></li></ul>
+    <div class="rules-preview-actions"><a class="btn btn-orange" href="rules.html">อ่านกติกาการแข่งขัน</a><a class="btn btn-line" href="assets/docs/competition-rules.docx" download="กติกาการแข่งขัน All for One University.docx">ดาวน์โหลดกติกา (.docx)</a></div>
+  </div>
+</section>
+
+<section class="final-section" id="final" aria-label="รอบชิงชนะเลิศ">
+  <div class="wrap">
+    <div class="pk-bottom tr-final">
+      <div class="pk-final reveal">
+        <svg class="pk-trophy" aria-hidden="true"><use href="#il-p7"/></svg>
+        <div>
+          <p class="pk-final-k">GRAND FINAL · 14 พ.ย. · IoTE สจล.</p>
+          <h3>ผู้นำแต่ละสายได้สิทธิ์เข้าร่วม<br>แข่งรอบออนไซต์ที่ KMITL</h3>
+        </div>
+      </div>
+      <figure class="pk-spirit reveal">
+        <img src="assets/img/mascot-sm.webp" alt="" width="128" height="128" loading="lazy" decoding="async">
+        <blockquote>
+          <p>ได้ผลงานและเส้นทางพัฒนาสู่การใช้จริง<br><b>ให้ทันรอบ Port70</b></p>
+        </blockquote>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <section id="tracks" aria-labelledby="tracksTitle">
   <div class="wrap">
     <div class="peek" id="peek" aria-hidden="false">
@@ -397,124 +464,39 @@
     <button class="cs-arrow next" type="button" data-dir="1" aria-label="สายถัดไป"><svg class="ic"><use href="#i-arrow"/></svg></button>
     <div class="cs-thumbs" role="group" aria-label="เลือกสาย"><button class="cs-thumb on" type="button" data-i="0" aria-label="สาย GAME DEV" aria-pressed="true" style="--c:#2fd08b"><img alt="" hidden><span class="ph" style="--c:#2fd08b;--c2:#0e8f5c"><svg class="ic"><use href="#i-game"/></svg></span><b>GAME DEV</b></button><button class="cs-thumb" type="button" data-i="1" aria-label="สาย SOFTWARE" aria-pressed="false" style="--c:#ff8a3d"><img alt="" hidden><span class="ph" style="--c:#ff8a3d;--c2:#d9480f"><svg class="ic"><use href="#i-app"/></svg></span><b>SOFTWARE</b></button><button class="cs-thumb" type="button" data-i="2" aria-label="สาย IOT" aria-pressed="false" style="--c:#4d9fff"><img alt="" hidden><span class="ph" style="--c:#4d9fff;--c2:#2350c9"><svg class="ic"><use href="#i-bulb"/></svg></span><b>IOT</b></button></div>
   </div>
-  <div class="wrap">
-    <div class="pk-bottom tr-final">
-      <div class="pk-final reveal">
-        <svg class="pk-trophy" aria-hidden="true"><use href="#il-p7"/></svg>
-        <div>
-          <p class="pk-final-k">GRAND FINAL · 14 พ.ย. · IoTE สจล.</p>
-          <h3>ผู้นำแต่ละสายได้สิทธิ์เข้าร่วม<br>แข่งรอบออนไซต์ที่ KMITL</h3>
-        </div>
-      </div>
-      <figure class="pk-spirit reveal">
-        <img src="assets/img/mascot-sm.webp" alt="" width="128" height="128" loading="lazy" decoding="async">
-        <blockquote>
-          <p>ได้ผลงานและเส้นทางพัฒนาสู่การใช้จริง<br><b>ให้ทันรอบ Port70</b></p>
-        </blockquote>
-      </figure>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-<!-- ============ TIMELINE (winding road, 3D islands) ============ -->
-<section id="journey" aria-labelledby="jTitle">
-  <div class="wrap">
-    <div class="tl-head">
-      <h2 class="tl-title" id="jTitle">TIMELINE</h2>
-      <p class="tl-sub">4 ก้าว จากไอเดียสู่เวทีจริง</p>
-    </div>
-    <div class="road" id="road">
-      <svg class="rp rp-m" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="glow" d="M26 14C26 26 74 26 74 38S26 50 26 62 72 75 72 88"/><path class="base" d="M26 14C26 26 74 26 74 38S26 50 26 62 72 75 72 88"/><path class="prog" d="M26 14C26 26 74 26 74 38S26 50 26 62 72 75 72 88"/></svg>
-      <svg class="rp rp-d" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="glow" d="M11 44C24 44 24 76 37 76S50 40 63 40 74 72 88 72"/><path class="base" d="M11 44C24 44 24 76 37 76S50 40 63 40 74 72 88 72"/><path class="prog" d="M11 44C24 44 24 76 37 76S50 40 63 40 74 72 88 72"/></svg>
-      <img class="tl-walker" src="assets/img/cast/p-grad.webp" alt="" width="456" height="669" loading="lazy" decoding="async" aria-hidden="true">
-      <ol class="stops">
-      <li class="stop s1" data-start="2026-09-28" data-end="2026-10-21">
-        <span class="isle" aria-hidden="true"><span class="ped"></span><img class="tl-ham" src="assets/img/cast/t-sign.webp" alt="" width="654" height="675" loading="lazy" decoding="async"></span>
-        <span class="lab"><span class="n"><span class="bd"></span></span><span class="d">28 ก.ย. – 21 ต.ค.</span><b>สมัคร &amp; รวมทีม</b><span class="t">ทีม 2–3 คน หรือสมัครคนเดียว</span></span>
-      </li>
-      <li class="stop s2" data-start="2026-10-22" data-end="2026-10-25">
-        <span class="isle" aria-hidden="true"><span class="ped"></span><img class="tl-ham" src="assets/img/cast/t-pitch.webp" alt="" width="470" height="605" loading="lazy" decoding="async"></span>
-        <span class="lab"><span class="n"><span class="bd"></span></span><span class="d">22 – 25 ต.ค.</span><b>รอบคัดเลือกออนไลน์</b><span class="t">บน Discord Hamster Hub · สร้าง ทดสอบ และนำเสนอ</span></span>
-      </li>
-      <li class="stop s3" data-start="2026-10-26" data-end="2026-11-12">
-        <span class="isle" aria-hidden="true"><span class="ped"></span><img class="tl-ham" src="assets/img/cast/p-cheer.webp" alt="" width="456" height="669" loading="lazy" decoding="async"></span>
-        <span class="lab"><span class="n"><span class="bd"></span></span><span class="d">หลังรอบออนไลน์</span><b>พัฒนาผลงาน</b><span class="t">รายละเอียดการติดตามผลงานรอยืนยัน</span></span>
-      </li>
-      <li class="stop s4" data-start="2026-11-14" data-end="2026-11-14">
-        <span class="isle" aria-hidden="true"><span class="ped"></span><img class="tl-ham" src="assets/img/cast/p-jump.webp" alt="" width="471" height="674" loading="lazy" decoding="async"></span>
-        <span class="lab"><span class="n">FINAL<span class="bd"></span></span><span class="d">14 พ.ย.</span><b>รอบชิงชนะเลิศ</b><span class="t">นำเสนอต่อกรรมการ ณ IoTE สจล.</span></span>
-      </li>
-      </ol>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-
-
-
-<section class="sec schedule-section" id="schedule" aria-labelledby="scheduleTitle">
-  <div class="wrap">
-    <div class="sched">
-      <h2 class="sched-h" id="scheduleTitle">ตารางกิจกรรมการแข่งขันรอบคัดเลือก <span>บน Discord Hamster Hub</span></h2>
-      <ol class="sched-list"><li><time>22 ต.ค.</time><b>18:30–19:00</b><span>Check-in / เตรียมตัว</span></li><li><time>22 ต.ค.</time><b>19:00–19:30</b><span>เปิดกิจกรรมและรับโจทย์</span></li><li><time>22 ต.ค.</time><b>20:00–20:30</b><span>Research for 3 Branches</span></li><li><time>23 ต.ค.</time><b>14:00–15:00</b><span>Conceptual Design</span></li><li><time>23 ต.ค.</time><b>20:00–20:30</b><span>Detail Design</span></li><li><time>24 ต.ค.</time><b>10:00–12:00</b><span>Development</span></li><li><time>25 ต.ค.</time><b>10:00–10:30</b><span>User Testing</span></li><li><time>25 ต.ค.</time><b>17:00–18:00</b><span>Presentation Skill</span></li><li class="fin"><time>25 ต.ค.</time><b>19:00</b><span>Final Presentation</span></li></ol>
-    </div>
-  </div>
-</section>
-
-<section class="sec rules-section" id="rules" aria-labelledby="rulesTitle">
-  <div class="wrap rules-spotlight">
-    <div class="rules-heading"><div><h2 class="h2" id="rulesTitle">กติกาการแข่งขัน</h2></div></div>
-    <ul class="rules-highlights"><li><b>ทีมละ 2–3 คน</b><span>สมาชิกหนึ่งคนสมัครได้เพียงหนึ่งทีม</span></li><li><b>ออนไลน์ผ่าน Discord</b><span>รับโจทย์วันแรก · นำเสนอวันสุดท้าย</span></li><li><b>เปิดเผยที่มาให้ครบ</b><span>ระบุการใช้ AI โค้ด และทรัพยากรภายนอก</span></li></ul>
-    <div class="rules-preview-actions"><a class="btn btn-orange" href="rules.html">อ่านกติกาการแข่งขัน</a><a class="btn btn-line" href="assets/docs/competition-rules.docx" download="กติกาการแข่งขัน All for One University.docx">ดาวน์โหลดกติกา (.docx)</a></div>
-  </div>
+<div class="mobile-tracks"><article class="mobile-track" style="--track-color:#3ddc97" aria-labelledby="mobileTrack0"><div class="mobile-track-art"><img src="assets/img/tracks/track-0.webp" alt="" width="520" height="520" loading="lazy" decoding="async"></div><div class="mobile-track-copy"><span class="mobile-track-number">01 / 03</span><h3 id="mobileTrack0">GAME DEV</h3><p class="mobile-track-name">Game Development</p><p>สร้างเกมและประสบการณ์ที่สนุกสำหรับผู้เล่น</p><p class="mobile-track-output"><b>ผลงานที่ส่ง</b>เกมที่เล่นได้จริง 1 เกม</p><button class="btn" type="button" data-track="0" aria-haspopup="dialog">ดูรายละเอียดสายนี้ <svg class="ic"><use href="#i-arrow"/></svg></button></div></article><article class="mobile-track" style="--track-color:#ff9a4d" aria-labelledby="mobileTrack1"><div class="mobile-track-art"><img src="assets/img/tracks/track-1.webp" alt="" width="520" height="520" loading="lazy" decoding="async"></div><div class="mobile-track-copy"><span class="mobile-track-number">02 / 03</span><h3 id="mobileTrack1">SOFTWARE</h3><p class="mobile-track-name">Software (Web / App)</p><p>พัฒนาแอปหรือเว็บไซต์เพื่อแก้ปัญหาตามโจทย์การแข่งขัน</p><p class="mobile-track-output"><b>ผลงานที่ส่ง</b>แอปหรือเว็บไซต์ที่ใช้งานได้จริง 1 ชิ้น</p><button class="btn" type="button" data-track="1" aria-haspopup="dialog">ดูรายละเอียดสายนี้ <svg class="ic"><use href="#i-arrow"/></svg></button></div></article><article class="mobile-track" style="--track-color:#5fb6ff" aria-labelledby="mobileTrack2"><div class="mobile-track-art"><img src="assets/img/tracks/track-2.webp" alt="" width="520" height="520" loading="lazy" decoding="async"></div><div class="mobile-track-copy"><span class="mobile-track-number">03 / 03</span><h3 id="mobileTrack2">IOT</h3><p class="mobile-track-name">IoT & Innovation</p><p>ออกแบบนวัตกรรมที่เชื่อมต่อไอเดียกับโลกจริง</p><p class="mobile-track-output"><b>ผลงานที่ส่ง</b>แนวคิดและ Proof of Concept ของ IoT หรือนวัตกรรม</p><button class="btn" type="button" data-track="2" aria-haspopup="dialog">ดูรายละเอียดสายนี้ <svg class="ic"><use href="#i-arrow"/></svg></button></div></article></div>
 </section>
 
 <section class="sec build-value" id="perks" aria-labelledby="valueTitle">
   <div class="wrap">
-    <div class="value-heading"><div><h2 id="valueTitle"><span>4 วัน</span>ได้อะไรบ้าง?</h2></div></div>
+    <div class="value-heading"><img src="assets/img/cast/st-4.webp" width="200" height="200" loading="lazy" alt=""><div><h2 id="valueTitle">4 วัน ได้อะไรบ้าง?</h2><p>ทุกคนที่เข้าร่วมได้ฝึกและสร้างผลงาน</p></div></div>
     <div class="takeaway-open">
-      <article style="--outcome:#ffb56e"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><h3>ผลงานจริง</h3><p>สร้าง ทดสอบจริง<br> แล้วแสดงฝีมือต่อคณะกรรมการ</p></article>
-      <article style="--outcome:#a8c8ff"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg><h3>ทำงานเป็นทีม</h3><p>แบ่งงาน วางแผน<br> และแก้ปัญหาไปด้วยกัน</p></article>
-      <article style="--outcome:#8ce3c0"><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg><h3>ทักษะสำคัญ</h3><p>อบรมเสริม 6 หัวข้อ<br> นำมาใช้กับงานระหว่างแข่ง</p></article>
-      <article style="--outcome:#dac0ff"><svg class="ic" aria-hidden="true"><use href="#i-present"/></svg><h3>การนำเสนอ<br> แบบมืออาชีพ</h3><p>เล่าผลงานอย่างเป็นระบบ<br> สื่อสารแนวคิดให้กรรมการเข้าใจ</p></article>
+      <article><svg class="reward-art" viewBox="0 0 64 64" aria-hidden="true"><use href="#il-p1"/></svg><h3>ผลงานและเกียรติบัตร</h3><p>เก็บผลงานใส่ Portfolio</p></article>
+      <article><svg class="reward-art" viewBox="0 0 64 64" aria-hidden="true"><use href="#il-p6"/></svg><h3>เวทีนำเสนอ</h3><p>ฝึกนำเสนอผลงานต่อคณะกรรมการ</p></article>
+      <article><svg class="reward-art" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-users"/></svg><h3>ทีมเวิร์ก</h3><p>วางแผน แบ่งงาน และแก้ปัญหากับเพื่อน</p></article>
+      <article><svg class="reward-art" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bulb"/></svg><h3>ไอเดียเป็นของจริง</h3><p>ออกแบบ พัฒนา และทดสอบผลงาน</p></article>
     </div>
   </div>
 </section>
 
+<section class="invite-section" id="invite" aria-label="ชวนเพื่อนร่วมทีม"><div class="wrap"><form class="invite-card" id="inviteForm">
+      <h3>การ์ดชวนเพื่อน</h3>
+      <div class="invite-details">
+      <fieldset><legend>ทีมกี่คน</legend><div class="invite-options"><label><input type="radio" name="size" value="2"><span>2 คน</span></label><label><input type="radio" name="size" value="3" checked><span>3 คน</span></label></div></fieldset>
+      <div class="invite-slots" aria-label="สมาชิกในทีม"><span class="filled">✓<b>คุณ</b></span><button class="invite-slot" type="button" data-friend="0" aria-label="เพิ่มชื่อเพื่อนคนที่ 1"><span aria-hidden="true">＋</span><b>ว่าง</b></button><button class="invite-slot" type="button" data-friend="1" data-third aria-label="เพิ่มชื่อเพื่อนคนที่ 2"><span aria-hidden="true">＋</span><b>ว่าง</b></button></div>
+      <label for="inviteName">ชื่อจริงคุณ <small>ไม่ใส่ก็ได้ · จะแสดงในข้อความที่แชร์</small></label><input id="inviteName" name="name" autocomplete="name" placeholder="ชื่อ นามสกุล" maxlength="100">
+      <label for="inviteNick">ชื่อเล่นคุณ <small>ไม่ใส่ก็ได้</small></label><input id="inviteNick" name="nick" placeholder="ชื่อเล่น" maxlength="50">
+      <label for="inviteTeam">ชื่อทีม <small>ไม่ใส่ก็ได้</small></label><input id="inviteTeam" name="team" placeholder="ชื่อทีมของคุณ" maxlength="100">
+      </div>
+      <div class="invite-share">
+      <fieldset><legend>สาย <small>ไม่ใส่ก็ได้</small></legend><div class="invite-options invite-tracks"><label><input type="radio" name="track" value="เกม"><span>เกม</span></label><label><input type="radio" name="track" value="แอป / เว็บ"><span>แอป / เว็บ</span></label><label><input type="radio" name="track" value="IoT"><span>IoT</span></label><label><input type="radio" name="track" value="ยังไม่เลือก" checked><span>ยังไม่เลือก</span></label></div></fieldset>
+      <label for="invitePreview">ข้อความชวนเพื่อน</label><textarea id="invitePreview" rows="5" readonly></textarea>
+      <button class="invite-copy" type="submit">คัดลอกข้อความชวนเพื่อน ↗</button><p class="invite-status" id="inviteStatus" role="status"></p>
+      </div>
+    </form></div></section>
 
-<!-- ============ FAQ ============ -->
-<section class="sec" id="faq" aria-labelledby="faqTitle">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">FAQ</span>
-      <h2 class="h2" id="faqTitle">คำถามที่พบบ่อย</h2>
-    </div>
-    <div class="faq">
-      <details><summary>สิทธิ์สัมภาษณ์ Portfolio คืออะไร?<svg class="ic"><use href="#i-plus"/></svg></summary><p>ประกาศกิจกรรมที่ผู้จัดส่งให้ CAMPHUB ระบุโอกาสได้รับการพิจารณาให้สิทธิ์สัมภาษณ์รอบ Portfolio สาขาวิศวกรรมระบบไอโอทีและสารสนเทศ คณะวิศวกรรมศาสตร์ สจล. สำหรับผู้ผ่านการแข่งขันออนไลน์และเข้าแข่งขันรอบออนไซต์ การได้รับสิทธิ์ขึ้นอยู่กับคุณสมบัติและเงื่อนไขของผู้จัดและหลักสูตร ไม่ใช่สิทธิ์รับเข้าศึกษาโดยอัตโนมัติ <a href="https://www.camphub.in.th/all-for-one-university/" target="_blank" rel="noopener" style="text-decoration:underline">อ่านประกาศกิจกรรม ↗</a></p></details>
 
-      <details><summary>ผลงานนำไปต่อยอดอย่างไรได้บ้าง?<svg class="ic"><use href="#i-plus"/></svg></summary><p>นำผลงาน กระบวนการพัฒนา และผลทดสอบไปเล่าต่อใน Portfolio ได้ โดยอธิบายบทบาทของตัวเองให้ชัดเจน ผลงานไม่ได้รับประกันผลการสมัครมหาวิทยาลัย นอกจากนี้ Hamster Hub มีแผนให้คำแนะนำหลังแข่งประมาณ 1 เดือน รายละเอียดการเข้าร่วมรอยืนยัน</p></details>
-      <details><summary>มีข้อมูลอะไรที่ควรตรวจสอบก่อนชำระเงิน?<svg class="ic"><use href="#i-plus"/></svg></summary><p>ตรวจคุณสมบัติ เงื่อนไขทีม การชำระเงิน และการคืนเงินที่หน้าสมัครทางการ หากมีข้อสงสัยให้ติดต่อ Hamster Hub โดยตรง ส่วนรายชื่อวิทยากร รายละเอียดรางวัล และเกณฑ์ตัดสินฉบับสมบูรณ์ให้ติดตามประกาศจากผู้จัด</p></details>
-      <details><summary>ต้องมีผลงานหรือพื้นฐานมาก่อนไหม?<svg class="ic"><use href="#i-plus"/></svg></summary><p>เหมาะกับคนที่มีพื้นฐานเขียนโปรแกรม ออกแบบเกม เว็บ/แอป หรือ IoT อยู่แล้ว และพร้อมลงมือทำผลงานในเวลาจำกัด การอบรมช่วยเสริมกระบวนการระหว่างแข่ง ไม่ใช่คอร์สปูพื้นฐานตั้งแต่ต้น</p></details>
-      <details><summary>ค่าสมัครเท่าไหร่?<svg class="ic"><use href="#i-plus"/></svg></summary><p>คนละ 190 บาท</p></details>
-      <details><summary>ทีมละกี่คน สมัครคนเดียวได้ไหม?<svg class="ic"><use href="#i-plus"/></svg></summary><p>แข่งเป็นทีม 2–3 คน ในหน้าสมัครเลือกได้ทั้ง “สมัครคนเดียว” และ “สมัครกลุ่ม”</p></details>
-      <details open><summary>สมัครคนเดียวได้ไหม ไม่มีทีมทำยังไง?<svg class="ic"><use href="#i-plus"/></svg></summary><p>สมัครเดี่ยวได้ แล้วมาหาเพื่อนร่วมทีมในกิจกรรม หรือรวมทีม 2–3 คนมาสมัครด้วยกันได้</p></details>
-      <details><summary>แข่งที่ไหน ต้องเดินทางไหม?<svg class="ic"><use href="#i-plus"/></svg></summary><p>รอบคัดเลือกวันที่ 22–25 ต.ค. 2569 แข่งออนไลน์ผ่าน Discord Hamster Hub Event ส่วนรอบชิงออนไซต์จัดที่ IoTE KMITL ลาดกระบัง วันที่ 14 พ.ย. 2569</p></details>
-      <details><summary>ถ้าติดท็อป 5 จะได้อะไร?<svg class="ic"><use href="#i-plus"/></svg></summary><p>ผู้นำแต่ละสายได้สิทธิ์เข้าร่วมแข่งรอบออนไซต์ที่ KMITL</p></details>
-      <details><summary>ใครเป็นผู้จัด?<svg class="ic"><use href="#i-plus"/></svg></summary><p>Hamster Hub ร่วมกับ EDUverse และ IoTE (IoT System &amp; Information Engineering) สจล.</p></details>
-      <details><summary>มีคำถามเพิ่มเติม ติดต่อใคร?<svg class="ic"><use href="#i-plus"/></svg></summary><p>ทัก LINE @smart-school หรือโทร 090-060-2555 ได้เลย</p></details>
-    </div>
-  </div>
-</section>
 
-<!-- ============ REGISTER (the only countdown) ============ -->
 <section id="register" aria-labelledby="regTitle">
   <div class="stars" aria-hidden="true"><i style="--x:8%;--y:12%;--s:20px;--d:7s;--dl:0s;--t:2.6s;color:#ffd23f"><svg viewBox="0 0 40 40"><use href="#star4"/></svg></i><i style="--x:86%;--y:16%;--s:30px;--d:6s;--dl:0.4s;--t:3.2s;color:#ffd23f"><svg viewBox="0 0 48 48"><use href="#starface"/></svg></i><i style="--x:92%;--y:62%;--s:16px;--d:8s;--dl:0.8s;--t:2.8s;color:#6fb2ff"><svg viewBox="0 0 40 40"><use href="#star4"/></svg></i><i style="--x:5%;--y:70%;--s:24px;--d:8s;--dl:1.2s;--t:3s;color:#ff9ec4"><svg viewBox="0 0 48 48"><use href="#starface"/></svg></i><i style="--x:30%;--y:6%;--s:12px;--d:7s;--dl:1.6s;--t:2.2s;color:#ffffff"><svg viewBox="0 0 40 40"><use href="#star4"/></svg></i><i style="--x:70%;--y:90%;--s:14px;--d:6s;--dl:0.2s;--t:2.6s;color:#ffd23f"><svg viewBox="0 0 40 40"><use href="#star4"/></svg></i></div>
   <div class="wrap">
@@ -540,6 +522,38 @@
     </div>
   </div>
 </section>
+
+<section class="sec" id="faq" aria-labelledby="faqTitle">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="h2" id="faqTitle">คำถามที่พบบ่อย</h2>
+    </div>
+    <div class="faq">
+      <details><summary>สิทธิ์สัมภาษณ์ Portfolio คืออะไร?<svg class="ic"><use href="#i-plus"/></svg></summary><p>ประกาศกิจกรรมที่ผู้จัดส่งให้ CAMPHUB ระบุโอกาสได้รับการพิจารณาให้สิทธิ์สัมภาษณ์รอบ Portfolio สาขาวิศวกรรมระบบไอโอทีและสารสนเทศ คณะวิศวกรรมศาสตร์ สจล. สำหรับผู้ผ่านการแข่งขันออนไลน์และเข้าแข่งขันรอบออนไซต์ การได้รับสิทธิ์ขึ้นอยู่กับคุณสมบัติและเงื่อนไขของผู้จัดและหลักสูตร ไม่ใช่สิทธิ์รับเข้าศึกษาโดยอัตโนมัติ <a href="https://www.camphub.in.th/all-for-one-university/" target="_blank" rel="noopener" style="text-decoration:underline">อ่านประกาศกิจกรรม ↗</a></p></details>
+
+      <details><summary>ผลงานนำไปต่อยอดอย่างไรได้บ้าง?<svg class="ic"><use href="#i-plus"/></svg></summary><p>นำผลงาน กระบวนการพัฒนา และผลทดสอบไปเล่าต่อใน Portfolio ได้ โดยอธิบายบทบาทของตัวเองให้ชัดเจน ผลงานไม่ได้รับประกันผลการสมัครมหาวิทยาลัย นอกจากนี้ Hamster Hub มีแผนให้คำแนะนำหลังแข่งประมาณ 1 เดือน รายละเอียดการเข้าร่วมรอยืนยัน</p></details>
+      <details><summary>มีข้อมูลอะไรที่ควรตรวจสอบก่อนชำระเงิน?<svg class="ic"><use href="#i-plus"/></svg></summary><p>ตรวจคุณสมบัติ เงื่อนไขทีม การชำระเงิน และการคืนเงินที่หน้าสมัครทางการ หากมีข้อสงสัยให้ติดต่อ Hamster Hub โดยตรง ส่วนรายชื่อวิทยากร รายละเอียดรางวัล และเกณฑ์ตัดสินฉบับสมบูรณ์ให้ติดตามประกาศจากผู้จัด</p></details>
+      <details><summary>ต้องมีผลงานหรือพื้นฐานมาก่อนไหม?<svg class="ic"><use href="#i-plus"/></svg></summary><p>เหมาะกับคนที่มีพื้นฐานเขียนโปรแกรม ออกแบบเกม เว็บ/แอป หรือ IoT อยู่แล้ว และพร้อมลงมือทำผลงานในเวลาจำกัด การอบรมช่วยเสริมกระบวนการระหว่างแข่ง ไม่ใช่คอร์สปูพื้นฐานตั้งแต่ต้น</p></details>
+      <details><summary>ค่าสมัครเท่าไหร่?<svg class="ic"><use href="#i-plus"/></svg></summary><p>คนละ 190 บาท</p></details>
+      <details><summary>ทีมละกี่คน สมัครคนเดียวได้ไหม?<svg class="ic"><use href="#i-plus"/></svg></summary><p>แข่งเป็นทีม 2–3 คน ในหน้าสมัครเลือกได้ทั้ง “สมัครคนเดียว” และ “สมัครกลุ่ม”</p></details>
+      <details open><summary>สมัครคนเดียวได้ไหม ไม่มีทีมทำยังไง?<svg class="ic"><use href="#i-plus"/></svg></summary><p>สมัครเดี่ยวได้ แล้วมาหาเพื่อนร่วมทีมในกิจกรรม หรือรวมทีม 2–3 คนมาสมัครด้วยกันได้</p></details>
+      <details><summary>แข่งที่ไหน ต้องเดินทางไหม?<svg class="ic"><use href="#i-plus"/></svg></summary><p>รอบคัดเลือกวันที่ 22–25 ต.ค. 2569 แข่งออนไลน์ผ่าน Discord Hamster Hub Event ส่วนรอบชิงออนไซต์จัดที่ IoTE KMITL ลาดกระบัง วันที่ 14 พ.ย. 2569</p></details>
+      <details><summary>ถ้าติดท็อป 5 จะได้อะไร?<svg class="ic"><use href="#i-plus"/></svg></summary><p>ผู้นำแต่ละสายได้สิทธิ์เข้าร่วมแข่งรอบออนไซต์ที่ KMITL</p></details>
+      <details><summary>ใครเป็นผู้จัด?<svg class="ic"><use href="#i-plus"/></svg></summary><p>Hamster Hub ร่วมกับ EDUverse และ IoTE (IoT System &amp; Information Engineering) สจล.</p></details>
+      <details><summary>มีคำถามเพิ่มเติม ติดต่อใคร?<svg class="ic"><use href="#i-plus"/></svg></summary><p>ทัก LINE @smart-school หรือโทร 090-060-2555 ได้เลย</p></details>
+    </div>
+  </div>
+</section>
+<dialog id="inviteFriendDlg" class="invite-friend-dialog" aria-labelledby="friendTitle">
+  <form method="dialog" id="inviteFriendForm">
+    <h2 id="friendTitle">เพิ่มชื่อเพื่อนร่วมทีม</h2>
+    <label for="friendName">ชื่อหรือชื่อเล่น</label>
+    <input id="friendName" maxlength="50" autocomplete="off" placeholder="ชื่อที่ต้องการใส่ในข้อความชวน">
+    <p>ใช้จัดข้อความชวนเพื่อน ยังไม่ใช่การลงทะเบียนแข่งขัน</p>
+    <div><button value="cancel" type="submit">ยกเลิก</button><button value="clear" type="submit">ลบชื่อ</button><button value="save" type="submit" class="friend-save">บันทึกชื่อ</button></div>
+  </form>
+</dialog>
 </main>
 
 <dialog class="rg" id="regDlg" aria-labelledby="rgTitle">
