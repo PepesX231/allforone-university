@@ -3109,7 +3109,7 @@ window.AFO = {
     function orient() { return innerWidth <= innerHeight ? 'p' : 'w'; }
     function prep(v) {
       if (v.dataset.o === o) return; v.dataset.o = o;
-      v.poster = 'assets/cut/' + v.dataset.c + '-' + o + '-start.jpg'; v.src = 'assets/cut/' + v.dataset.c + '-' + o + (v.canPlayType('video/mp4; codecs="avc1.640028"') ? '.mp4' : '.webm'); v.preload = 'auto'; v.load();
+      v.poster = 'assets/cut/' + v.dataset.c + '-' + o + (v.dataset.c === 'c1' ? '-end.jpg' : '-start.jpg'); v.src = 'assets/cut/' + v.dataset.c + '-' + o + (v.canPlayType('video/mp4; codecs="avc1.640028"') ? '.mp4' : '.webm'); v.preload = 'auto'; v.load();
     }
     function warm(k) { o = o || orient(); for (var i = 0; i < k && i < N; i++) prep(vids[i]); }
     function reveal(i, on) {
@@ -3130,6 +3130,18 @@ window.AFO = {
       function pop() { if (!shown) { shown = true; reveal(i, true); } }
       v.ontimeupdate = function () { if (SHOW[i] && v.currentTime >= SHOW[i]) pop(); };
       v.onended = function () { pop(); ready(); };
+      // Open directly on the completed desk scene; never replay the tower zoom.
+      if (i === 0) {
+        v.pause(); pop(); ready();
+        var holdDesk = function () {
+          if (Number.isFinite(v.duration)) {
+            try { v.currentTime = Math.max(0, v.duration - .05); } catch (e) {}
+          }
+        };
+        if (v.readyState >= 1) holdDesk();
+        else v.addEventListener('loadedmetadata', holdDesk, { once: true });
+        return;
+      }
       if (atEnd || reduced) {
         var go = function () { try { v.currentTime = Math.max(0, (v.duration || 5) - .05); } catch (e) {} pop(); ready(); };
         if (v.readyState >= 1) go(); else v.addEventListener('loadedmetadata', go, { once: true });
@@ -3144,7 +3156,7 @@ window.AFO = {
     var lockY = 0;
     function lock(on) { lockY = scrollY; root.classList.toggle('cut-lock', on); }
     function start(i) {
-      if (!cut.hidden) return; o = orient(); warm(2);
+      if (!cut.hidden || leaving) return; o = orient(); warm(2);
       cut.hidden = false; lock(true); show(i || 0);
     }
     var leaving = false;

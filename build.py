@@ -55,3 +55,10 @@ import shutil
 docs_out = os.path.join(os.path.dirname(os.path.abspath(out)), "assets", "docs")
 os.makedirs(docs_out, exist_ok=True)
 shutil.copyfile(os.path.join(ROOT, "assets", "docs", "competition-rules.docx"), os.path.join(docs_out, "competition-rules.docx"))
+
+# Cutscenes are selected by JavaScript, so keep their video/poster files next
+# to the local preview instead of embedding tens of megabytes in the HTML.
+if source == 'index.html':
+    shutil.copytree(os.path.join(ROOT, 'assets', 'cut'),
+                    os.path.join(os.path.dirname(os.path.abspath(out)), 'assets', 'cut'),
+                    dirs_exist_ok=True)
