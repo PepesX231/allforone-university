@@ -326,13 +326,41 @@
     function atSkyEnd() { return !done && cut.hidden && scrollY + innerHeight >= skyEnd() - 6; }
     // entering: scroll / swipe / key past the last sky screen, or tap the button
     var entering = false;
+    function flyIntoCampus(button) {
+      var art = button.querySelector('.campus-art'), box = art.getBoundingClientRect();
+      var layer = document.createElement('div'), image = document.createElement('img'), veil = document.createElement('div');
+      layer.className = 'campus-flight'; layer.setAttribute('aria-hidden', 'true');
+      image.src = art.currentSrc || art.src; image.alt = ''; image.style.width = box.width + 'px'; image.style.height = box.height + 'px';
+      veil.className = 'campus-flight-veil'; layer.appendChild(image); layer.appendChild(veil); document.body.appendChild(layer);
+      entering = true; button.setAttribute('aria-busy', 'true');
+      o = orient(); warm(2);
+      var W = innerWidth, H = innerHeight, fit = Math.max(W / box.width, H / box.height);
+      var mid = fit * .95, close = fit * 3.6, cancelled = false;
+      function transform(x, y, s) { return 'translate3d(' + x + 'px,' + y + 'px,0) scale(' + s + ')'; }
+      var flight = image.animate([
+        { transform: transform(box.left, box.top, 1), offset: 0 },
+        { transform: transform(W / 2 - box.width * mid * .51, H * .68 - box.height * mid * .78, mid), offset: .48 },
+        { transform: transform(W / 2 - box.width * close * .51, H / 2 - box.height * close * .44, close), offset: 1 }
+      ], { duration: 1300, easing: 'cubic-bezier(.45,0,.2,1)', fill: 'forwards' });
+      var shade = veil.animate([{ opacity: 0, offset: 0 }, { opacity: 0, offset: .72 }, { opacity: 1, offset: 1 }], { duration: 1300, fill: 'forwards' });
+      function clean() { removeEventListener('keydown', key); removeEventListener('resize', cancel); }
+      function cancel() {
+        if (cancelled) return; cancelled = true; clean(); flight.cancel(); shade.cancel(); layer.remove();
+        entering = false; button.removeAttribute('aria-busy'); button.focus({ preventScroll: true });
+      }
+      function key(e) { if (e.key === 'Escape') { e.preventDefault(); cancel(); } else if (e.key === 'Tab') e.preventDefault(); }
+      addEventListener('keydown', key); addEventListener('resize', cancel, { once: true });
+      flight.finished.then(function () {
+        if (cancelled) return; clean(); start(0);
+        var fade = layer.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 220, fill: 'forwards' });
+        fade.finished.then(function () { layer.remove(); entering = false; button.removeAttribute('aria-busy'); });
+      }).catch(function () {});
+    }
     $$('.cut-go').forEach(function (b) { b.addEventListener('click', function () {
       if (entering || leaving || !cut.hidden) return;
       done = false;
-      if (b.classList.contains('campus-entry') && !reduced) {
-        entering = true; b.classList.add('is-entering');
-        setTimeout(function () { start(0); b.classList.remove('is-entering'); entering = false; }, 320);
-      } else start(0);
+      if (b.classList.contains('campus-entry') && !reduced && b.animate) flyIntoCampus(b);
+      else start(0);
     }); });
     var wio = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { wio.disconnect(); o = orient(); warm(N); } }, { rootMargin: '60% 0px' });
     $$('.cut-go').forEach(function (b) { wio.observe(b); });

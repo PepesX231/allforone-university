@@ -2243,3 +2243,13 @@ img,video,canvas,svg{-webkit-user-drag:none}
 
 .campus-entry.cut-go{display:flex!important;flex-direction:column;white-space:normal;gap:0}
 .bt-sky>.dig{height:calc(var(--S) * .4)!important}
+
+/* A painted path to university, placed in the desktop upper-right corner. */
+@media(min-width:1200px){.campus-entry{top:24px;right:clamp(20px,2.5vw,64px);width:clamp(210px,17.5vw,300px)}}
+.campus-entry.cut-go{gap:4px}
+.campus-entry>span{max-width:100%;text-align:center;font-size:13px}
+@media(max-width:1199px){.campus-entry{width:230px}}
+@media(max-width:600px){.campus-entry{width:220px}}
+.campus-flight{position:fixed;inset:0;z-index:90;overflow:hidden;pointer-events:auto;background:transparent}
+.campus-flight img{position:absolute;left:0;top:0;max-width:none;transform-origin:0 0;will-change:transform}
+.campus-flight-veil{position:absolute;inset:0;background:#0b0b10;opacity:0}
