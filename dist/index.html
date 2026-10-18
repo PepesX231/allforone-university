@@ -2,16 +2,22 @@
 <html lang="th">
 <head>
 <meta charset="utf-8">
-<script id="mobile-version-router">
+<script id="device-version-router">
 (function () {
-  if (!window.matchMedia || !matchMedia('(max-width: 760px)').matches) return;
-  var params = new URLSearchParams(location.search);
-  if (params.get('view') === 'desktop') return;
-  var mobile = new URL('allforone-mobile/index.html', location.href);
-  mobile.search = location.search;
-  var anchors = {'#register':'#last-call','#perks':'#rewards'};
-  mobile.hash = anchors[location.hash] || location.hash;
-  location.replace(mobile.href);
+  if (!window.matchMedia) return;
+  var screen = matchMedia('(max-width: 760px)');
+  function route() {
+    var params = new URLSearchParams(location.search);
+    if (!screen.matches || params.get('view') === 'desktop') return;
+    var target = new URL('allforone-mobile/index.html', location.href);
+    target.search = location.search;
+    var anchors = {'#register':'#last-call','#perks':'#rewards','#final':'#after','#rules':'#last-call'};
+    target.hash = anchors[location.hash] || location.hash;
+    location.replace(target.href);
+  }
+  route();
+  if (screen.addEventListener) screen.addEventListener('change', route);
+  else if (screen.addListener) screen.addListener(route);
 })();
 </script>
 
