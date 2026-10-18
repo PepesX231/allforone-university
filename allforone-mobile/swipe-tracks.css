@@ -1,0 +1,66 @@
+/* Let visitors browse competition tracks directly on touch screens. */
+@media (max-width: 63.9375rem) {
+  .tracks[data-astro-cid-c4q6cj7k] {
+    height: auto;
+    padding-block: var(--section-y);
+  }
+
+  .tracks__stage[data-astro-cid-c4q6cj7k] {
+    position: relative;
+    top: auto;
+    display: block;
+    height: auto;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .tracks__scroller[data-astro-cid-c4q6cj7k] {
+    display: block;
+    place-items: normal;
+    margin-top: var(--s-5);
+    padding: var(--s-2) var(--gutter) var(--s-6);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tracks__list[data-astro-cid-c4q6cj7k] {
+    display: grid;
+    grid-template-areas: none;
+    grid-template-columns: none;
+    grid-auto-columns: min(78vw, 22rem);
+    grid-auto-flow: column;
+    width: max-content;
+  }
+
+  .track[data-astro-cid-c4q6cj7k],
+  .track[data-astro-cid-c4q6cj7k]:nth-child(2),
+  .track[data-astro-cid-c4q6cj7k]:nth-child(3) {
+    grid-area: auto;
+    width: auto;
+    animation: none;
+  }
+
+  .tracks__progress[data-astro-cid-c4q6cj7k] {
+    display: none;
+  }
+
+  .tracks__swipe-hint {
+    margin: 0;
+    padding-inline: var(--gutter);
+    color: var(--paper);
+    font-family: var(--ff-body);
+    font-size: var(--fs-small);
+    font-weight: 700;
+    text-align: center;
+  }
+}
+
+@media (min-width: 64rem) {
+  .tracks__swipe-hint {
+    display: none;
+  }
+}
