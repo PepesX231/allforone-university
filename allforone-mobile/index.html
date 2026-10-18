@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="th"><head><meta charset="utf-8"><script id="device-version-router">
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script id="device-version-router">
 (function () {
   if (!window.matchMedia) return;
   var screen = matchMedia('(max-width: 760px)');
@@ -12,11 +13,15 @@
     target.hash = anchors[location.hash] || location.hash;
     location.replace(target.href);
   }
-  route();
-  if (screen.addEventListener) screen.addEventListener('change', route);
-  else if (screen.addListener) screen.addListener(route);
+  // Mobile browsers begin with a wide layout viewport before applying meta viewport.
+  // Wait for layout before making the first decision or listening for size changes.
+  requestAnimationFrame(function () {
+    route();
+    if (screen.addEventListener) screen.addEventListener('change', route);
+    else if (screen.addListener) screen.addListener(route);
+  });
 })();
-</script><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>All for One University — แข่งสร้างผลงานเทค ม.1–ม.6 · สมัครถึง 21 ต.ค.</title><meta name="description" content="แข่งขันสร้างเกม เว็บ/แอป และ IoT วันที่ 22–25 ต.ค. 2569 สำหรับนักเรียนมัธยม ทีม 2–3 คน คนละ 190 บาท พร้อมลุ้นสิทธิ์เข้ารอบชิงที่ สจล."><link rel="preload" href="./_astro/display-thai.C0HhOyel.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="./_astro/body-thai.wZ29HoXT.woff2" as="font" type="font/woff2" crossorigin><script>(function(){const closedAt = 1792602000000;
+</script><title>All for One University — แข่งสร้างผลงานเทค ม.1–ม.6 · สมัครถึง 21 ต.ค.</title><meta name="description" content="แข่งขันสร้างเกม เว็บ/แอป และ IoT วันที่ 22–25 ต.ค. 2569 สำหรับนักเรียนมัธยม ทีม 2–3 คน คนละ 190 บาท พร้อมลุ้นสิทธิ์เข้ารอบชิงที่ สจล."><link rel="preload" href="./_astro/display-thai.C0HhOyel.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="./_astro/body-thai.wZ29HoXT.woff2" as="font" type="font/woff2" crossorigin><script>(function(){const closedAt = 1792602000000;
 const closedPhase = "closed";
 const phases = ["open","closed","qualify","build","final","ended"];
 const trackKeys = ["game","software","iot"];

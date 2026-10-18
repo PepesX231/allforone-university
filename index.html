@@ -2,6 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script id="device-version-router">
 (function () {
   if (!window.matchMedia) return;
@@ -15,13 +16,17 @@
     target.hash = anchors[location.hash] || location.hash;
     location.replace(target.href);
   }
-  route();
-  if (screen.addEventListener) screen.addEventListener('change', route);
-  else if (screen.addListener) screen.addListener(route);
+  // Mobile browsers begin with a wide layout viewport before applying meta viewport.
+  // Wait for layout before making the first decision or listening for size changes.
+  requestAnimationFrame(function () {
+    route();
+    if (screen.addEventListener) screen.addEventListener('change', route);
+    else if (screen.addListener) screen.addListener(route);
+  });
 })();
 </script>
 
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
 <title>All for One University | Hamster Hub</title>
 <meta name="description" content="การแข่งขันเทคโนโลยีสำหรับนักเรียนมัธยมทั่วประเทศ รวมทีม 2–3 คน สร้างผลงานจริง ลงสนามจริง ลุ้นรอบชิงที่ IoTE KMITL ลาดกระบัง คนละ 190 บาท สมัครภายใน 21 ต.ค.">
 <meta name="theme-color" content="#0a0a0a">
