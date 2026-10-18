@@ -8,7 +8,7 @@
   var screen = matchMedia('(max-width: 760px)');
   function route() {
     var params = new URLSearchParams(location.search);
-    if (!screen.matches || params.get('view') === 'desktop') return;
+    if (params.get('view') === 'desktop' || (!screen.matches && params.get('view') !== 'mobile')) return;
     var target = new URL('allforone-mobile/index.html', location.href);
     target.search = location.search;
     var anchors = {'#register':'#last-call','#perks':'#rewards','#final':'#after','#rules':'#last-call'};
@@ -2602,7 +2602,7 @@ html.project-film-open{overflow:hidden}
 </section>
 
 <section id="film" class="afo-film" aria-labelledby="afo-film-title"><div class="afo-film-inner">
-<div class="afo-film-intro"><p class="afo-film-eyebrow">รู้จักสนามนี้ ก่อนลงมือสร้าง</p><h2 id="afo-film-title">All for One<br><span>คืออะไร?</span></h2><p class="afo-film-description">การแข่งขันสร้างผลงานเทคโนโลยีสำหรับนักเรียนมัธยม รวมทีมแล้วเปลี่ยนไอเดียให้เป็นเกม เว็บ/แอป หรือ IoT ภายใน 72 ชั่วโมง</p><ul class="afo-film-topics" aria-label="รูปแบบการแข่งขัน"><li>สร้างผลงาน</li><li>ทดสอบจริง</li><li>นำเสนอ</li></ul></div>
+<div class="afo-film-intro"><p class="afo-film-eyebrow">รู้จักสนามนี้ ก่อนลงมือสร้าง</p><h2 id="afo-film-title">All for One<br><span>คืออะไร?</span></h2><ul class="afo-film-topics" aria-label="รูปแบบการแข่งขัน"><li>สร้างผลงาน</li><li>ทดสอบจริง</li><li>นำเสนอ</li></ul></div>
 <button class="afo-film-teaser" type="button" data-film-open aria-haspopup="dialog" aria-label="เล่นคลิปแนะนำ All for One ความยาว 1 นาที 16 วินาที"><span class="afo-film-poster"><img src="assets/media/allforone-intro100-poster.webp" alt="" width="540" height="960" loading="lazy"><span class="afo-film-duration">1:16</span></span><span class="afo-film-copy"><span class="afo-film-label">คลิปแนะนำการแข่งขัน</span><strong>เริ่มจากไอเดีย<br>ไปถึงผลงานจริง</strong><span>ดูภาพรวมของกิจกรรม<br>แล้วเลือกสายที่ใช่สำหรับทีม</span><span class="afo-film-play"><i aria-hidden="true">▶</i> ดูคลิปแนะนำ</span></span></button>
 </div></section>
 <section id="journey" aria-labelledby="jTitle">

@@ -78,3 +78,7 @@ if source == 'index.html':
 # Shared explainer video is loaded only on playback, never embedded.
 if source == "index.html":
     shutil.copytree(os.path.join(ROOT, "assets", "media"), os.path.join(os.path.dirname(os.path.abspath(out)), "assets", "media"), dirs_exist_ok=True)
+
+# A phone-sized preview remains available on desktop without device routing.
+if source == "index.html":
+    shutil.copyfile(os.path.join(ROOT, "mobile-preview.html"), os.path.join(os.path.dirname(os.path.abspath(out)), "mobile-preview.html"))
