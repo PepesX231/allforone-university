@@ -55,3 +55,10 @@ See [CHANGELOG.md](CHANGELOG.md) for the implemented changes, source boundaries,
 
 ## Competition rules page
 `rules.html` is the standalone, draft-labelled rules reading page. The home page links to it from its rules preview and registration section. `python build.py` now produces both `dist/index.html` and `dist/rules.html`, with styles, fonts and images inlined.
+
+
+## Separate desktop and mobile presentations
+- `index.html` and `assets/css/style.css` contain the desktop presentation. The retired mobile chapters, track cards, closing poster and bottom bar have been removed from this page.
+- At widths up to 760px the entry page redirects to `allforone-mobile/index.html`, the only mobile presentation. Query parameters and section links are preserved; `?view=desktop` explicitly opens the desktop presentation.
+- Mobile styling stays in `allforone-mobile/site-theme.css`. Desktop styling, including the explainer section in `assets/css/film100.css`, uses the original dark palette, orange actions and rounded surfaces.
+- Both presentations share the explainer video file; their visual themes remain independent.

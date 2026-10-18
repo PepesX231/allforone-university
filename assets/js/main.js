@@ -443,9 +443,7 @@
   function tick() {
     var now = new Date(), p = now < OPEN ? 'pre' : (now <= CLOSE ? 'open' : 'closed');
     if (p !== lastPhase) { applyPhase(p); lastPhase = p; }
-    var mobileLeft = p === 'closed' ? 'ปิดรับสมัครแล้ว' : (p === 'pre' ? 'เปิดรับสมัครใน ' : 'เหลือ ') + Math.max(0, Math.floor(((p === 'pre' ? OPEN : CLOSE) - now) / 86400000)) + ' วัน';
-    if (p === 'open' && CLOSE - now < 86400000) mobileLeft = 'เหลือไม่ถึง 1 วัน';
-    $$('[data-mobile-remaining]').forEach(function (el) { if (el.textContent !== mobileLeft) el.textContent = mobileLeft; });
+
     if (p === 'closed') return;
     var s = Math.max(0, Math.floor(((p === 'pre' ? OPEN : CLOSE) - now) / 1000));
     var v = [Math.floor(s / 86400), pad(Math.floor(s % 86400 / 3600)), pad(Math.floor(s % 3600 / 60)), pad(s % 60)];
@@ -553,17 +551,6 @@
     }, { rootMargin: '0px 0px -6% 0px', threshold: .1 });
     $$('.reveal').forEach(function (el) { rio.observe(el); });
   }
-
-  /* ---------- 4c. mobile bottom bar ---------- */
-  var bbar = $('#bbar'), heroCtaVisible = true, endVisible = new Set();
-  function syncBar() { bbar.classList.toggle('show', !heroCtaVisible && endVisible.size === 0 && !state.sheetOpen); }
-  new IntersectionObserver(function (es) { heroCtaVisible = es[0].isIntersecting; syncBar(); }).observe($('#heroCta') || $('#top'));
-  var endIO = new IntersectionObserver(function (es) {
-    es.forEach(function (e) { if (e.isIntersecting) endVisible.add(e.target); else endVisible.delete(e.target); });
-    syncBar();
-  });
-  endIO.observe($('#register')); endIO.observe($('.ftr'));
-
 
   /* ---------- 5. tracks: product-style showcase ----------
      One big live 3D model floats on a glowing backdrop in the track's colour.
@@ -716,7 +703,7 @@
         '<div class="dl-top" data-pop><span>' + t.th + '</span></div>' +
         '<div class="dl-grid">' +
           '<div class="dl-copy">' +
-            '<h2 id="shTitle" class="dl-title" data-pop><span class="desktop-copy">' + SHORT[i] + '<i>.</i></span><span class="mobile-copy">' + ['Game', 'Software (Web/App)', 'IoT &amp; Innovation'][i] + '</span></h2>' +
+            '<h2 id="shTitle" class="dl-title" data-pop><span class="desktop-copy">' + SHORT[i] + '<i>.</i></span></h2>' +
             '<p class="dl-name" data-pop>' + esc(t.name) + '</p>' +
             '<p class="sh-desc" data-pop>' + t.desc + '</p>' +
             '<span class="dl-out" data-pop>' + icon('folder') + 'ผลลัพธ์: ' + t.output + '</span>' +
@@ -795,7 +782,7 @@
     lastFocus = document.activeElement;
     scroller.scrollTop = 0;
     if (hasDialog) sheet.showModal(); else sheet.setAttribute('open', '');
-    state.sheetOpen = true; lockPage(true); syncBar();
+    state.sheetOpen = true; lockPage(true);
     if (canAnimate) {
       backdrop.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 320, easing: 'ease-out', fill: 'backwards' });
       var from = !reduced && fromEl && fromEl.getBoundingClientRect(), to = panel.getBoundingClientRect();
@@ -847,7 +834,7 @@
     panel.style.transform = ''; backdrop.style.opacity = '';
     if (benefitIO) benefitIO.disconnect();
     if (window.AFO3D) AFO3D.sheetStop();
-    state.sheetOpen = false; closing = false; lockPage(false); syncBar();
+    state.sheetOpen = false; closing = false; lockPage(false);
     if (pushed) { pushed = false; skipPop = true; history.back(); }          // drop our history entry
     else if (/^#track-/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search);
     if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
