@@ -3102,3 +3102,9 @@ img,video,canvas,svg{-webkit-user-drag:none}
 @media(max-width:360px){.mobile-section-seam{height:60px}}
 /* Keep the short idea outcome caption on one line inside the two-column mobile grid. */
 @media(max-width:760px){#perks .takeaway-open>article:nth-child(3)>p{max-width:none;white-space:nowrap;font-size:clamp(10px,3.05vw,16px);letter-spacing:-.02em}#perks .takeaway-open>article:nth-child(3)>p .mobile-copy{white-space:nowrap}}
+@media(min-width:761px){#perks .takeaway-open>article:nth-child(1){order:1}#perks .takeaway-open>article:nth-child(4){order:2}#perks .takeaway-open>article:nth-child(2){order:3}#perks .takeaway-open>article:nth-child(3){order:4}}
+#perks .certificate-word{white-space:nowrap}
+@media(min-width:761px){#perks .takeaway-open h3{min-height:3.2em;line-height:1.6;text-wrap:balance}}
+
+@media(min-width:761px){.hdr .nav-wordmark{display:none!important}.hdr .main-row{justify-content:center}.hdr .dnav{margin-left:0}.hdr .hdr-cta{margin-left:12px}}
+@media(max-width:760px){.hdr .nav-wordmark{display:none!important}}
