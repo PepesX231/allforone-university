@@ -62,3 +62,15 @@ if source == 'index.html':
     shutil.copytree(os.path.join(ROOT, 'assets', 'cut'),
                     os.path.join(os.path.dirname(os.path.abspath(out)), 'assets', 'cut'),
                     dirs_exist_ok=True)
+
+# Ship the standalone mobile design beside the desktop preview. Asset URLs are
+# relative so the same folder works locally and under a GitHub Pages project.
+if source == 'index.html':
+    mobile_source = os.path.join(ROOT, 'allforone-mobile')
+    mobile_output = os.path.join(os.path.dirname(os.path.abspath(out)), 'allforone-mobile')
+    if os.path.isdir(mobile_source) and os.path.abspath(mobile_source) != os.path.abspath(mobile_output):
+        shutil.copytree(mobile_source, mobile_output, dirs_exist_ok=True)
+
+# Shared explainer video is loaded only on playback, never embedded.
+if source == "index.html":
+    shutil.copytree(os.path.join(ROOT, "assets", "media"), os.path.join(os.path.dirname(os.path.abspath(out)), "assets", "media"), dirs_exist_ok=True)

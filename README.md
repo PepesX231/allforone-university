@@ -2,6 +2,13 @@
 
 เว็บสแตติก ออกแบบมาให้ดูบนมือถือเป็นหลัก ไม่ใช้ framework และไม่ต้อง build ก่อนนำขึ้นเว็บ
 
+
+## Desktop, mobile and explainer video
+
+Screens up to 760px open the dedicated `allforone-mobile/` page automatically. Desktop keeps the original layout. Both versions include the All for One introduction clip after the hero; video starts with a user click and pauses when closed. Shared media is stored in `assets/media/`. The official application site remains Hamster Hub.
+
+The mobile folder README documents its source files. `python build.py` regenerates the local preview and copies mobile/media dependencies; GitHub Pages serves the repository root directly.
+
 ## โครงสร้าง
 ```
 index.html            โครงหน้า + SEO (meta, Open Graph, JSON-LD Event)

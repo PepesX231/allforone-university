@@ -1,3 +1,7 @@
 
 # Local preview media copied from the tracked assets/cut source.
 dist/assets/cut/
+
+# Generated mobile preview and shared explainer media.
+dist/allforone-mobile/
+dist/assets/media/

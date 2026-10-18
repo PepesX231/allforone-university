@@ -2,6 +2,19 @@
 <html lang="th">
 <head>
 <meta charset="utf-8">
+<script id="mobile-version-router">
+(function () {
+  if (!window.matchMedia || !matchMedia('(max-width: 760px)').matches) return;
+  var params = new URLSearchParams(location.search);
+  if (params.get('view') === 'desktop') return;
+  var mobile = new URL('allforone-mobile/index.html', location.href);
+  mobile.search = location.search;
+  var anchors = {'#register':'#last-call','#perks':'#rewards'};
+  mobile.hash = anchors[location.hash] || location.hash;
+  location.replace(mobile.href);
+})();
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>All for One University | Hamster Hub</title>
 <meta name="description" content="การแข่งขันเทคโนโลยีสำหรับนักเรียนมัธยมทั่วประเทศ รวมทีม 2–3 คน สร้างผลงานจริง ลงสนามจริง ลุ้นรอบชิงที่ IoTE KMITL ลาดกระบัง คนละ 190 บาท สมัครภายใน 21 ต.ค.">
@@ -10,7 +23,7 @@
 <meta property="og:locale" content="th_TH">
 <meta property="og:title" content="All for One University — สร้าง ทดสอบ นำเสนอ">
 <meta property="og:description" content="การแข่งขันเทคโนโลยีสำหรับนักเรียนมัธยมทั่วประเทศ · ทีม 2–3 คน · คนละ 190 บาท · รอบชิงที่ IoTE KMITL">
-<meta property="og:image" content="https://media.mediaquest.uk/uploads/1790485996187-ChatGPT_Image_Sep_27_2026_12_13_07_PM.webp">
+<meta property="og:image" content="https://pepesx231.github.io/allforone-university/assets/img/social102.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" as="image" href="assets/img/logo-hero.webp" fetchpriority="high">
 <meta name="author" content="Chompapop Deejing (ชมน์ปภพ ดีจริง) — https://github.com/PepesX231">
@@ -66,12 +79,13 @@
   ],
   "offers": { "@type": "Offer", "price": "190", "priceCurrency": "THB", "url": "https://www.hamsterhub.co/allforone", "validFrom": "2026-09-28", "availability": "https://schema.org/InStock" },
   "organizer": { "@type": "Organization", "name": "Hamster Hub", "url": "https://www.hamsterhub.co/" },
-  "image": ["https://media.mediaquest.uk/uploads/1790485996187-ChatGPT_Image_Sep_27_2026_12_13_07_PM.webp"]
+  "image": ["https://pepesx231.github.io/allforone-university/assets/img/social102.webp"]
 }
 </script>
 <script src="assets/js/data.js?v=content27" defer></script>
 <script src="assets/js/main.js?v=content76" defer></script>
 <script src="assets/js/tracks3d.js?v=models25" defer></script>
+<link rel="stylesheet" href="assets/css/film100.css?v102">
 </head>
 <body>
 <div class="sky" id="sky" aria-hidden="true"></div>
@@ -366,6 +380,7 @@
   </div>
 </section>
 
+<section id="film" class="afo-film" aria-labelledby="afo-film-title"><div class="afo-film-inner"><h2 id="afo-film-title"><span>All for One คืออะไร?</span></h2><button class="afo-film-teaser" type="button" data-film-open aria-haspopup="dialog" aria-label="เล่นคลิปแนะนำ All for One ความยาว 1 นาที 16 วินาที"><img src="assets/media/allforone-intro100-poster.webp" alt="คลิปแนะนำ All for One University" width="540" height="960" loading="lazy"><span class="afo-film-copy"><strong>ดูภาพรวม<br>ก่อนเลือกสาย</strong><span>รู้จักกิจกรรมและการแข่งขัน<br>ผ่านคลิปแนะนำ All for One</span><span class="afo-film-play"><i aria-hidden="true">▶</i> เล่นคลิป · 1:16</span></span></button></div></section>
 <section id="journey" aria-labelledby="jTitle">
   <div class="wrap">
     <div class="tl-head">
@@ -695,6 +710,8 @@
   <button class="rnd lb-next" type="button" data-lbd="1" aria-label="ถัดไป"><svg class="ic"><use href="#i-arrow"/></svg></button>
   <p class="lb-count" id="lbCount"></p>
 </dialog>
+<dialog id="afo-film-dialog" class="afo-film-dialog" aria-labelledby="afo-film-dialog-title"><header><h2 id="afo-film-dialog-title">All for One University</h2><button type="button" data-film-close aria-label="ปิดคลิป">×</button></header><video controls playsinline preload="none" poster="assets/media/allforone-intro100-poster.webp" aria-label="คลิปอธิบาย All for One University"><source src="assets/media/allforone-intro100.mp4" type="video/mp4">เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ</video></dialog>
+<script src="assets/js/film100.js?v100" defer></script>
 </body>
 </html>
 

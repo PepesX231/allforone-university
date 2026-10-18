@@ -1,8 +1,16 @@
-# All for One mobile page
+# All for One mobile site
 
-Copied on 2026-10-18 from E:/Github2/profile_HH/public/allforone-mobile.
-This is the existing static Astro export: HTML, CSS, browser JavaScript, fonts and images. Original Astro source components are not present in this source directory.
+The root page redirects screens up to 760px here; larger screens retain the desktop site. `?view=desktop` bypasses automatic mobile routing.
 
-Serve the parent allforone-university directory as the web root, then open /allforone-mobile/index.html. Asset URLs retain the original /allforone-mobile/ base.
+Adapted from the supplied static Astro export. Original export assets and credit are retained. The current mobile content, track art, hamster sprites, detail dialogs, hamburger menu and explainer video match the latest competition information.
 
-The shared registration-bridge.js is included inside assets/js and its script reference is updated to keep the page assets self-contained. Registration and payment backend, Next.js host, dependencies, build output caches, Git history and macOS metadata were not copied. The /allforone/register and /allforone routes still require the original HamsterHub host; this export does not implement registration or payment.
+- `index.html`: static content and relative asset links, compatible with GitHub Pages project hosting.
+- `site-theme.css`: consolidated mobile overrides and motion styles.
+- `mobile.js`: track details, history, focus management and reduced-motion-compatible entrance effects.
+- `navigation.js`: accessible menu, section links and current-section indication.
+- `project-assets/data.js`: competition data.
+- `project-assets/film100.js`: player interaction; shared media lives in `../assets/media/`.
+
+Registration opens the official Hamster Hub website. The invitation form creates a shareable invitation; it is not an application or payment form. Video is fetched only after pressing play and pauses when its dialog closes.
+
+Run `python build.py` from the repository root to regenerate the local `dist/` preview. Source HTML is served directly by GitHub Pages; no deployment build is required. Generated dist media is ignored to avoid duplicating the tracked source media.
